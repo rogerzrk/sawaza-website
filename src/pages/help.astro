@@ -82,10 +82,10 @@ import Base from '../layouts/Base.astro';
 </div></section>
 <script>
 (function(){
-  var input=document.getElementById('faq-q');if(!input)return;
-  var items=[].slice.call(document.querySelectorAll('#page-help .qa'));
-  var topics=[].slice.call(document.querySelectorAll('#page-help .topic'));
-  var none=document.getElementById('faq-none'),count=document.getElementById('faq-count');
+  var input=document.getElementById('faq-q') as HTMLInputElement|null;if(!input)return;
+  var items=[].slice.call(document.querySelectorAll('#page-help .qa')) as (HTMLDetailsElement&{_t:string,_open:boolean})[];
+  var topics=[].slice.call(document.querySelectorAll('#page-help .topic')) as HTMLElement[];
+  var none=document.getElementById('faq-none')!,count=document.getElementById('faq-count')!;
   items.forEach(function(d){d._t=d.textContent.toLowerCase();d._open=d.open});
   function run(){
     var q=input.value.trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean),shown=0;

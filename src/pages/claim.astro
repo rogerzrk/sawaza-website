@@ -55,6 +55,6 @@ import Base from '../layouts/Base.astro';
   <p><a class="quiet" href="/how-it-works" data-new="1">See how it works</a></p>
 </div></div>
 <script>
-document.getElementById('open-app').href=location.href;
+(document.getElementById('open-app') as HTMLAnchorElement).href=location.href;
 </script>
 </Base>

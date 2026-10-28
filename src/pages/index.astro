@@ -309,13 +309,13 @@ import { SHOW_ANCHOR } from '../config';
     var ta=document.getElementById('tieA'),tb=document.getElementById('tieB'),svg=document.getElementById('thread');
     if(!ta||!tb||!ta.offsetParent)return;
     var s=stage.getBoundingClientRect();
-    function mid(el){var r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2]}
+    function mid(el:Element){var r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2]}
     var a=mid(ta),b=mid(tb);
     /* drawn only where both ends can be seen on their own phone: an end under the other phone or off the page reads as a line to nowhere */
-    function seen(p,el){
+    function seen(p:number[],el:Element){
       if(p[0]<0||p[0]>innerWidth||p[1]<0||p[1]>innerHeight)return true;
       var top=document.elementFromPoint(p[0],p[1]);
-      return !!top&&el.closest('.phone').contains(top);
+      return !!top&&el.closest('.phone')!.contains(top);
     }
     var vis=stage.classList.contains('sealed')?(seen(a,ta)&&seen(b,tb)):true;
     if(window.matchMedia('(max-width:700px)').matches)vis=false;
@@ -323,7 +323,7 @@ import { SHOW_ANCHOR } from '../config';
     var x1=a[0]-s.left,y1=a[1]-s.top,x2=b[0]-s.left,y2=b[1]-s.top,dx=Math.max(24,Math.abs(x2-x1)*.6);
     document.getElementById('threadPath').setAttribute('d','M'+x1+' '+y1+' C'+(x1+dx)+' '+y1+' '+(x2-dx)+' '+y2+' '+x2+' '+y2);
     var A=document.getElementById('tA'),B=document.getElementById('tB');
-    A.setAttribute('cx',x1);A.setAttribute('cy',y1);B.setAttribute('cx',x2);B.setAttribute('cy',y2);
+    A!.setAttribute('cx',String(x1));A!.setAttribute('cy',String(y1));B!.setAttribute('cx',String(x2));B!.setAttribute('cy',String(y2));
   }
   window.addEventListener('resize',drawThread);
   var tq=0;window.addEventListener('scroll',function(){if(!tq){tq=1;requestAnimationFrame(function(){tq=0;drawThread()})}},{passive:true});
@@ -363,7 +363,7 @@ import { SHOW_ANCHOR } from '../config';
   /* how it works: copy each step's screen into the sticky phone, show the one being read */
   var hs=document.getElementById('howScreen'),steps=document.querySelectorAll('.hstep'),dots=document.querySelectorAll('.how-dots li');
   if(hs){
-    steps.forEach(function(s,i){var a=s.querySelector('.hscreen>.app');if(a){var c=a.cloneNode(true);if(i===0)c.classList.add('on');hs.appendChild(c)}});
+    steps.forEach(function(s,i){var a=s.querySelector('.hscreen>.app');if(a){var c=a.cloneNode(true) as HTMLElement;if(i===0)c.classList.add('on');hs.appendChild(c)}});
     var layers=hs.children;
     function act(n){for(var i=0;i<layers.length;i++)layers[i].classList.toggle('on',i===n);dots.forEach(function(d,i){d.classList.toggle('on',i===n)})}
     /* one rule: the active step is the last whose top has passed 40% of the screen; step 1 until then, step 4 until the section ends.
@@ -377,8 +377,8 @@ import { SHOW_ANCHOR } from '../config';
   }
   /* is it for me: on a wide screen the pinned phone shows the door being read */
   var blks=[].slice.call(document.querySelectorAll('.fm3-blk')),scrs=[].slice.call(document.querySelectorAll('.fm3-scr')),sums=[].slice.call(document.querySelectorAll('.fm3-sum')),flab=document.getElementById('fm3Lab'),labs={"you":"Sarah’s phone · Grace","grp":"Kisaasi Savers · Register","biz":"Mukasa Traders’ phone · Sarah"};
-  var fdev=document.querySelector('.fm3-dev');
-  function fsize(k){if(!fdev)return;var sc=fdev.querySelector('.fm3-scr[data-k="'+k+'"] .app');if(sc&&sc.offsetHeight)fdev.style.height=(sc.offsetHeight+46)+'px'}
+  var fdev=document.querySelector<HTMLElement>('.fm3-dev');
+  function fsize(k){if(!fdev)return;var sc=fdev.querySelector<HTMLElement>('.fm3-scr[data-k="'+k+'"] .app');if(sc&&sc.offsetHeight)fdev.style.height=(sc.offsetHeight+46)+'px'}
   function fshow(k){fsize(k);blks.forEach(function(b){b.classList.toggle('on',b.dataset.k===k)});scrs.forEach(function(s){s.classList.toggle('on',s.dataset.k===k)});sums.forEach(function(s){s.classList.toggle('on',s.dataset.k===k)});if(flab)flab.textContent=labs[k]}
   /* a door holds the phone until the next door's heading crosses the middle of the screen */
   var fcurK=null,fq=0;

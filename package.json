@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "build:preview": "PUBLIC_SHOW_ANCHOR=true astro build --outDir dist-preview && node tool/relativize.mjs dist-preview",
-    "test:parity": "node tests/parity.mjs"
+    "test:parity": "PUBLIC_SHOW_ANCHOR=true astro build && node tests/parity.mjs"
   },
   "dependencies": {
     "@fontsource/caveat": "5.3.0",

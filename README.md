@@ -23,4 +23,16 @@ The Sawaza marketing site: eleven pages built with Astro from the approved desig
 - `src/scripts/kit.ts`: the behaviour every page shares.
 - `src/pages/`: one file per page, each holding its page style under `#page-<name>` and its page script.
 
-Deploy notes are added with the hosting config.
+## Hosting
+
+`firebase.json` describes Firebase Hosting: `dist/` is served with clean URLs, `/claim/<code>` and
+`/invite/<id>` (the paths the app's links carry) rewrite to the two static landings, `404.html` answers
+every other missing path, the `.well-known` files are sent as JSON without caching, and bundled assets
+are cached for a year. Deploying is `npm run build` then `firebase deploy --only hosting` against the
+project the founder names; nothing here runs it.
+
+`public/.well-known/assetlinks.json` names the Android package and signing certificate, and
+`apple-app-site-association` the iOS app ids under the team, both on the invite and claim paths. The
+release package `app.sawaza` is added to `assetlinks.json` with the Play app-signing certificate's SHA-256
+once the first upload has one. The icons come from `node tool/icons.mjs` and the share card from
+`PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node tool/og.mjs`, both reading `public/favicon.svg`.

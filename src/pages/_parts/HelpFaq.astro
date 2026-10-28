@@ -1,0 +1,8 @@
+---
+/* One topic of the help page: its heading and its answers as details/summary pairs, which the
+   page's search script opens, hides and counts. The chevron is the kit's i-cd symbol. */
+import type { Topic } from '../../data/help';
+interface Props { topic: Topic }
+const { topic } = Astro.props;
+---
+<section class="topic" id={topic.id} aria-labelledby={`${topic.id}-h`}><h2 id={`${topic.id}-h`}>{topic.title}</h2>{topic.qas.map((qa) => <details class="qa" open={qa.open}><summary><span set:html={qa.q} /><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cd"/></svg></summary><div class="ans" data-new={qa.isNew ? '1' : undefined} set:html={qa.a} /></details>)}</section>

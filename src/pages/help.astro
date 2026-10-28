@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import HelpFaq from './_parts/HelpFaq.astro';
+import Faq from '../components/Faq.astro';
 import { HELP_TOPICS } from '../data/help';
 ---
 <Base title="Help · Sawaza" description="What Sawaza costs, and answers to the usual questions: signing in, lost phones, who sees your records, groups and businesses." bodyId="page-help">
@@ -63,7 +63,7 @@ import { HELP_TOPICS } from '../data/help';
   </nav>
   <p class="count" id="faq-count" aria-live="polite"></p>
   <div class="faq">
-{HELP_TOPICS.map((t) => <HelpFaq topic={t} />)}
+{HELP_TOPICS.map((t) => <Faq topic={t} />)}
   </div>
   <div class="none" id="faq-none" hidden data-new="1">
     <p><b>No answer matches that yet.</b></p>

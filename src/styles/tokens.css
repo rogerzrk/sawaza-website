@@ -1,0 +1,17 @@
+/* Sawaza site kit. Extracted whole from the home page (v22); do not restyle here, add page CSS in the page. */
+/* Layout: "the ledger at night". One dark atmosphere, a drawn object per section, the visitor's question as each eyebrow. */
+:root{
+  --deep:#060F26; --ground:#0A1A3D; --band:#0C1D45; --panel:#11234F; --panel2:#16295A;
+  --line:rgba(237,232,222,.11); --rule:rgba(237,232,222,.05);
+  --ink:#EDE8DE; --dim:#CBD0DA; --quiet:#939CB1;
+  --gold:#E3A82B; --goldsoft:rgba(227,168,43,.14); --onGold:#1C1A14;
+  --teal:#5CD6D6; --tealsoft:rgba(92,214,214,.14); --tealdeep:#0D7373;
+  --in:#63C08B; --out:#E4795F; --cobalt:#8DBEF0; --rust:#EAA57E;
+  --paper:#F3EEE2; --paperline:#C9D3E6; --paperInk:#1D2B52; --pen:#22408C;
+  --display:"Outfit",ui-sans-serif,system-ui,sans-serif;
+  --body:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
+  --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}

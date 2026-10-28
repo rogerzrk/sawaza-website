@@ -1,0 +1,24 @@
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.025em}
+p{margin:0}
+.q{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.q::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}
+:root{--h2:clamp(32px,5.2vw,58px)}
+.h2{font-size:var(--h2)!important;line-height:1.02;font-weight:700}
+.lede{color:var(--dim);font-size:clamp(16px,1.6vw,19px);max-width:36em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:12px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--onGold);box-shadow:0 10px 30px -10px rgba(227,168,43,.6),inset 0 -2px 0 rgba(0,0,0,.18)}
+.btn-gold:hover{filter:brightness(1.06)}
+.tlink{color:var(--gold);font-weight:600;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.tlink:hover{text-decoration:underline;text-underline-offset:4px}
+.sec{position:relative;padding-block:clamp(72px,10vw,128px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,56px)}
+.ruled{background-image:repeating-linear-gradient(180deg,transparent 0 31px,var(--rule) 31px 32px)}
+.deep{background:var(--deep)}
+

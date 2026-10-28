@@ -1,0 +1,10 @@
+/* The site kit, in the order the home page's stylesheet was written: the cascade is the design.
+   tokens: the palette and the type faces. base: resets and the shared text styles.
+   components: nav, rail, menu sheet and the home page's sections. app: the app's own kit, drawn
+   from its widget code, used by every phone on the site. pages: the inner-page block and the later
+   refinements. Add page CSS in the page, under its #page-<name> id, never here. */
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './app.css';
+@import './pages.css';

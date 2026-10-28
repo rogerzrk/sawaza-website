@@ -1,5 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
+import PhoneCrop from '../components/PhoneCrop.astro';
+import AppBar from '../components/AppBar.astro';
+import ContactBar from '../components/ContactBar.astro';
+import Tabs from '../components/Tabs.astro';
+import Avatar from '../components/Avatar.astro';
+import RecordCard from '../components/RecordCard.astro';
+import DebtRow from '../components/DebtRow.astro';
+import SectionHead from '../components/SectionHead.astro';
+import TLink from '../components/TLink.astro';
+import CloseSection from '../components/CloseSection.astro';
 ---
 <Base title="Businesses · Sawaza" description="Customer accounts, invoices as signed credit sales, loans with a schedule and your monthly books, each signed by the people you deal with." bodyId="page-businesses">
 <style is:global>
@@ -179,36 +190,35 @@ import Base from '../layouts/Base.astro';
 #page-businesses .kept .roles b{color:var(--ink);font-weight:600}
 </style>
 <section class="page-hero" id="top">
-  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <Mark class="watermark" />
   <div class="wrap split">
     <div>
       <p class="q">For businesses</p>
       <h1 data-new="1">Credit your customers <em>sign for</em>.</h1>
       <p class="sub">Each customer’s account, signed by them, and your books for the month.</p>
       <p class="sub own" data-new="1">Your books stay true even when you are not at the counter.</p>
-      <div class="cta-row"><a class="btn btn-gold" href="/#get">Get the app</a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+      <div class="cta-row"><a class="btn btn-gold" href="/#get">Get the app</a><TLink href="/how-it-works" label="See how it works" /></div>
     </div>
     <div class="fig" role="img" aria-label="Screen of Mukasa Traders’ record with Sarah: two invoices, UGX 800,000 and 260,000 left, shown in green as owed to the business.">
       <p class="lab" aria-hidden="true">Mukasa Traders’ phone · Sarah</p>
-      <div class="pcrop" style="--crop-h:420px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="ch"><svg class="i back"><use href="#i-cl"/></svg><span class="a-av ph ph-sarah">SA</span><div><b>Sarah</b><span>On Sawaza · +256 701 552 093</span></div><svg class="i more"><use href="#i-more"/></svg></div>
-        <div class="tabs"><span>Activity</span><span>Records</span><span class="on">Invoices &amp; Debts</span></div>
+      <PhoneCrop h="420px">
+        <ContactBar variant="ch" who="sarah" name="Sarah" sub="On Sawaza · +256 701 552 093" />
+        <Tabs class="tabs" tabs={['Activity', 'Records', 'Invoices & Debts']} on={2} />
         <div class="owes"><b>Sarah owes you</b><strong class="num in">UGX 1,060,000</strong><span>left on 2 debts</span></div>
-        <div class="a-debt"><div class="top"><b>Invoice INV-0002</b><span class="in"><small>Owes</small><strong class="num">800,000</strong></span></div><p class="ln">3 Oct · Due 31 Oct · part paid</p><p class="ln">left of UGX 1,200,000</p></div>
-        <div data-key="1" class="a-debt"><div class="top"><b>Invoice INV-0003</b><span class="in"><small>Owes</small><strong class="num">260,000</strong></span></div><p class="ln">9 Oct · Due 9 Nov</p></div>
-      </div></div></div></div>
+        <DebtRow title="Invoice INV-0002" dir="in" amount="800,000" lines={['3 Oct · Due 31 Oct · part paid', 'left of UGX 1,200,000']} />
+        <DebtRow data-key="1" title="Invoice INV-0003" dir="in" amount="260,000" lines={['9 Oct · Due 9 Nov']} />
+      </PhoneCrop>
     </div>
   </div>
 </section>
 
 <section class="sec deep" id="keeper"><div class="wrap">
-  <div class="sec-head"><p class="q">Who keeps your books?</p><h2 class="h2" data-new="1">When someone else keeps your <em>books</em>.</h2><p class="lede" data-new="1">Mr Mukasa owns Mukasa Traders. Joseph minds the counter and writes the sales. One credit sale is one record: the seller holds the invoice, the buyer holds the bill.</p></div>
+  <SectionHead q="Who keeps your books?" title="When someone else keeps your <em>books</em>." titleNew><p class="lede" data-new="1">Mr Mukasa owns Mukasa Traders. Joseph minds the counter and writes the sales. One credit sale is one record: the seller holds the invoice, the buyer holds the bill.</p></SectionHead>
   <div class="trio chain">
     <div class="fig" role="img" aria-label="Step one, screen: Joseph writes a credit sale of UGX 1,200,000 to Sarah as the business and taps Record and send.">
       <p class="lab" aria-hidden="true">1 · Joseph’s phone</p>
-      <div class="pcrop from-bottom" style="--crop-h:420px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div>
-  <div class="a-abar"><b>Mukasa Traders</b></div>
+      <PhoneCrop h="420px" fromBottom>
+  <AppBar title="Mukasa Traders" />
   <div class="a-scrim"></div>
   <div class="a-sheet"><i class="a-grab"></i>
     <div class="a-sht"><b>New record</b><svg class="i"><use href="#i-x"/></svg></div>
@@ -216,29 +226,27 @@ import Base from '../layouts/Base.astro';
       <div class="a-dir"><span class="a-dp on-in"><svg class="i"><use href="#i-down"/></svg>Sale</span><span class="a-dp"><svg class="i o"><use href="#i-up"/></svg>Purchase</span></div>
       <div class="chips"><span>Paid in full</span><span class="on">On credit</span></div>
       <div data-key="1" class="a-f"><p class="a-cap">Price <em>Required</em></p><p class="a-amt in num">1,200,000</p></div>
-      <div class="a-f"><p class="a-cap">Who <em class="opt">optional</em></p><div class="a-party"><span class="a-av s28 ph ph-sarah">SA</span><div><b>Sarah</b><small>On Sawaza</small></div></div></div>
+      <div class="a-f"><p class="a-cap">Who <em class="opt">optional</em></p><div class="a-party"><Avatar who="sarah" size="s28" /><div><b>Sarah</b><small>On Sawaza</small></div></div></div>
     </div>
     <div class="a-foot"><div class="a-share"><svg class="i"><use href="#i-ppl"/></svg><div><b>Send to Sarah</b><small>They will be asked to confirm it</small></div><span class="a-sw"></span></div><span class="a-btn">Record and send</span></div>
   </div>
-</div></div></div></div>
+</PhoneCrop>
       <p class="cap" data-new="1">Joseph writes a credit sale or a payment as the business.</p>
     </div>
     <div class="fig" role="img" aria-label="Step two, screen: Sarah sees the bill from Mukasa Traders, awaiting her, with a Review button.">
       <p class="lab" aria-hidden="true">2 · Sarah’s phone</p>
-      <div class="pcrop" style="--crop-h:240px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div data-key="1" class="a-row wash"><span class="a-av ent">MT</span><div><div class="a-rh"><b>Mukasa Traders</b><span class="a-tm">9:12 am</span></div><div class="a-rl">Billed</div><div class="a-quote"><b>Goods</b><span class="m out held"><svg class="i"><use href="#i-up"/></svg>UGX 1,200,000</span></div><div class="a-rf"><span class="gt">Awaiting you</span><span class="a-review">Review</span></div></div></div>
-      </div></div></div></div>
+      <PhoneCrop h="240px">
+        <RecordCard data-key="1" wash initials="MT" avClass="ent" name="Mukasa Traders" time="9:12 am" label="Billed" item="Goods" dir="out" amount="UGX 1,200,000" status="awaiting-you" />
+      </PhoneCrop>
       <p class="cap" data-new="1">The customer signs it on their own phone.</p>
     </div>
     <div class="fig" role="img" aria-label="Step three, screen: Mr Mukasa reads the books, with the sale to Sarah sealed and Agnes’s still awaiting her.">
       <p class="lab" aria-hidden="true">3 · Mr Mukasa’s phone</p>
-      <div class="pcrop" style="--crop-h:340px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="a-abar"><b>Mukasa Traders</b></div>
-        <div class="a-row"><span class="a-av ph ph-sarah">SA</span><div><div class="a-rh"><b>Sarah</b><span class="a-tm">9:14 am</span></div><div class="a-rl">Invoiced</div><div class="a-quote"><b>Goods</b><span class="m in"><svg class="i"><use href="#i-down"/></svg>UGX 1,200,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
-        <div data-key="1" class="a-row"><span class="a-av">AG</span><div><div class="a-rh"><b>Agnes</b><span class="a-tm">9:20 am</span></div><div class="a-rl">Invoiced</div><div class="a-quote"><b>Goods</b><span class="m in"><svg class="i"><use href="#i-down"/></svg>UGX 150,000</span></div><div class="a-rf"><span class="a-await"><svg class="i"><use href="#i-clock"/></svg>Awaiting Agnes</span></div></div></div>
-      </div></div></div></div>
+      <PhoneCrop h="340px">
+        <AppBar title="Mukasa Traders" />
+        <RecordCard who="sarah" name="Sarah" time="9:14 am" label="Invoiced" item="Goods" dir="in" amount="UGX 1,200,000" status="sealed" />
+        <RecordCard data-key="1" initials="AG" name="Agnes" time="9:20 am" label="Invoiced" item="Goods" dir="in" amount="UGX 150,000" status="awaiting-pill" statusName="Agnes" />
+      </PhoneCrop>
       <p class="cap" data-new="1">Mr Mukasa reads it in the books, sealed.</p>
     </div>
   </div>
@@ -251,7 +259,7 @@ import Base from '../layouts/Base.astro';
 </div></section>
 
 <section class="sec" id="kept"><div class="wrap">
-  <div class="sec-head"><p class="q">What else is in it?</p><h2 class="h2" data-new="1">Four kinds of business, kept apart from your <em>own money</em>.</h2></div>
+  <SectionHead q="What else is in it?" title="Four kinds of business, kept apart from your <em>own money</em>." titleNew />
   <div class="kept" data-new="1">
     <p>A sole business, a company, a partnership or a cooperative each keeps its own account and books.</p>
     <ul class="pts">
@@ -262,18 +270,11 @@ import Base from '../layouts/Base.astro';
     </ul>
     <p class="roles">Officers write and sign for the business; viewers only read. <b>In the beta each business has one admin.</b></p>
     <p>Quotations, receipts and statements are not in the beta.</p>
-    <a class="tlink" href="/help#business">More in Help <span aria-hidden="true">→</span></a>
+    <TLink href="/help#business" label="More in Help" />
   </div>
 </div></section>
 
-<section class="sec close" id="get"><div class="wrap">
-  <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
-  <h2>Both sides. One record. <span>Signed.</span></h2>
-  <p>Write your first record and keep it to yourself until you choose to send it.</p>
-  <div class="badges">
-    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-  </div>
-  <div class="next-row" style="justify-content:center"><a class="tlink" href="/groups">For groups <span aria-hidden="true">→</span></a><a class="tlink" href="/trust">Trust and privacy <span aria-hidden="true">→</span></a></div>
-</div></section>
+<CloseSection>
+  <div class="next-row" style="justify-content:center"><TLink href="/groups" label="For groups" /><TLink href="/trust" label="Trust and privacy" /></div>
+</CloseSection>
 </Base>

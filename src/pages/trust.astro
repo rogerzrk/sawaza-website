@@ -1,16 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import Rail from '../components/Rail.astro';
+import Mark from '../components/Mark.astro';
+import PhoneCrop from '../components/PhoneCrop.astro';
+import AppBar from '../components/AppBar.astro';
+import RecordCard from '../components/RecordCard.astro';
+import SectionHead from '../components/SectionHead.astro';
+import TLink from '../components/TLink.astro';
 import { SHOW_ANCHOR } from '../config';
 ---
 <Base title="Trust and privacy · Sawaza" description="Who signs what, who sees your records, how a signed record stays true, and what Sawaza never does with your money or your data." bodyId="page-trust">
 <Fragment slot="rail">
-<nav class="rail" aria-label="Questions on this page">
-  <a href="#top" data-sec="top"><span>Why trust it?</span><i></i></a>
-  <a href="#who-sees" data-sec="who-sees"><span>Who sees my records?</span><i></i></a>
-  <a href="#signing" data-sec="signing"><span>Who signs what?</span><i></i></a>
-  <a href="#change" data-sec="change"><span>What stays true?</span><i></i></a>
-  <a href="#number" data-sec="number"><span>What about my number?</span><i></i></a>
-</nav>
+<Rail items={[['top', 'Why trust it?'], ['who-sees', 'Who sees my records?'], ['signing', 'Who signs what?'], ['change', 'What stays true?'], ['number', 'What about my number?']]} />
 </Fragment>
 <style is:global>
 /* Trust and privacy: who signs, who sees, what stays true. Built from kit tokens and the home's app drawings. */
@@ -112,7 +113,7 @@ import { SHOW_ANCHOR } from '../config';
 #page-trust .tr-chain{margin-top:clamp(28px,4vw,44px);max-width:44em;color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;display:grid;gap:6px;justify-items:start}
 </style>
 <section class="page-hero" id="top">
-  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <Mark class="watermark" />
   <div class="wrap split">
     <div>
       <p class="q">Why trust it?</p>
@@ -144,7 +145,7 @@ import { SHOW_ANCHOR } from '../config';
 <section class="sec deep" id="who-sees"><div class="wrap">
   <div class="tr-grid">
     <div>
-      <div class="sec-head"><p class="q">Who sees my records?</p><h2 class="h2" data-new="1">Only the people you choose.</h2><p class="lede">A record you write stays yours until you send it, and you never have to.</p></div>
+      <SectionHead q="Who sees my records?" title="Only the people you choose." titleNew><p class="lede">A record you write stays yours until you send it, and you never have to.</p></SectionHead>
       <ul class="facts">
         <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="12" width="16" height="12" rx="2.5"/><path d="M9.5 12V9a4.5 4.5 0 0 1 9 0v3"/></svg><span data-new="1">A record you keep for yourself is seen by you alone.</span></li>
         <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="11" r="3.5"/><circle cx="19" cy="11" r="3.5"/><path d="M3 23c0-4 2.7-6 6-6s6 2 6 6M13 23c0-4 2.7-6 6-6s6 2 6 6"/></svg><span data-new="1">A record you send is seen by you and the person you sent it to.</span></li>
@@ -153,11 +154,11 @@ import { SHOW_ANCHOR } from '../config';
       </ul>
     </div>
     <div class="tr-vis" role="img" aria-label="Three records and who can see each: Groceries, you alone; Boda-boda with Peter, you alone until you share it; Rent with David, you and David.">
-      <div class="pcrop" style="--crop-h:430px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div><div class="a-abar"><svg class="wm" viewBox="684 30 3330 500" aria-hidden="true"><g fill="currentColor" transform="translate(684.969 520.837) scale(1 -1)"><path d="M227.375 -11.875Q185.125 -11.875 144.75 -0.8125Q104.375 10.25 70.1875 30.3125Q36.0 50.375 11.5 78.0L93.875 161.5Q118.5 134.375 151.375 120.0625Q184.25 105.75 223.75 105.75Q253.25 105.75 268.6875 114.3125Q284.125 122.875 284.125 139.0Q284.125 158.0 266.6875 168.125Q249.25 178.25 221.875 185.8125Q194.5 193.375 164.125 202.5625Q133.75 211.75 106.1875 227.625Q78.625 243.5 61.375 271.4375Q44.125 299.375 44.125 343.5Q44.125 389.875 67.5 424.1875Q90.875 458.5 133.75 477.8125Q176.625 497.125 235.0 497.125Q295.625 497.125 346.3125 476.0625Q397.0 455 429.25 412.875L346.5 329.375Q324.0 356.125 295.875 367.8125Q267.75 379.5 238.375 379.5Q210.625 379.5 196.5625 371.1875Q182.5 362.875 182.5 348.0Q182.5 331.375 199.75 321.875Q217.0 312.375 244.375 305.125Q271.75 297.875 301.9375 288.1875Q332.125 278.5 359.5 261.4375Q386.875 244.375 404.125 216.125Q421.375 187.875 421.375 142.75Q421.375 71.625 369.0 29.875Q316.625 -11.875 227.375 -11.875ZM689.25 -10.0Q622.75 -10.0 570.0625 23.0Q517.375 56.0 487.0625 112.875Q456.75 169.75 456.75 241.625Q456.75 314.125 487.0625 371.1875Q517.375 428.25 570.0625 461.375Q622.75 494.5 689.25 494.5Q739.75 494.5 780.0 474.375Q820.25 454.25 845.0625 418.875Q869.875 383.5 872.5 338.25V146.25Q869.875 101.0 845.375 65.625Q820.875 30.25 780.3125 10.125Q739.75 -10.0 689.25 -10.0ZM717.0 119.5Q769.0 119.5 800.875 153.9375Q832.75 188.375 832.75 242.25Q832.75 278.5 818.375 306.0625Q804.0 333.625 778.0 349.3125Q752.0 365 717.375 365.0Q683.375 365.0 657.375 349.3125Q631.375 333.625 616.3125 305.875Q601.25 278.125 601.25 242.25Q601.25 206.375 616.125 178.625Q631.0 150.875 657.1875 135.1875Q683.375 119.5 717.0 119.5ZM826.125 0.0V130.125L848.125 248.25L826.125 365.375V484.5H966.5V0.0ZM1181.625 0.0 1007.375 484.5H1148.375L1259.25 132.125L1217.375 131.125L1335.375 484.5H1444.75L1563.125 131.125L1520.875 132.125L1632.5 484.5H1773.5L1599.25 0.0H1489.125L1371.875 335.0H1409.375L1291.0 0ZM2017.25 -10.0Q1950.75 -10.0 1898.0625 23.0Q1845.375 56.0 1815.0625 112.875Q1784.75 169.75 1784.75 241.625Q1784.75 314.125 1815.0625 371.1875Q1845.375 428.25 1898.0625 461.375Q1950.75 494.5 2017.25 494.5Q2067.75 494.5 2108.0 474.375Q2148.25 454.25 2173.0625 418.875Q2197.875 383.5 2200.5 338.25V146.25Q2197.875 101.0 2173.375 65.625Q2148.875 30.25 2108.3125 10.125Q2067.75 -10.0 2017.25 -10.0ZM2045.0 119.5Q2097.0 119.5 2128.875 153.9375Q2160.75 188.375 2160.75 242.25Q2160.75 278.5 2146.375 306.0625Q2132.0 333.625 2106.0 349.3125Q2080.0 365 2045.375 365.0Q2011.375 365.0 1985.375 349.3125Q1959.375 333.625 1944.3125 305.875Q1929.25 278.125 1929.25 242.25Q1929.25 206.375 1944.125 178.625Q1959.0 150.875 1985.1875 135.1875Q2011.375 119.5 2045.0 119.5ZM2154.125 0.0V130.125L2176.125 248.25L2154.125 365.375V484.5H2294.5V0.0ZM2353.5 82.125 2603.5 402.375H2775.25L2525.25 82.125ZM2353.5 0.0V82.125L2459.875 121.0H2769.25V0.0ZM2371.125 363.5V484.5H2775.25V402.375L2668.875 363.5ZM3041.25 -10.0Q2974.75 -10.0 2922.0625 23.0Q2869.375 56.0 2839.0625 112.875Q2808.75 169.75 2808.75 241.625Q2808.75 314.125 2839.0625 371.1875Q2869.375 428.25 2922.0625 461.375Q2974.75 494.5 3041.25 494.5Q3091.75 494.5 3132.0 474.375Q3172.25 454.25 3197.0625 418.875Q3221.875 383.5 3224.5 338.25V146.25Q3221.875 101.0 3197.375 65.625Q3172.875 30.25 3132.3125 10.125Q3091.75 -10.0 3041.25 -10.0ZM3069.0 119.5Q3121.0 119.5 3152.875 153.9375Q3184.75 188.375 3184.75 242.25Q3184.75 278.5 3170.375 306.0625Q3156.0 333.625 3130.0 349.3125Q3104.0 365 3069.375 365.0Q3035.375 365.0 3009.375 349.3125Q2983.375 333.625 2968.3125 305.875Q2953.25 278.125 2953.25 242.25Q2953.25 206.375 2968.125 178.625Q2983.0 150.875 3009.1875 135.1875Q3035.375 119.5 3069.0 119.5ZM3178.125 0.0V130.125L3200.125 248.25L3178.125 365.375V484.5H3318.5V0.0Z"/></g></svg><span class="grow"></span></div>
-        <div class="a-row"><span class="a-av solo"><svg viewBox="-4 -4 86 108" aria-hidden="true"><path d="M0 88L0 0L78 0L78 88L68.25 100 L58.50 88L48.75 76 L39.00 88L29.25 100 L19.50 88L9.75 76 L0.00 88Z"/><path d="M18.7 34H59.3M18.7 55H59.3"/></svg></span><div><div class="a-rh"><b>Groceries</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 35,000</span></div><div class="a-rl">Expense · 8:05 am</div></div></div>
-        <div class="a-row"><span class="a-av">PE</span><div><div class="a-rh"><b>Peter</b><span class="a-tm">9:40 am</span></div><div class="a-rl">You lent</div><div class="a-quote"><b>Boda-boda</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 50,000</span></div><div class="a-rf"><svg class="i"><use href="#i-lock"/></svg><span>Only you</span><span class="qt">· Share</span></div></div></div>
-        <div class="a-row"><span class="a-av ph ph-david">DA</span><div><div class="a-rh"><b>David Landlord</b><span class="a-tm">1 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Rent</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 450,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
-      </div></div></div></div>
+      <PhoneCrop h="430px"><AppBar wordmark />
+        <RecordCard solo item="Groceries" dir="out" amount="UGX 35,000" label="Expense · 8:05 am" />
+        <RecordCard initials="PE" name="Peter" time="9:40 am" label="You lent" item="Boda-boda" dir="out" amount="UGX 50,000" status="only-you" />
+        <RecordCard who="david" name="David Landlord" time="1 Oct" label="You paid" item="Rent" dir="out" amount="UGX 450,000" status="sealed" />
+      </PhoneCrop>
       <ul class="tr-who">
         <li><span>Groceries</span><b data-new="1">You alone</b></li>
         <li><span>Boda-boda with Peter</span><b data-new="1">You alone, until you share it</b></li>
@@ -169,12 +170,12 @@ import { SHOW_ANCHOR } from '../config';
 
 <!-- Signing -->
 <section class="sec" id="signing"><div class="wrap"><div class="tr-single">
-  <div class="sec-head"><p class="q">Who signs what?</p><h2 class="h2">Each side signs on their own phone.</h2><p class="lede" data-new="1">Sarah signs when she writes the record. David signs when he confirms it, on his own phone. A record is sealed only when everyone it names has signed, so everyone is on the same page. If they disagree, both versions are kept: Sawaza is a witness, not a judge.</p><p class="lede" data-new="1">Every record keeps its history: who wrote it, who answered it and when, and every change is shown.</p></div>
+  <SectionHead q="Who signs what?" title="Each side signs on their own phone."><p class="lede" data-new="1">Sarah signs when she writes the record. David signs when he confirms it, on his own phone. A record is sealed only when everyone it names has signed, so everyone is on the same page. If they disagree, both versions are kept: Sawaza is a witness, not a judge.</p><p class="lede" data-new="1">Every record keeps its history: who wrote it, who answered it and when, and every change is shown.</p></SectionHead>
 </div></div></section>
 
 <!-- Nobody can change it, no money -->
 <section class="sec deep" id="change"><div class="wrap">
-  <div class="sec-head"><p class="q">What stays true?</p><h2 class="h2" data-new="1">A signed record can't change quietly. Nobody touches your money.</h2><p class="lede" data-new="1">Sawaza never holds or moves money. It keeps the record of it.</p></div>
+  <SectionHead q="What stays true?" title="A signed record can't change quietly. Nobody touches your money." titleNew><p class="lede" data-new="1">Sawaza never holds or moves money. It keeps the record of it.</p></SectionHead>
   <div class="tr-cc">
     <div class="tr-col yes">
       <p class="lbl" data-new="1">You can</p>
@@ -193,7 +194,7 @@ import { SHOW_ANCHOR } from '../config';
     </div>
   </div>
 {SHOW_ANCHOR && (
-  <p class="tr-chain" data-new="1">Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <a class="tlink" href="/verify">Check a record yourself <span aria-hidden="true">→</span></a></p>
+  <p class="tr-chain" data-new="1">Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <TLink href="/verify" label="Check a record yourself" /></p>
 )}
   <ul class="facts tr-money">
         <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="20" height="13" rx="2.5"/><path d="M4 12h20"/></svg><span data-new="1">You pay in cash, by Mobile Money or through a bank, as you always have. Sawaza keeps the record of it.</span></li>
@@ -204,12 +205,12 @@ import { SHOW_ANCHOR } from '../config';
 
 <!-- Number and phonebook -->
 <section class="sec" id="number"><div class="wrap"><div class="tr-single">
-  <div class="sec-head"><p class="q">What about my number?</p><h2 class="h2" data-new="1">Your number signs. Your phonebook stays on your phone.</h2></div>
+  <SectionHead q="What about my number?" title="Your number signs. Your phonebook stays on your phone." titleNew />
   <ul class="facts">
     <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="3" width="12" height="22" rx="3"/><path d="M12 21h4"/></svg><span data-new="1">You sign in with your phone number and a six-digit code. Records you make are signed under that number.</span></li>
     <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="4" width="18" height="20" rx="3"/><circle cx="14" cy="12" r="3"/><path d="M9 20c1-2.5 3-3.5 5-3.5s4 1 5 3.5"/></svg><span>The names in your phonebook stay on your phone too.</span></li>
     <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 4l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V8z"/></svg><span data-new="1">We do not sell your data, and there are no ads. Deleting your account is in Settings.</span></li>
   </ul>
-  <div class="next-row"><a class="tlink" href="/privacy">Read the privacy policy <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+  <div class="next-row"><TLink href="/privacy" label="Read the privacy policy" /><TLink href="/help" label="Help" /><TLink href="/how-it-works" label="See how it works" /></div>
 </div></div></section>
 </Base>

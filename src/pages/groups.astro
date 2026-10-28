@@ -1,5 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
+import PhoneCrop from '../components/PhoneCrop.astro';
+import AppBar from '../components/AppBar.astro';
+import ContactBar from '../components/ContactBar.astro';
+import Tabs from '../components/Tabs.astro';
+import Avatar from '../components/Avatar.astro';
+import RecordCard from '../components/RecordCard.astro';
+import RegisterRow from '../components/RegisterRow.astro';
+import SectionHead from '../components/SectionHead.astro';
+import TLink from '../components/TLink.astro';
+import CloseSection from '../components/CloseSection.astro';
 ---
 <Base title="Groups · Sawaza" description="Households, savings groups, cash rounds and clubs keep one shared record of their money on Sawaza, and each member confirms their own part." bodyId="page-groups">
 <style is:global>
@@ -179,7 +190,7 @@ import Base from '../layouts/Base.astro';
 #page-groups .kept .roles b{color:var(--ink);font-weight:600}
 </style>
 <section class="page-hero" id="top">
-  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <Mark class="watermark" />
   <div class="wrap split">
     <div>
       <p class="q">For groups</p>
@@ -188,63 +199,59 @@ import Base from '../layouts/Base.astro';
       <p class="sub" data-new="1">A household, a savings group or SACCO, a cash round or a club, each with an account of its own. Every member reads the group’s records.</p>
       <p class="pick-l" data-new="1">Pick yours</p>
       <div class="picks"><a href="#household">Household</a><a href="#savings">Savings group</a><a href="#round">Cash round</a></div>
-      <div class="cta-row"><a class="btn btn-gold" href="/#get">Get the app</a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+      <div class="cta-row"><a class="btn btn-gold" href="/#get">Get the app</a><TLink href="/how-it-works" label="See how it works" /></div>
     </div>
     <div class="fig" role="img" aria-label="Screen of the Okello Family household account: this month, UGX 1,485,000 out, with sealed records for school fees and rent.">
       <p class="lab" aria-hidden="true">Okello Family · Activity</p>
-      <div class="pcrop" style="--crop-h:520px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="gbar"><span class="a-av ent" style="background:#9AA5F0;color:#141A33">OF</span><div><b>Okello Family</b><span>Household · Grace and Peter</span></div></div>
+      <PhoneCrop h="520px">
+        <div class="gbar"><Avatar initials="OF" class="ent" style="background:#9AA5F0;color:#141A33" /><div><b>Okello Family</b><span>Household · Grace and Peter</span></div></div>
         <div class="a-ov"><div class="a-ovh"><svg class="i"><use href="#i-chart"/></svg>This month<span>UGX</span></div><div class="a-ovc"><div><small>Money in</small><b class="in num">0</b></div><div><small>Money out</small><b class="out num">1,485,000</b></div></div><p class="a-ovl">3 records · all spaces</p></div>
-        <div class="a-row"><span class="a-av ent" style="background:#C9D3E6">SM</span><div><div class="a-rh"><b>St. Mary’s Primary</b><span class="a-tm">3 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Tuition &amp; School Fees</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 850,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
-        <div data-key="1" class="a-row"><span class="a-av">JA</span><div><div class="a-rh"><b>James Landlord</b><span class="a-tm">1 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Rent</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 600,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
-        <div class="a-row"><span class="a-av solo"><svg viewBox="-4 -4 86 108" aria-hidden="true"><path d="M0 88L0 0L78 0L78 88L68.25 100 L58.50 88L48.75 76 L39.00 88L29.25 100 L19.50 88L9.75 76 L0.00 88Z"/><path d="M18.7 34H59.3M18.7 55H59.3"/></svg></span><div><div class="a-rh"><b>Groceries</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 35,000</span></div><div class="a-rl">Expense · 30 Sep</div></div></div>
-      </div></div></div></div>
+        <RecordCard initials="SM" avClass="ent" avStyle="background:#C9D3E6" name="St. Mary’s Primary" time="3 Oct" label="You paid" item="Tuition & School Fees" dir="out" amount="UGX 850,000" status="sealed" />
+        <RecordCard data-key="1" initials="JA" name="James Landlord" time="1 Oct" label="You paid" item="Rent" dir="out" amount="UGX 600,000" status="sealed" />
+        <RecordCard solo item="Groceries" dir="out" amount="UGX 35,000" label="Expense · 30 Sep" />
+      </PhoneCrop>
     </div>
   </div>
 </section>
 
 <section class="sec deep" id="household"><div class="wrap">
-  <div class="sec-head"><p class="q">Is it for a home?</p><h2 class="h2" data-new="1">Household: one home, both partners on the <em>same side</em>.</h2></div>
+  <SectionHead q="Is it for a home?" title="Household: one home, both partners on the <em>same side</em>." titleNew />
   <div class="one-p">
     <p data-new="1">Grace and Peter keep the <b>Okello Family</b> together: the rent, the school fees, the groceries. They stand on the same side of every record, so the rent record is with James Landlord, and he is the one who signs it.</p>
   </div>
 </div></section>
 
 <section class="sec moment" id="savings"><div class="wrap">
-  <div class="sec-head"><p class="q">How does a savings group keep its books?</p><h2 class="h2">A <em>register</em> for the group. A passbook for each member.</h2><p class="lede" data-new="1">For a savings group or SACCO: each member’s savings and shares, added up from the group’s own records.</p></div>
+  <SectionHead q="How does a savings group keep its books?" title="A <em>register</em> for the group. A passbook for each member."><p class="lede" data-new="1">For a savings group or SACCO: each member’s savings and shares, added up from the group’s own records.</p></SectionHead>
   <div class="trio">
     <div class="fig" role="img" aria-label="Screen of the Kisaasi Savers register: four members with their savings, one line from Ruth not yet confirmed, and a member who left listed apart.">
       <p class="lab" aria-hidden="true">Kisaasi Savers · Register</p>
-      <div class="pcrop" style="--crop-h:430px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="a-abar"><b>Register</b></div>
+      <PhoneCrop h="430px">
+        <AppBar title="Register" />
         <p class="key">Kisaasi Savers · 4 members</p>
-        <div class="a-reg"><span class="a-av ph ph-sarah">SA</span><div><div class="top"><b>Sarah</b><span class="num"><small>UGX</small>350,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></div></div>
-        <div class="a-reg"><span class="a-av ph ph-grace">GR</span><div><div class="top"><b>Grace</b><span class="num"><small>UGX</small>420,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></div></div>
-        <div class="a-reg"><span class="a-av ph ph-ruth">RU</span><div><div class="top"><b>Ruth</b><span class="num"><small>UGX</small>280,000</span></div><p class="ln"><b class="pend">+ UGX 50,000 · their own record · confirm</b></p></div></div>
-        <div data-key="1" class="a-reg"><span class="a-av ph ph-esther">ES</span><div><div class="top"><b>Esther</b><span class="num"><small>UGX</small>510,000</span></div><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></div></div>
+        <RegisterRow who="sarah" name="Sarah" total="350,000"><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></RegisterRow>
+        <RegisterRow who="grace" name="Grace" total="420,000"><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></RegisterRow>
+        <RegisterRow who="ruth" name="Ruth" total="280,000"><p class="ln"><b class="pend">+ UGX 50,000 · their own record · confirm</b></p></RegisterRow>
+        <RegisterRow data-key="1" who="esther" name="Esther" total="510,000"><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></RegisterRow>
         <p class="key">Left the group</p>
-        <div class="a-reg gone"><span class="a-av">DA</span><div><div class="top"><b>Daniel</b><span class="num"><small>UGX</small>120,000</span></div><p class="ln">Left 14 Sep</p></div></div>
-      </div></div></div></div>
+        <RegisterRow class="gone" initials="DA" name="Daniel" total="120,000"><p class="ln">Left 14 Sep</p></RegisterRow>
+      </PhoneCrop>
     </div>
     <div class="fig" role="img" aria-label="Screen of Sarah’s passbook: UGX 350,000 saved, with two entries that each show what they leave her savings at.">
       <p class="lab" aria-hidden="true">Sarah’s phone · Passbook</p>
-      <div class="pcrop" style="--crop-h:375px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="ch"><svg class="i back"><use href="#i-cl"/></svg><span class="a-av ent">KS</span><div><b>Kisaasi Savers</b><span>Savings &amp; Investment · 4 members</span></div><svg class="i more"><use href="#i-more"/></svg></div>
-        <div class="tabs"><span>Activity</span><span>Records</span><span class="on">Passbook</span></div>
+      <PhoneCrop h="375px">
+        <ContactBar variant="ch" initials="KS" avClass="ent" name="Kisaasi Savers" sub="Savings & Investment · 4 members" />
+        <Tabs class="tabs" tabs={['Activity', 'Records', 'Passbook']} on={2} />
         <div class="pbh"><small>MY SAVINGS</small><b class="num">UGX 350,000</b><span>Last entry 12 Oct</span></div>
         <div class="pbr"><div><b>Member Savings</b><small>12 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 350,000</small></div></div>
         <div data-key="1" class="pbr"><div><b>Member Savings</b><small>5 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 300,000</small></div></div>
-      </div></div></div></div>
+      </PhoneCrop>
     </div>
     <div class="fig" role="img" aria-label="Screen of a loan to Esther: UGX 500,000 lent, 200,000 paid back, 300,000 still owed, with the payment schedule.">
       <p class="lab" aria-hidden="true">Kisaasi Savers · a loan to Esther</p>
-      <div class="pcrop" style="--crop-h:400px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="a-abar"><svg class="i back"><use href="#i-cl"/></svg><b>Loan</b></div>
-        <div class="mem"><span class="a-av ph ph-esther">ES</span><div><b>Esther</b><small>On Sawaza</small></div></div>
+      <PhoneCrop h="400px">
+        <AppBar title="Loan" back />
+        <div class="mem"><Avatar who="esther" /><div><b>Esther</b><small>On Sawaza</small></div></div>
         <div class="lf"><div><small>Lent</small><b class="num">500,000</b></div><div><small>Paid back</small><b class="num">200,000</b></div><div><small>Still owed</small><b class="num">300,000</b></div></div>
         <p class="key">Schedule</p>
         <div class="sch"><span>1 Sep</span><span class="num">UGX 100,000</span><em class="p">Paid</em></div>
@@ -252,7 +259,7 @@ import Base from '../layouts/Base.astro';
         <div data-key="1" class="sch"><span>1 Nov</span><span class="num">UGX 100,000</span><em class="d">Next</em></div>
         <div class="sch"><span>1 Dec</span><span class="num">UGX 100,000</span><em>Upcoming</em></div>
         <div class="sch"><span>1 Jan</span><span class="num">UGX 100,000</span><em>Upcoming</em></div>
-      </div></div></div></div>
+      </PhoneCrop>
     </div>
   </div>
   <ul class="pts one">
@@ -274,9 +281,8 @@ import Base from '../layouts/Base.astro';
     </div>
     <div class="fig" role="img" aria-label="Screen of a cash round card: collecting for Grace, UGX 300,000 of 600,000 paid in, three members still to pay, two paid, and Show all 6.">
       <p class="lab" aria-hidden="true">Kisaasi Savers · Round</p>
-      <div class="pcrop" style="--crop-h:620px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
-        <div class="a-sbar"><span>9:41</span><i></i></div>
-        <div class="gbar mv"><span class="a-av ent" style="background:#D2A0E0;color:#141A33">KS</span><div><b>Kisaasi Savers</b><span>Cash round · 6 seats · weekly</span></div></div>
+      <PhoneCrop h="620px">
+        <div class="gbar mv"><Avatar initials="KS" class="ent" style="background:#D2A0E0;color:#141A33" /><div><b>Kisaasi Savers</b><span>Cash round · 6 seats · weekly</span></div></div>
         <div class="a-ch"><svg class="i"><use href="#i-cl"/></svg><span>Due Fri 30 Oct · Cycle 2 of 6</span><svg class="i"><use href="#i-cr"/></svg></div>
         <div class="a-cyc"><h6>Collecting for Grace</h6><p class="meta">Paid in UGX 300,000 of 600,000</p><p class="meta">Pot holds UGX 300,000</p><div class="cbar"><i style="width:50%"></i></div><p class="a-key">Still to pay · 3</p>
           <div class="a-seat"><span class="d">PE</span><span class="nm">Peter</span><span class="r"><b class="num">100,000</b><small>To pay</small></span></div>
@@ -288,19 +294,12 @@ import Base from '../layouts/Base.astro';
           <p data-key="1" class="showall">Show all 6</p>
           <div class="a-cbtns"><span class="a-btn">Record pay-ins</span></div>
         </div>
-      </div></div></div></div>
+      </PhoneCrop>
     </div>
   </div>
 </div></section>
 
-<section class="sec close" id="get"><div class="wrap">
-  <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
-  <h2>Both sides. One record. <span>Signed.</span></h2>
-  <p>Write your first record and keep it to yourself until you choose to send it.</p>
-  <div class="badges">
-    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-  </div>
-  <div class="next-row" style="justify-content:center"><a class="tlink" href="/businesses">For businesses <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
-</div></section>
+<CloseSection>
+  <div class="next-row" style="justify-content:center"><TLink href="/businesses" label="For businesses" /><TLink href="/how-it-works" label="See how it works" /></div>
+</CloseSection>
 </Base>

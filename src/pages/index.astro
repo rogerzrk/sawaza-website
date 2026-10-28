@@ -259,11 +259,13 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
 (function(){
   requestAnimationFrame(function(){drawThread()});
 
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,narrow=window.matchMedia('(max-width:700px)');
   var stage=document.getElementById('stage');
   function drawThread(){
     var ta=document.getElementById('tieA'),tb=document.getElementById('tieB'),svg=document.getElementById('thread');
     if(!ta||!tb||!ta.offsetParent)return;
+    /* a narrow screen shows one phone, so the line is off and nothing is measured for it */
+    if(narrow.matches){svg.classList.add('off');return}
     var s=stage.getBoundingClientRect();
     function mid(el:Element){var r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2]}
     var a=mid(ta),b=mid(tb);
@@ -274,7 +276,6 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
       return !!top&&el.closest('.phone')!.contains(top);
     }
     var vis=stage.classList.contains('sealed')?(seen(a,ta)&&seen(b,tb)):true;
-    if(window.matchMedia('(max-width:700px)').matches)vis=false;
     svg.classList.toggle('off',!vis);
     var x1=a[0]-s.left,y1=a[1]-s.top,x2=b[0]-s.left,y2=b[1]-s.top,dx=Math.max(24,Math.abs(x2-x1)*.6);
     document.getElementById('threadPath').setAttribute('d','M'+x1+' '+y1+' C'+(x1+dx)+' '+y1+' '+(x2-dx)+' '+y2+' '+x2+' '+y2);
@@ -315,16 +316,17 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
 </script>
 <script>
 (function(){
-  /* how it works: copy each step's screen into the sticky phone, show the one being read */
+  /* how it works: copy each step's screen into the sticky phone, show the one being read. The copies
+     are made the first time the pinned phone is laid out, so a phone, which never shows it, never pays for them. */
   var hs=document.getElementById('howScreen'),steps=document.querySelectorAll('.hstep'),dots=document.querySelectorAll('.how-dots li');
   if(hs){
-    steps.forEach(function(s,i){var a=s.querySelector('.hscreen>.app');if(a){var c=a.cloneNode(true) as HTMLElement;if(i===0)c.classList.add('on');hs.appendChild(c)}});
-    var layers=hs.children;
-    function act(n:number){for(var i=0;i<layers.length;i++)layers[i].classList.toggle('on',i===n);dots.forEach(function(d,i){d.classList.toggle('on',i===n)})}
+    var filled=false;
+    function fill(){filled=true;steps.forEach(function(s){var a=s.querySelector('.hscreen>.app');if(a)hs.appendChild(a.cloneNode(true))})}
+    function act(n:number){var layers=hs.children;for(var i=0;i<layers.length;i++)layers[i].classList.toggle('on',i===n);dots.forEach(function(d,i){d.classList.toggle('on',i===n)})}
     /* one rule: the active step is the last whose top has passed 40% of the screen; step 1 until then, step 4 until the section ends.
        Only the wide layout has the pinned phone, so nothing switches where each step carries its own phone. */
     var hcur=-1,hq=0;
-    function hpick(){hq=0;if(!hs.offsetParent)return;var line=innerHeight*.4,n=0;
+    function hpick(){hq=0;if(!hs.offsetParent)return;if(!filled)fill();var line=innerHeight*.4,n=0;
       for(var i=0;i<steps.length;i++){if(steps[i].getBoundingClientRect().top<=line)n=i}
       if(n!==hcur){hcur=n;act(n)}}
     window.addEventListener('scroll',function(){if(!hq){hq=1;requestAnimationFrame(hpick)}},{passive:true});

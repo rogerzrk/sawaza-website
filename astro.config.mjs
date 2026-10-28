@@ -21,6 +21,6 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   compressHTML: false,
-  build: { format: 'file', assets: preview ? 'assets' : '_astro', inlineStylesheets: 'always' },
+  build: { format: 'file', assets: preview ? 'assets' : '_astro' },
   integrations: [sitemap({ filter: (page) => !unlisted.includes(page) })],
 });

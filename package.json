@@ -9,10 +9,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "build:preview": "PUBLIC_SHOW_ANCHOR=true astro build --outDir dist-preview && node tool/relativize.mjs dist-preview",
+    "build:preview": "PUBLIC_SHOW_ANCHOR=true SAWAZA_PREVIEW=true astro build --outDir dist-preview && node tool/relativize.mjs dist-preview",
     "test:parity": "PUBLIC_SHOW_ANCHOR=true astro build && node tests/parity.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
     "@fontsource/caveat": "5.3.0",
     "@fontsource/outfit": "5.3.0",
     "@fontsource/plus-jakarta-sans": "5.3.0",

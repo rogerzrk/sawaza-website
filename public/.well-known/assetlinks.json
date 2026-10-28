@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.sawaza.dev",
+      "sha256_cert_fingerprints": [
+        "36:91:AE:5E:81:50:68:41:3A:45:F0:0F:E1:0F:B1:D6:3D:2D:3C:14:C8:8E:83:6F:09:DF:E2:3C:40:EB:80:4F"
+      ]
+    }
+  }
+]

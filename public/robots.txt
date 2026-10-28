@@ -1,0 +1,6 @@
+# Every page on this site is meant to be found. The claim and invite landings are
+# left out of the sitemap because a link to one carries a code that is nobody's to index.
+User-agent: *
+Allow: /
+
+Sitemap: https://sawaza.app/sitemap-index.xml

@@ -26,9 +26,13 @@ interface Props {
   bodyId?: string;
   /** The lockup-only bar and legal-only footer of the claim and invite landings. */
   minimal?: boolean;
+  /** Keeps a page out of search results: the not-found page, which is no page to find. */
+  noindex?: boolean;
 }
-const { title, description, bodyId, minimal = false } = Astro.props;
+const { title, description, bodyId, minimal = false, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/index\.html$|\.html$/, ''), SITE).href;
+// One card for every page: the site's mark and line, rendered by tool/og.mjs.
+const ogImage = new URL('/og.png', SITE).href;
 const nav = [
   ['/how-it-works', 'How it works'],
   ['/groups', 'For groups'],
@@ -47,12 +51,22 @@ const nav = [
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
 <meta name="theme-color" content="#0A1A3D">
+{noindex && <meta name="robots" content="noindex">}
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content={SITE_NAME}>
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonical}>
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content={ogImage}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sawaza: the record both sides keep">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content={ogImage}>
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <slot name="head" />

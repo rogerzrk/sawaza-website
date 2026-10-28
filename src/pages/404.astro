@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found · Sawaza" description="There is no page at this address on sawaza.app." bodyId="page-404" noindex>
+<style is:global>
+#page-404 .page-hero{min-height:60vh;display:flex;align-items:center}
+#page-404 .page-hero .wrap{width:100%}
+#page-404 .next-row .tlink{min-height:44px}
+</style>
+<section class="page-hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="q" data-new="1">Not found</p>
+      <h1 data-new="1">There is no page <em>here.</em></h1>
+      <p class="sub" data-new="1">The link may be old or mistyped. A record or an invitation sent to you opens in the app, not on the web.</p>
+      <div class="next-row"><a class="tlink" href="/">Home <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">How it works <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+</Base>

@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "X5YPW8ZWZ8.app.sawaza",
+        "paths": ["/invite/*", "/claim/*"]
+      },
+      {
+        "appID": "X5YPW8ZWZ8.app.sawaza.dev",
+        "paths": ["/invite/*", "/claim/*"]
+      }
+    ]
+  }
+}

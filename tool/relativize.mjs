@@ -28,7 +28,7 @@ function rel(path, depth) {
   if (route === '' || route === '/') return `${up}index.html${query}${hash}`;
   const noSlash = route.replace(/^\//, '');
   // a page route has no extension; an asset keeps its own
-  const isPage = !extname(noSlash) && !noSlash.startsWith('_astro/') && !noSlash.startsWith('img/');
+  const isPage = !extname(noSlash) && !/^(_astro|assets|img|icons)\//.test(noSlash);
   return `${up}${noSlash}${isPage ? '.html' : ''}${query}${hash}`;
 }
 
@@ -44,7 +44,7 @@ function rewriteHtml(html, depth) {
   return html
     .replace(ATTR, (m, attr, val) => {
       if (attr === 'srcset') return `${attr}="${val.split(',').map((c) => c.trim().replace(/^\/(?!\/)\S*/, (p) => rel(p, depth))).join(', ')}"`;
-      if (attr === 'content' && !/^\/(_astro|img)\//.test(val)) return m; // meta content that is not an asset path
+      if (attr === 'content' && !/^\/(_astro|assets|img|icons)\//.test(val)) return m; // meta content that is not an asset path
       return `${attr}="${rel(val, depth)}"`;
     })
     .replace(URLFN, (_, q, p) => `url(${q}${rel(p, depth)}${q})`);

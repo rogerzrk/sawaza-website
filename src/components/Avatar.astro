@@ -1,0 +1,21 @@
+---
+/* A person's avatar as the app draws it. The cast with a photo get the photo class, which hides
+   their initials under the picture; anyone else shows the initials alone. An entity (a group or a
+   business) passes its own class and colours. */
+const CAST: Record<string, string> = { sarah: 'SA', david: 'DA', grace: 'GR', joseph: 'JO', ruth: 'RU', esther: 'ES' };
+interface Props {
+  /** A cast member with a photo, such as "sarah". */
+  who?: string;
+  /** The initials shown when there is no photo. */
+  initials?: string;
+  /** The app's size classes: s28, s36 or s56. */
+  size?: string;
+  class?: string;
+  style?: string;
+}
+const { who, initials, size, class: extra, style } = Astro.props;
+const key = who?.toLowerCase();
+const photo = key ? CAST[key] : undefined;
+const cls = ['a-av', size, extra, photo ? `ph ph-${key}` : ''].filter(Boolean).join(' ');
+---
+<span class={cls} style={style}>{photo || initials}</span>

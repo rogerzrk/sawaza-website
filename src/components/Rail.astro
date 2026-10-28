@@ -1,0 +1,8 @@
+---
+/* The question rail down the right of a page: one link per section, lit as the reader passes it. */
+interface Props {
+  items: [string, string][];
+}
+const { items } = Astro.props;
+---
+<nav class="rail" aria-label="Questions on this page">{items.map(([id, label]) => <a href={`#${id}`} data-sec={id}><span>{label}</span><i></i></a>)}</nav>

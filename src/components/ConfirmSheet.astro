@@ -1,0 +1,36 @@
+---
+/* The Confirm this record sheet David sees, over its scrim. The full form shows both parties with
+   the figure between them and the consent line; the hero form is the shorter one the home's stage
+   slides up and presses the button on. The figure keeps its colour while the record awaits. */
+import Avatar from './Avatar.astro';
+interface Props {
+  hero?: boolean;
+}
+const { hero = false } = Astro.props;
+---
+{hero
+  ? <Fragment><div class="a-scrim hscrim"></div>
+          <div class="a-sheet hsheet" aria-hidden="true"><span class="a-grab"></span>
+            <div class="a-sht"><b>Confirm this record</b><svg class="i"><use href="#i-x"/></svg></div>
+            <div class="a-body"><p class="a-sent">Sarah sent you a record to confirm · 1 Oct</p><p class="a-hl">Sarah paid you UGX 450,000</p><div class="a-under"><span class="a-cap">ON YOUR BOOKS UNDER</span><span><b>Rent</b><a>Change</a></span></div></div>
+            <div class="a-foot"><span class="a-btn" id="confirmBtn">Confirm, I received it</span><div class="a-two"><span class="a-ob">Something's wrong</span><span class="a-ob">Later</span></div></div>
+          </div></Fragment>
+  : <Fragment><div class="a-scrim"></div>
+  <div class="a-sheet"><i class="a-grab"></i>
+    <div class="a-sht"><b>Confirm this record</b><svg class="i"><use href="#i-x"/></svg></div>
+    <div class="a-body">
+      <div><p class="a-sent">Sarah sent you a record to confirm · 1 Oct</p><p class="a-hl">Sarah paid you UGX 450,000</p></div>
+      <div class="a-strip">
+        <div class="cs-p"><Avatar who="david" size="s56" /><b>You</b></div>
+        <div class="cs-flow"><b class="num">450,000</b><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5H98M2 5l7-4M2 5l7 4" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg><small>paid · UGX</small></div>
+        <div class="cs-p"><Avatar who="sarah" size="s56" /><b>Sarah</b><small>+256 701 552 093</small></div>
+      </div>
+      <div class="a-under"><span class="a-cap">ON YOUR BOOKS UNDER</span><span><b>Rent</b><a>Change</a></span></div>
+      <p class="a-att">Confirming says this happened as recorded.</p>
+    </div>
+    <div class="a-foot">
+      <div class="a-consent">If you confirm, you'll both hold this record, numbers included.</div>
+      <span class="a-btn">Confirm, I received it</span>
+      <div class="a-two"><span class="a-ob">Something's wrong</span><span class="a-ob">Later</span></div>
+    </div>
+  </div></Fragment>}

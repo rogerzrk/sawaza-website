@@ -1,0 +1,17 @@
+---
+/* The header of a contact's thread: back arrow, avatar, name and a line under it. The thread form
+   ("t-bar") is the home's; "ch" and "fm3-ch" are the taller page forms with a more button. */
+import Avatar from './Avatar.astro';
+interface Props {
+  variant?: 'thread' | 'ch' | 'fm3-ch';
+  who?: string;
+  initials?: string;
+  avClass?: string;
+  name: string;
+  sub: string;
+}
+const { variant = 'thread', who, initials, avClass, name, sub } = Astro.props;
+---
+{variant === 'thread'
+  ? <div class="t-bar"><svg class="i t-back"><use href="#i-cl"/></svg><Avatar who={who} initials={initials} class={avClass} /><div class="t-who"><b>{name}</b><span>{sub}</span></div></div>
+  : <div class={variant}><svg class="i back"><use href="#i-cl"/></svg><Avatar who={who} initials={initials} class={avClass} /><div><b>{name}</b><span>{sub}</span></div><svg class="i more"><use href="#i-more"/></svg></div>}

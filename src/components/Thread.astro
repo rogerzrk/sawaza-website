@@ -1,0 +1,37 @@
+---
+/* A contact thread: the two column heads, then the days with their bubbles. A bubble sits on the
+   side of whoever wrote it, carries a label only when the side changes, and ends in its pill. A
+   record still waiting carries both its waiting pill and its sealed pill, and the hero's stage
+   shows one or the other as it plays. */
+import Pill from './Pill.astro';
+export interface ThreadItem {
+  day: string;
+  /** "r" is the viewer's side, "l" the contact's. */
+  side: 'l' | 'r';
+  /** The name over the bubble when the side changes. */
+  lab?: string;
+  dir: 'in' | 'out';
+  amount: string;
+  at: string;
+  line: string;
+  /** Who sealed it and when. */
+  by: string;
+  sealedAt: string;
+  /** Set while the record still waits: what the viewer sees and whose name the wait carries. */
+  pending?: 'wait' | 'review';
+  waitFor?: string;
+  /** The id of the thread tie the hero's line is drawn between. */
+  tie?: string;
+  /** Keeps the figure grey until the stage seals it. */
+  hold?: boolean;
+}
+interface Props {
+  heads: [string, string];
+  items: ThreadItem[];
+  fab?: boolean;
+}
+const { heads, items, fab = false } = Astro.props;
+---
+<div class="t-heads"><span>{heads[0]}</span><span>{heads[1]}</span></div><div class="t-list">{items.map((it) => <Fragment><p class="t-day">{it.day}</p><div class={`t-run t-${it.side}`}>{it.lab && <p class="t-lab">{it.lab}</p>}<div class={`t-b t-${it.side}b`}>{it.tie && <i class={`tie tie-${it.side}`} id={it.tie}></i>}<div class="t-top"><span class={`t-fig m ${it.dir}${it.hold ? ' hold-til-seal' : ''}`}><svg class="i"><use href={it.dir === 'out' ? '#i-up' : '#i-down'}/></svg><span class="num">{it.amount}</span></span><span class="t-at">{it.at}</span></div><p class="t-line">{it.line}</p>{it.pending
+  ? <Fragment><span class="s-wait"><Pill kind={it.pending} name={it.waitFor} /></span><span class="s-seal"><Pill kind="sealed" by={it.by} at={it.sealedAt} /></span></Fragment>
+  : <Pill kind="sealed" by={it.by} at={it.sealedAt} />}</div></div></Fragment>)}</div>{fab && <div class="a-fab t-fab"><svg class="i"><use href="#i-plus"/></svg></div>}

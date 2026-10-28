@@ -1,0 +1,11 @@
+---
+/* A whole phone with a thread on its screen, as the home and How it works heroes draw two of them
+   side by side. "pc-hero" is the home's, "pc-sm" the smaller crop the inner page uses. */
+import StatusBar from './StatusBar.astro';
+interface Props {
+  crop?: 'pc-hero' | 'pc-sm';
+  style?: string;
+}
+const { crop = 'pc-hero', style } = Astro.props;
+---
+<div class={crop} style={style}><div class="phone"><div class="screen app thr"><StatusBar notch="notch" /><slot /></div></div></div>

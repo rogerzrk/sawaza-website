@@ -1,0 +1,14 @@
+---
+/* One open debt in Invoices & Debts: its title, what is owed and which way, then its dates and
+   what it is left of. */
+interface Props {
+  title: string;
+  dir: 'in' | 'out';
+  word?: string;
+  amount: string;
+  lines: string[];
+  'data-key'?: string;
+}
+const { title, dir, word = 'Owes', amount, lines, ...rest } = Astro.props;
+---
+<div class="a-debt" {...rest}><div class="top"><b>{title}</b><span class={dir}><small>{word}</small><strong class="num">{amount}</strong></span></div>{lines.map((l) => <p class="ln">{l}</p>)}</div>

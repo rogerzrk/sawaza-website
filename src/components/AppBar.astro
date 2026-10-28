@@ -1,0 +1,19 @@
+---
+/* The app's top bar: the wordmark on the home screen, or a title with an optional back arrow, then
+   the viewer's avatar or the screen's action icons pushed to the right. */
+import Wordmark from './Wordmark.astro';
+import Avatar from './Avatar.astro';
+interface Props {
+  title?: string;
+  back?: boolean;
+  wordmark?: boolean;
+  /** The cast member whose avatar sits at the right. */
+  avatar?: string;
+  /** Icon names drawn at the right, such as "share" and "more". */
+  icons?: string[];
+  class?: string;
+}
+const { title, back = false, wordmark = false, avatar, icons = [], class: extra } = Astro.props;
+const grow = wordmark || icons.length > 0;
+---
+<div class={extra ? `a-abar ${extra}` : 'a-abar'}>{back && <svg class="i back"><use href="#i-cl"/></svg>}{wordmark ? <Wordmark /> : <b>{title}</b>}{grow && <span class="grow"></span>}{avatar && <Avatar who={avatar} size="s36" />}{icons.map((i) => <svg class="i ic"><use href={`#i-${i}`}/></svg>)}</div>

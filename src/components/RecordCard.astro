@@ -1,0 +1,51 @@
+---
+/* An Activity row: avatar, who and when, what happened, the item with its figure, and the state
+   line. The colour law holds here: the figure takes its direction colour only once the viewer has
+   signed, so a record awaiting the viewer keeps grey digits ("held") under its coloured arrow. A
+   solo expense is the shorter row with the figure on the first line and no state. */
+import Avatar from './Avatar.astro';
+type Status =
+  | 'sealed'
+  | 'awaiting-you'
+  | 'awaiting'
+  | 'awaiting-pill'
+  | 'contested'
+  | 'declined'
+  | 'only-you';
+interface Props {
+  who?: string;
+  initials?: string;
+  avClass?: string;
+  avStyle?: string;
+  solo?: boolean;
+  name?: string;
+  time?: string;
+  label: string;
+  item?: string;
+  dir: 'in' | 'out';
+  amount: string;
+  status?: Status;
+  /** The name the wait or the contest carries, such as "Grace" or "Joseph contested · v2". */
+  statusName?: string;
+  wash?: boolean;
+  class?: string;
+  'data-key'?: string;
+}
+const { who, initials, avClass, avStyle, solo = false, name, time, label, item, dir, amount, status, statusName, wash = false, class: extra, ...rest } = Astro.props;
+const cls = ['a-row', wash ? 'wash' : '', extra].filter(Boolean).join(' ');
+const held = status === 'awaiting-you';
+const arrow = dir === 'out' ? '#i-up' : '#i-down';
+---
+<div class={cls} {...rest}>{solo
+  ? <span class="a-av solo"><svg viewBox="-4 -4 86 108" aria-hidden="true"><path d="M0 88L0 0L78 0L78 88L68.25 100 L58.50 88L48.75 76 L39.00 88L29.25 100 L19.50 88L9.75 76 L0.00 88Z"/><path d="M18.7 34H59.3M18.7 55H59.3"/></svg></span>
+  : <Avatar who={who} initials={initials} class={avClass} style={avStyle} />}<div>{solo
+  ? <Fragment><div class="a-rh"><b>{item}</b><span class={`m ${dir}`}><svg class="i"><use href={arrow}/></svg>{amount}</span></div><div class="a-rl">{label}</div></Fragment>
+  : <Fragment><div class="a-rh"><b>{name}</b><span class="a-tm">{time}</span></div><div class="a-rl">{label}</div><div class="a-quote"><b>{item}</b><span class={`m ${dir}${held ? ' held' : ''}`}><svg class="i"><use href={arrow}/></svg>{amount}</span></div><div class="a-rf">{
+    status === 'sealed' ? <Fragment><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></Fragment>
+    : status === 'awaiting-you' ? <Fragment><span class="gt">Awaiting you</span><span class="a-review">Review</span></Fragment>
+    : status === 'awaiting' ? <Fragment><svg class="i"><use href="#i-clock"/></svg><span>Awaiting {statusName}</span></Fragment>
+    : status === 'awaiting-pill' ? <span class="a-await"><svg class="i"><use href="#i-clock"/></svg>Awaiting {statusName}</span>
+    : status === 'contested' ? <Fragment><span class="ne">≠</span><span class="cl">{statusName}</span><span class="a-review">Review</span></Fragment>
+    : status === 'declined' ? <Fragment><svg class="i dx"><use href="#i-x"/></svg><span>Declined</span></Fragment>
+    : <Fragment><svg class="i"><use href="#i-lock"/></svg><span>Only you</span><span class="qt">· Share</span></Fragment>
+  }</div></Fragment>}</div></div>

@@ -1,0 +1,17 @@
+---
+/* The state pill under a thread bubble. Sealed reads "Sawa. Sealed. · <who> · <when>" with the
+   gold verified badge; awaiting is the clock and the name still to sign; review is what the other
+   side sees while a record waits on them. */
+interface Props {
+  kind: 'sealed' | 'wait' | 'review';
+  by?: string;
+  at?: string;
+  name?: string;
+}
+const { kind, by, at, name } = Astro.props;
+---
+{kind === 'sealed'
+  ? <span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · {by} · {at}</i></span>
+  : kind === 'wait'
+    ? <span class="t-pill t-w"><svg class="i"><use href="#i-clock"/></svg><b>Awaiting {name}</b></span>
+    : <span class="t-pill t-rev"><svg class="i fill"><use href="#i-ver"/></svg><b>Review</b></span>}

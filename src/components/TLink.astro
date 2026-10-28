@@ -1,0 +1,9 @@
+---
+/* A text link with the arrow after it, the way every page points to the next one. */
+interface Props {
+  href: string;
+  label: string;
+}
+const { href, label } = Astro.props;
+---
+<a class="tlink" href={href}>{label} <span aria-hidden="true">→</span></a>

@@ -1,0 +1,29 @@
+---
+/* The screen behind each of the home page's three doors, from the bar down: Sarah's thread with
+   Grace, the Kisaasi Savers register, and Mukasa Traders' debts with Sarah. Each is drawn twice,
+   once in its door and once in the pinned phone, so it lives here. */
+import AppBar from '../AppBar.astro';
+import ContactBar from '../ContactBar.astro';
+import Tabs from '../Tabs.astro';
+import Thread from '../Thread.astro';
+import RegisterRow from '../RegisterRow.astro';
+import DebtRow from '../DebtRow.astro';
+import { PERSONAL_TABS, sarahWithGrace } from '../threads';
+interface Props {
+  k: 'you' | 'grp' | 'biz';
+}
+const { k } = Astro.props;
+---
+{k === 'you' && <Fragment><ContactBar who="grace" name="Grace" sub="On Sawaza · +256 752 318 604" /><Tabs tabs={PERSONAL_TABS} /><Thread heads={['Grace', 'You']} items={sarahWithGrace} /></Fragment>}
+{k === 'grp' && <Fragment><AppBar title="Register" class="a-grp" /><p class="fm3-key">KISAASI SAVERS · 4 MEMBERS</p>
+<RegisterRow who="sarah" name="Sarah" total="350,000"><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></RegisterRow>
+<RegisterRow who="grace" name="Grace" total="420,000"><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></RegisterRow>
+<RegisterRow who="ruth" name="Ruth" total="280,000"><p class="ln"><b class="fm3-pend">+ UGX 50,000 · their own record · confirm</b></p><span class="fm3-await"><svg class="i"><use href="#i-clock"/></svg>Awaiting Ruth</span></RegisterRow>
+<RegisterRow who="esther" name="Esther" total="510,000"><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></RegisterRow>
+</Fragment>}
+{k === 'biz' && <Fragment><ContactBar variant="fm3-ch" who="sarah" name="Sarah" sub="On Sawaza · +256 701 552 093" />
+<Tabs tabs={['Activity', 'Records', 'Invoices & Debts']} on={2} />
+<div class="fm3-head"><b>Sarah owes you</b><strong class="num in">UGX 1,060,000</strong><span>left on 2 debts</span></div>
+<DebtRow title="Invoice INV-0001" dir="in" amount="800,000" lines={['3 Oct · Due 31 Oct · part paid', 'left of UGX 1,200,000']} />
+<DebtRow title="Invoice INV-0002" dir="in" amount="260,000" lines={['9 Oct · Due 9 Nov']} />
+</Fragment>}

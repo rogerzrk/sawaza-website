@@ -1,0 +1,12 @@
+---
+/* One question on the Help page: a details element with the question as its summary and the
+   answer's paragraphs in the slot. */
+interface Props {
+  q: string;
+  open?: boolean;
+  /** Marks the answer as new words for review. */
+  isNew?: boolean;
+}
+const { q, open = false, isNew = false } = Astro.props;
+---
+<details class="qa" open={open}><summary><span>{q}</span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cd"/></svg></summary><div class="ans" data-new={isNew ? '1' : undefined}><slot /></div></details>

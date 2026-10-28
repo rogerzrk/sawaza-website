@@ -1,0 +1,16 @@
+---
+/* One member's line in a group's register: avatar, name and their total, with the latest entry
+   under it, which the page writes since its state varies (a plain entry, one still to confirm, or
+   a member who left). */
+import Avatar from './Avatar.astro';
+interface Props {
+  who?: string;
+  initials?: string;
+  name: string;
+  total: string;
+  class?: string;
+  'data-key'?: string;
+}
+const { who, initials, name, total, class: extra, ...rest } = Astro.props;
+---
+<div class={extra ? `a-reg ${extra}` : 'a-reg'} {...rest}><Avatar who={who} initials={initials} /><div><div class="top"><b>{name}</b><span class="num"><small>UGX</small>{total}</span></div><slot /></div></div>

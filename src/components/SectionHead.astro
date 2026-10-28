@@ -1,0 +1,14 @@
+---
+/* A section's head: the visitor's question as the eyebrow, the answer as the heading, and any lede
+   or intro the page puts under it. The heading may carry an <em> for the word in gold. */
+interface Props {
+  q: string;
+  title: string;
+  /** Marks the heading as new words for review. */
+  titleNew?: boolean;
+  class?: string;
+  style?: string;
+}
+const { q, title, titleNew = false, class: extra, style } = Astro.props;
+---
+<div class={extra ? `sec-head ${extra}` : 'sec-head'} style={style}><p class="q">{q}</p><h2 class="h2" data-new={titleNew ? '1' : undefined} set:html={title}></h2><slot /></div>

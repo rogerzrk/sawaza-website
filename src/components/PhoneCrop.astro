@@ -1,0 +1,20 @@
+---
+/* A phone cut off with a fade, the "Send it" style every illustration uses. The top form shows the
+   top of the screen and "fromBottom" the bottom (a sheet or a button); the crop height is the
+   window, cropY slides the content up, and fade moves where the fade starts. The screen begins with
+   the status bar; the page fills the rest. */
+import StatusBar from './StatusBar.astro';
+interface Props {
+  h: string;
+  y?: string;
+  fade?: string;
+  fromBottom?: boolean;
+  /** Extra classes on the app screen, such as "thr" for a thread or "tight". */
+  app?: string;
+  /** The step number the home page's pinned phone reads off the screen. */
+  dataS?: string;
+}
+const { h, y, fade, fromBottom = false, app = '', dataS } = Astro.props;
+const style = `--crop-h:${h}` + (y ? `;--crop-y:${y}` : '') + (fade ? `;--fade:${fade}` : '');
+---
+<div class={fromBottom ? 'pcrop from-bottom' : 'pcrop'} style={style}><div class="hphone"><div class="hscreen"><div class={app ? `app ${app}` : 'app'} data-s={dataS}><StatusBar /><slot /></div></div></div></div>

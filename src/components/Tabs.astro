@@ -1,0 +1,11 @@
+---
+/* The tab row under a contact or group header, with one tab on. "fm3-tabs" is the home's form and
+   "tabs" the page form. */
+interface Props {
+  tabs: string[];
+  on?: number;
+  class?: 'fm3-tabs' | 'tabs';
+}
+const { tabs, on = 0, class: cls = 'fm3-tabs' } = Astro.props;
+---
+<div class={cls}>{tabs.map((t, i) => <span class={i === on ? 'on' : undefined}>{t}</span>)}</div>

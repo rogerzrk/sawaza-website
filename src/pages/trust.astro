@@ -1,0 +1,215 @@
+---
+import Base from '../layouts/Base.astro';
+import { SHOW_ANCHOR } from '../config';
+---
+<Base title="Trust and privacy · Sawaza" description="Who signs what, who sees your records, how a signed record stays true, and what Sawaza never does with your money or your data." bodyId="page-trust">
+<Fragment slot="rail">
+<nav class="rail" aria-label="Questions on this page">
+  <a href="#top" data-sec="top"><span>Why trust it?</span><i></i></a>
+  <a href="#who-sees" data-sec="who-sees"><span>Who sees my records?</span><i></i></a>
+  <a href="#signing" data-sec="signing"><span>Who signs what?</span><i></i></a>
+  <a href="#change" data-sec="change"><span>What stays true?</span><i></i></a>
+  <a href="#number" data-sec="number"><span>What about my number?</span><i></i></a>
+</nav>
+</Fragment>
+<style is:global>
+/* Trust and privacy: who signs, who sees, what stays true. Built from kit tokens and the home's app drawings. */
+#page-trust .tr-hero{min-width:0;display:grid;justify-items:center}
+#page-trust .tr-hero .diagram{max-width:500px}
+#page-trust .tr-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
+#page-trust .tr-grid.flip>.tr-vis{order:-1}
+#page-trust .tr-grid .sec-head{margin-bottom:0}
+#page-trust .tr-vis{display:grid;justify-items:center;gap:18px;min-width:0}
+#page-trust .facts{margin-top:28px}
+#page-trust .facts li{align-items:start}
+#page-trust .facts li span{line-height:1.5}
+#page-trust .ink{color:var(--ink)}
+
+#page-trust .tr-card{font-size:12.5px;border-radius:16px;background:#0F1219;border:1px solid #2A303C;padding:.3em 0;box-shadow:0 24px 50px -30px rgba(0,0,0,.9);width:100%;max-width:360px}
+#page-trust .tr-pad{padding:.4em 0 1.2em}
+#page-trust .tr-pad .a-sec{padding-top:.6em}
+#page-trust .a-rf .ne{font:700 1.2em/1 var(--body);color:var(--a-clay)}
+#page-trust .a-rf .cl{color:var(--a-clay)}
+#page-trust .a-rf .qt{color:var(--a-quiet)}
+#page-trust .tr-line{font:600 14px/1.4 var(--body);text-align:center}
+#page-trust .tr-line .cl{color:#E88A76}
+
+#page-trust .tr-who{list-style:none;margin:0;padding:0;width:100%;max-width:360px;display:grid}
+#page-trust .tr-who li{display:flex;justify-content:space-between;gap:12px;padding:10px 2px;border-top:1px solid var(--line);font-size:14.5px}
+#page-trust .tr-who li:last-child{border-bottom:1px solid var(--line)}
+#page-trust .tr-who span{color:var(--dim)}
+#page-trust .tr-who b{color:var(--ink);font-weight:600;text-align:right}
+
+#page-trust .tr-quote{margin-top:28px;padding:18px 20px;border-left:2px solid var(--gold);background:rgba(255,255,255,.03);border-radius:0 12px 12px 0;color:var(--ink);font-size:clamp(16px,1.6vw,18px);line-height:1.55;max-width:32em}
+#page-trust .tr-body{margin-top:24px;color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;max-width:34em}
+
+#page-trust .tr-paper{font-size:13px;width:100%;max-width:340px;background:none;padding:0}
+#page-trust .tr-paper .a-cert{margin:0;box-shadow:0 30px 60px -28px rgba(0,0,0,.9)}
+
+#page-trust .tr-cc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+#page-trust .tr-col{border-radius:22px;background:var(--panel);border:1px solid var(--line);padding:clamp(22px,3vw,32px)}
+#page-trust .tr-col.no{border-color:rgba(255,255,255,.22)}
+#page-trust .tr-col .lbl{margin-bottom:14px}
+#page-trust .tr-col.yes .lbl{color:var(--gold)}
+#page-trust .tr-col.no .lbl{color:var(--ink)}
+#page-trust .tr-col ul{list-style:none;margin:0;padding:0;display:grid}
+#page-trust .tr-col li{padding:14px 0 14px 30px;border-top:1px solid var(--line);color:var(--ink);font-size:16.5px;line-height:1.45;position:relative}
+#page-trust .tr-col li::before{content:"";position:absolute;left:4px;top:21px;width:10px;height:10px;border-radius:50%;border:2px solid var(--gold)}
+#page-trust .tr-col.no li::before{border-color:var(--ink);border-radius:2px;transform:rotate(45deg)}
+
+#page-trust .tr-flow{padding:clamp(24px,4vw,40px) 18px;border-radius:22px;background:linear-gradient(160deg,#1A2E63,#0E1E47 70%);border:1px solid rgba(227,168,43,.35)}
+
+#page-trust .tr-short .hscreen{height:44em}
+#page-trust .tr-door{padding:0 1.6em;display:flex;flex-direction:column}
+#page-trust .tr-door .a-sbar{margin:0 -1.6em}
+#page-trust .d-lock{margin:2.6em auto 0;width:10em}
+#page-trust .d-lock .lockup{width:100%;height:auto;display:block;color:#EDE8DE}
+#page-trust .d-tag{text-align:center;margin-top:.9em;font-size:.875em;color:var(--a-dim)}
+#page-trust .d-marks{display:flex;gap:.4em;justify-content:center;margin-top:2em}
+#page-trust .d-marks i{width:1.6em;height:.3em;border-radius:1em;background:var(--a-line)}
+#page-trust .d-marks i.on{background:#E3A82B}
+#page-trust .d-h{margin-top:1.8em;font:700 1.5em/1.2 var(--display);color:var(--a-text)}
+#page-trust .d-b{margin-top:.6em;font-size:.95em;line-height:1.45;color:var(--a-dim)}
+#page-trust .d-f{margin-top:1em;display:grid;gap:.4em}
+#page-trust .d-f small{font:700 .75em/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--a-dim)}
+#page-trust .d-f div{display:flex;align-items:center;gap:.6em;height:3.4em;padding:0 .9em;border-radius:.75em;background:var(--a-surface);border:1px solid var(--a-line)}
+#page-trust .d-f b{flex:1;font:500 1.05em/1 var(--body);color:var(--a-text)}
+#page-trust .d-f em{font-style:normal;color:var(--a-dim)}
+#page-trust .d-f svg.i{width:1.2em;height:1.2em;color:var(--a-dim)}
+#page-trust .tr-door .a-btn{margin-top:1.6em}
+#page-trust .d-n{margin-top:.8em;text-align:center;font-size:.875em;color:var(--a-dim)}
+
+#page-trust .tr-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+#page-trust .tr-c{border-radius:20px;background:var(--panel);border:1px solid var(--line);padding:22px;display:grid;gap:10px;align-content:start}
+#page-trust .tr-c h3{font-size:19px;font-weight:600;line-height:1.3;color:var(--ink)}
+#page-trust .tr-c p{color:var(--dim);font-size:15.5px;line-height:1.55}
+#page-trust .tr-more{margin-top:28px}
+#page-trust .plate{margin-top:28px}
+#page-trust .tr-co{display:grid;gap:clamp(28px,4vw,44px);max-width:680px}
+#page-trust .next-col{align-self:end}
+#page-trust .next-col .next-row{margin-top:14px}
+
+@media (max-width:1000px){#page-trust .tr-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){
+  #page-trust .tr-grid{grid-template-columns:minmax(0,1fr)}
+  #page-trust .tr-grid.flip>.tr-vis{order:0}
+}
+@media (max-width:640px){#page-trust .tr-cc,#page-trust .tr-cards{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:420px){#page-trust .hphone{font-size:11.6px}#page-trust .tr-who li{font-size:13.5px}}
+
+#page-trust .facts svg{color:var(--gold)}
+#page-trust .tlink{min-height:44px}
+@media (min-width:900px){
+  #page-trust .tr-vis{align-self:stretch;align-content:center}
+  #page-trust .tr-card{max-width:520px;font-size:clamp(14px,1.25vw,17px)}
+  #page-trust .tr-who{max-width:520px;font-size:16px}
+  #page-trust .tr-who li{font-size:16px}
+  #page-trust .tr-line{font-size:16px}
+}
+#page-trust .tr-single{max-width:760px}
+#page-trust .tr-money{margin-top:clamp(28px,4vw,44px)}
+#page-trust .next-row{margin-top:28px}
+#page-trust .tr-chain{margin-top:clamp(28px,4vw,44px);max-width:44em;color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;display:grid;gap:6px;justify-items:start}
+</style>
+<section class="page-hero" id="top">
+  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <div class="wrap split">
+    <div>
+      <p class="q">Why trust it?</p>
+      <h1>Who signs what, and what can't <em>change quietly.</em></h1>
+      <p class="sub" data-new="1">Each side signs the same record on their own phone. Sawaza shows it only to the people you choose, and it never holds or moves your money.</p>
+    </div>
+    <div class="tr-hero"><svg class="diagram" viewBox="0 0 520 300" role="img" aria-label="Each side signs on their own phone, and the two signatures make one sealed record.">
+        <defs><radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#5CD6D6" stop-opacity=".35"/><stop offset="1" stop-color="#5CD6D6" stop-opacity="0"/></radialGradient></defs>
+        <g fill="none" stroke="rgba(237,232,222,.35)" stroke-width="1.5">
+          <rect x="30" y="60" width="96" height="180" rx="18"/><rect x="394" y="60" width="96" height="180" rx="18"/>
+        </g>
+        <g fill="none" stroke="#E3A82B" stroke-width="2" stroke-linecap="round">
+          <path d="M52 170c8-12 12-14 14-7s-2 10 4 3 8-12 10-5 4 8 14 0"/>
+          <path d="M416 170c8-12 12-14 14-7s-2 10 4 3 8-12 10-5 4 8 14 0"/>
+        </g>
+        <g fill="rgba(237,232,222,.55)"><rect x="50" y="96" width="56" height="6" rx="3"/><rect x="50" y="110" width="40" height="6" rx="3"/><rect x="414" y="96" width="56" height="6" rx="3"/><rect x="414" y="110" width="40" height="6" rx="3"/></g>
+        <path d="M126 150C190 150 200 150 236 150M394 150C330 150 320 150 284 150" fill="none" stroke="#5CD6D6" stroke-width="1.6" stroke-dasharray="4 6"/>
+        <circle cx="260" cy="150" r="70" fill="url(#sg)"/>
+        <circle cx="260" cy="150" r="34" fill="#0A1A3D" stroke="rgba(237,232,222,.18)" stroke-width="1.5"/>
+        <use href="#i-ver" x="236" y="126" width="48" height="48" style="color:#E3A82B"/>
+        <text x="78" y="268" text-anchor="middle" fill="#939CB1" font-size="13" font-family="Plus Jakarta Sans, sans-serif">Sarah signs</text>
+        <text x="442" y="268" text-anchor="middle" fill="#939CB1" font-size="13" font-family="Plus Jakarta Sans, sans-serif">David signs</text>
+        <text x="260" y="214" text-anchor="middle" fill="#5CD6D6" font-size="15" font-weight="600" font-family="Plus Jakarta Sans, sans-serif">Sawa. Sealed.</text>
+      </svg></div>
+  </div>
+</section>
+
+<!-- Who sees what -->
+<section class="sec deep" id="who-sees"><div class="wrap">
+  <div class="tr-grid">
+    <div>
+      <div class="sec-head"><p class="q">Who sees my records?</p><h2 class="h2" data-new="1">Only the people you choose.</h2><p class="lede">A record you write stays yours until you send it, and you never have to.</p></div>
+      <ul class="facts">
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="12" width="16" height="12" rx="2.5"/><path d="M9.5 12V9a4.5 4.5 0 0 1 9 0v3"/></svg><span data-new="1">A record you keep for yourself is seen by you alone.</span></li>
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="11" r="3.5"/><circle cx="19" cy="11" r="3.5"/><path d="M3 23c0-4 2.7-6 6-6s6 2 6 6M13 23c0-4 2.7-6 6-6s6 2 6 6"/></svg><span data-new="1">A record you send is seen by you and the person you sent it to.</span></li>
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="5" width="20" height="18" rx="5"/><path d="M9 13h10M9 17h6"/></svg><span data-new="1">In a group, every member reads the group's records.</span></li>
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M17 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M17 4v5h5"/></svg><span data-new="1">A photo or receipt you attach is read only by the people who can read its record.</span></li>
+      </ul>
+    </div>
+    <div class="tr-vis" role="img" aria-label="Three records and who can see each: Groceries, you alone; Boda-boda with Peter, you alone until you share it; Rent with David, you and David.">
+      <div class="pcrop" style="--crop-h:430px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div><div class="a-abar"><svg class="wm" viewBox="684 30 3330 500" aria-hidden="true"><g fill="currentColor" transform="translate(684.969 520.837) scale(1 -1)"><path d="M227.375 -11.875Q185.125 -11.875 144.75 -0.8125Q104.375 10.25 70.1875 30.3125Q36.0 50.375 11.5 78.0L93.875 161.5Q118.5 134.375 151.375 120.0625Q184.25 105.75 223.75 105.75Q253.25 105.75 268.6875 114.3125Q284.125 122.875 284.125 139.0Q284.125 158.0 266.6875 168.125Q249.25 178.25 221.875 185.8125Q194.5 193.375 164.125 202.5625Q133.75 211.75 106.1875 227.625Q78.625 243.5 61.375 271.4375Q44.125 299.375 44.125 343.5Q44.125 389.875 67.5 424.1875Q90.875 458.5 133.75 477.8125Q176.625 497.125 235.0 497.125Q295.625 497.125 346.3125 476.0625Q397.0 455 429.25 412.875L346.5 329.375Q324.0 356.125 295.875 367.8125Q267.75 379.5 238.375 379.5Q210.625 379.5 196.5625 371.1875Q182.5 362.875 182.5 348.0Q182.5 331.375 199.75 321.875Q217.0 312.375 244.375 305.125Q271.75 297.875 301.9375 288.1875Q332.125 278.5 359.5 261.4375Q386.875 244.375 404.125 216.125Q421.375 187.875 421.375 142.75Q421.375 71.625 369.0 29.875Q316.625 -11.875 227.375 -11.875ZM689.25 -10.0Q622.75 -10.0 570.0625 23.0Q517.375 56.0 487.0625 112.875Q456.75 169.75 456.75 241.625Q456.75 314.125 487.0625 371.1875Q517.375 428.25 570.0625 461.375Q622.75 494.5 689.25 494.5Q739.75 494.5 780.0 474.375Q820.25 454.25 845.0625 418.875Q869.875 383.5 872.5 338.25V146.25Q869.875 101.0 845.375 65.625Q820.875 30.25 780.3125 10.125Q739.75 -10.0 689.25 -10.0ZM717.0 119.5Q769.0 119.5 800.875 153.9375Q832.75 188.375 832.75 242.25Q832.75 278.5 818.375 306.0625Q804.0 333.625 778.0 349.3125Q752.0 365 717.375 365.0Q683.375 365.0 657.375 349.3125Q631.375 333.625 616.3125 305.875Q601.25 278.125 601.25 242.25Q601.25 206.375 616.125 178.625Q631.0 150.875 657.1875 135.1875Q683.375 119.5 717.0 119.5ZM826.125 0.0V130.125L848.125 248.25L826.125 365.375V484.5H966.5V0.0ZM1181.625 0.0 1007.375 484.5H1148.375L1259.25 132.125L1217.375 131.125L1335.375 484.5H1444.75L1563.125 131.125L1520.875 132.125L1632.5 484.5H1773.5L1599.25 0.0H1489.125L1371.875 335.0H1409.375L1291.0 0ZM2017.25 -10.0Q1950.75 -10.0 1898.0625 23.0Q1845.375 56.0 1815.0625 112.875Q1784.75 169.75 1784.75 241.625Q1784.75 314.125 1815.0625 371.1875Q1845.375 428.25 1898.0625 461.375Q1950.75 494.5 2017.25 494.5Q2067.75 494.5 2108.0 474.375Q2148.25 454.25 2173.0625 418.875Q2197.875 383.5 2200.5 338.25V146.25Q2197.875 101.0 2173.375 65.625Q2148.875 30.25 2108.3125 10.125Q2067.75 -10.0 2017.25 -10.0ZM2045.0 119.5Q2097.0 119.5 2128.875 153.9375Q2160.75 188.375 2160.75 242.25Q2160.75 278.5 2146.375 306.0625Q2132.0 333.625 2106.0 349.3125Q2080.0 365 2045.375 365.0Q2011.375 365.0 1985.375 349.3125Q1959.375 333.625 1944.3125 305.875Q1929.25 278.125 1929.25 242.25Q1929.25 206.375 1944.125 178.625Q1959.0 150.875 1985.1875 135.1875Q2011.375 119.5 2045.0 119.5ZM2154.125 0.0V130.125L2176.125 248.25L2154.125 365.375V484.5H2294.5V0.0ZM2353.5 82.125 2603.5 402.375H2775.25L2525.25 82.125ZM2353.5 0.0V82.125L2459.875 121.0H2769.25V0.0ZM2371.125 363.5V484.5H2775.25V402.375L2668.875 363.5ZM3041.25 -10.0Q2974.75 -10.0 2922.0625 23.0Q2869.375 56.0 2839.0625 112.875Q2808.75 169.75 2808.75 241.625Q2808.75 314.125 2839.0625 371.1875Q2869.375 428.25 2922.0625 461.375Q2974.75 494.5 3041.25 494.5Q3091.75 494.5 3132.0 474.375Q3172.25 454.25 3197.0625 418.875Q3221.875 383.5 3224.5 338.25V146.25Q3221.875 101.0 3197.375 65.625Q3172.875 30.25 3132.3125 10.125Q3091.75 -10.0 3041.25 -10.0ZM3069.0 119.5Q3121.0 119.5 3152.875 153.9375Q3184.75 188.375 3184.75 242.25Q3184.75 278.5 3170.375 306.0625Q3156.0 333.625 3130.0 349.3125Q3104.0 365 3069.375 365.0Q3035.375 365.0 3009.375 349.3125Q2983.375 333.625 2968.3125 305.875Q2953.25 278.125 2953.25 242.25Q2953.25 206.375 2968.125 178.625Q2983.0 150.875 3009.1875 135.1875Q3035.375 119.5 3069.0 119.5ZM3178.125 0.0V130.125L3200.125 248.25L3178.125 365.375V484.5H3318.5V0.0Z"/></g></svg><span class="grow"></span></div>
+        <div class="a-row"><span class="a-av solo"><svg viewBox="-4 -4 86 108" aria-hidden="true"><path d="M0 88L0 0L78 0L78 88L68.25 100 L58.50 88L48.75 76 L39.00 88L29.25 100 L19.50 88L9.75 76 L0.00 88Z"/><path d="M18.7 34H59.3M18.7 55H59.3"/></svg></span><div><div class="a-rh"><b>Groceries</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 35,000</span></div><div class="a-rl">Expense · 8:05 am</div></div></div>
+        <div class="a-row"><span class="a-av">PE</span><div><div class="a-rh"><b>Peter</b><span class="a-tm">9:40 am</span></div><div class="a-rl">You lent</div><div class="a-quote"><b>Boda-boda</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 50,000</span></div><div class="a-rf"><svg class="i"><use href="#i-lock"/></svg><span>Only you</span><span class="qt">· Share</span></div></div></div>
+        <div class="a-row"><span class="a-av ph ph-david">DA</span><div><div class="a-rh"><b>David Landlord</b><span class="a-tm">1 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Rent</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 450,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
+      </div></div></div></div>
+      <ul class="tr-who">
+        <li><span>Groceries</span><b data-new="1">You alone</b></li>
+        <li><span>Boda-boda with Peter</span><b data-new="1">You alone, until you share it</b></li>
+        <li><span>Rent with David</span><b data-new="1">You and David</b></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- Signing -->
+<section class="sec" id="signing"><div class="wrap"><div class="tr-single">
+  <div class="sec-head"><p class="q">Who signs what?</p><h2 class="h2">Each side signs on their own phone.</h2><p class="lede" data-new="1">Sarah signs when she writes the record. David signs when he confirms it, on his own phone. A record is sealed only when everyone it names has signed, so everyone is on the same page. If they disagree, both versions are kept: Sawaza is a witness, not a judge.</p><p class="lede" data-new="1">Every record keeps its history: who wrote it, who answered it and when, and every change is shown.</p></div>
+</div></div></section>
+
+<!-- Nobody can change it, no money -->
+<section class="sec deep" id="change"><div class="wrap">
+  <div class="sec-head"><p class="q">What stays true?</p><h2 class="h2" data-new="1">A signed record can't change quietly. Nobody touches your money.</h2><p class="lede" data-new="1">Sawaza never holds or moves money. It keeps the record of it.</p></div>
+  <div class="tr-cc">
+    <div class="tr-col yes">
+      <p class="lbl" data-new="1">You can</p>
+      <ul>
+        <li data-new="1">Remove your own copy, never the other side's.</li>
+        <li data-new="1">File it your own way: its item, its space, its account.</li>
+      </ul>
+    </div>
+    <div class="tr-col no">
+      <p class="lbl" data-new="1">What stays true</p>
+      <ul>
+        <li data-new="1">A record is sealed once it is signed, so any change shows.</li>
+        <li data-new="1">The other side's copy stays theirs.</li>
+        <li data-new="1">A disagreement keeps both versions.</li>
+      </ul>
+    </div>
+  </div>
+{SHOW_ANCHOR && (
+  <p class="tr-chain" data-new="1">Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <a class="tlink" href="/verify">Check a record yourself <span aria-hidden="true">→</span></a></p>
+)}
+  <ul class="facts tr-money">
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="20" height="13" rx="2.5"/><path d="M4 12h20"/></svg><span data-new="1">You pay in cash, by Mobile Money or through a bank, as you always have. Sawaza keeps the record of it.</span></li>
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 4l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V8z"/></svg><span>Sawaza never asks you to send money.</span></li>
+        <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="14" cy="14" r="9"/><path d="M10 14h8"/></svg><span>Sawaza is free to use: write records, send them and keep them, with no fees.</span></li>
+      </ul>
+</div></section>
+
+<!-- Number and phonebook -->
+<section class="sec" id="number"><div class="wrap"><div class="tr-single">
+  <div class="sec-head"><p class="q">What about my number?</p><h2 class="h2" data-new="1">Your number signs. Your phonebook stays on your phone.</h2></div>
+  <ul class="facts">
+    <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="3" width="12" height="22" rx="3"/><path d="M12 21h4"/></svg><span data-new="1">You sign in with your phone number and a six-digit code. Records you make are signed under that number.</span></li>
+    <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="4" width="18" height="20" rx="3"/><circle cx="14" cy="12" r="3"/><path d="M9 20c1-2.5 3-3.5 5-3.5s4 1 5 3.5"/></svg><span>The names in your phonebook stay on your phone too.</span></li>
+    <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 4l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V8z"/></svg><span data-new="1">We do not sell your data, and there are no ads. Deleting your account is in Settings.</span></li>
+  </ul>
+  <div class="next-row"><a class="tlink" href="/privacy">Read the privacy policy <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+</div></div></section>
+</Base>

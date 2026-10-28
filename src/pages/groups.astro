@@ -1,0 +1,306 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Groups · Sawaza" description="Households, savings groups, cash rounds and clubs keep one shared record of their money on Sawaza, and each member confirms their own part." bodyId="page-groups">
+<style is:global>
+/* page layout: words beside a drawn app screen */
+#page-groups .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(32px,6vw,88px);align-items:center}
+#page-groups .duo.flip{grid-template-columns:minmax(0,400px) minmax(0,1fr)}
+#page-groups .duo.flip>.fig{order:-1}
+#page-groups .duo+.duo{margin-top:clamp(56px,8vw,96px)}
+#page-groups .txt h3{font:700 clamp(26px,3.2vw,38px)/1.08 var(--display);letter-spacing:-.025em}
+#page-groups .txt>p:not(.q):not(.sub-h){margin-top:16px;color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;max-width:34em}
+#page-groups .txt>p:not(.q) b{color:var(--ink);font-weight:600}
+#page-groups .txt .tlink{margin-top:22px}
+#page-groups .pts{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px;max-width:34em}
+#page-groups .pts li{position:relative;padding-left:22px;color:var(--dim);font-size:16px;line-height:1.55}
+#page-groups .pts li::before{content:"";position:absolute;left:0;top:.68em;width:10px;height:2px;border-radius:2px;background:var(--gold)}
+#page-groups .pts li b{color:var(--ink);font-weight:600}
+#page-groups .pts small{color:var(--quiet);font-size:14px}
+#page-groups .sub-h{margin-top:28px;font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--quiet)}
+#page-groups .sub-h+.pts{margin-top:14px}
+#page-groups .stl{list-style:none;counter-reset:st;margin:24px 0 0;padding:0;display:grid;gap:16px;max-width:34em}
+#page-groups .stl li{counter-increment:st;display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;align-items:start;color:var(--dim);font-size:16px;line-height:1.55}
+#page-groups .stl li::before{content:counter(st);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font:700 15px/1 var(--display)}
+#page-groups .stl li b{display:block;color:var(--ink);font-weight:600}
+/* the figure: a caption and a screen drawn in the app's own kit */
+#page-groups .fig{display:grid;gap:10px;justify-items:center;min-width:0}
+#page-groups .fig>*{width:100%;max-width:400px}
+#page-groups .lab{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 11px/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--quiet)}
+#page-groups .lab .ex{flex:none;font:700 10px/1 var(--body);letter-spacing:.12em;padding:5px 9px;border-radius:999px;background:var(--ground);color:var(--quiet);border:1px solid var(--line)}
+#page-groups .deep .lab .ex{background:var(--deep)}
+#page-groups .scr{font-size:14px;border-radius:22px;border:1px solid #2A303C;box-shadow:0 30px 60px -28px rgba(0,0,0,.9);padding-bottom:.6em}
+#page-groups .scr.flush{padding-bottom:0}
+#page-groups .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px);align-items:start}
+#page-groups .trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,28px);align-items:start}
+#page-groups .pair .fig>*,#page-groups .trio .fig>*{max-width:none}
+#page-groups .after{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 48px}
+#page-groups .after .pts{margin-top:0}
+/* kind cards beside the chooser */
+#page-groups .kinds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#page-groups .kc{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 20px 18px;display:grid;gap:8px;align-content:start}
+#page-groups .kc h3{font:700 20px/1.2 var(--display);letter-spacing:-.02em}
+#page-groups .kc p{color:var(--dim);font-size:15px;line-height:1.5}
+#page-groups .kc .tlink{font-size:15px;min-height:44px;margin-bottom:-12px}
+#page-groups .kc .n{font:600 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+#page-groups .note{margin-top:18px;color:var(--quiet);font-size:14px;max-width:40em}
+/* app parts the home draws inside its own sections, redrawn here from the same values */
+#page-groups .app .t-pt{font:700 1.375em/1.15 var(--body);letter-spacing:-.01em;padding:.2em 1rem 0;padding-inline:1em}
+#page-groups .app .t-ln{font-size:.875em;color:var(--a-dim);padding:.35em 1em .7em;line-height:1.45}
+#page-groups .app .kk{margin:0 1em .5em;background:var(--a-surface);border:1px solid var(--a-line);border-radius:1em;padding:.7em .85em}
+#page-groups .app .kk b{display:block;font:600 1em/1.25 var(--body)}
+#page-groups .app .kk small{display:block;font-size:.8125em;color:var(--a-dim);line-height:1.35;margin-top:.15em}
+#page-groups .app .kk.on{border-color:#E3A82B;background:var(--a-goldGround)}
+#page-groups .app .kk.ic{display:grid;grid-template-columns:2.4em minmax(0,1fr) auto;gap:.75em;align-items:center}
+#page-groups .app .kk.ic>i{width:2.4em;height:2.4em;border-radius:50%;background:var(--a-goldGround);display:grid;place-items:center;color:#E3A82B}
+#page-groups .app .kk.ic>i svg{width:1.2em;height:1.2em}
+#page-groups .app .kk.ic>svg{width:1.25em;height:1.25em;color:var(--a-goldText)}
+#page-groups .app .gbar{display:flex;gap:.7em;align-items:center;padding:.85em 1em .8em;background:rgba(154,165,240,.16);border-bottom:2px solid #9AA5F0;margin-bottom:.4em}
+#page-groups .app .gbar b{display:block;font:700 1.125em/1.2 var(--display);color:#C9CFF7}
+#page-groups .app .gbar span:not(.a-av){display:block;font-size:.8125em;color:var(--a-dim)}
+#page-groups .app .gbar.mv{background:rgba(214,160,224,.14);border-bottom-color:#D2A0E0}
+#page-groups .app .gbar.mv b{color:#EBCDF2}
+#page-groups .app .key{font:700 .6875em/1 var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--a-dim);padding:.9em 1em .5em}
+#page-groups .app .pend{font-weight:700;color:var(--a-goldText)}
+#page-groups .app .pill{display:inline-flex;align-items:center;height:1.6em;padding:0 .6em;border-radius:99em;background:var(--a-well);font:700 .6875em/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--a-dim);margin-left:.45em;vertical-align:.15em}
+#page-groups .app .mem{display:grid;grid-template-columns:2.75em minmax(0,1fr);gap:.75em;align-items:center;padding:.6em 1em;position:relative}
+#page-groups .app .mem+.mem::before{content:"";position:absolute;top:0;left:4.75em;right:1em;height:1px;background:var(--a-line)}
+#page-groups .app .mem b{font:600 1.0625em/1.25 var(--body)}
+#page-groups .app .mem small{display:block;font-size:.875em;color:var(--a-dim);margin-top:.1em}
+#page-groups .app .a-reg.gone{opacity:.72}
+#page-groups .app .pbh{display:grid;gap:.2em;margin:.2em .8em .4em;padding:.9em 1em;border-radius:1.1em;background:var(--a-surface)}
+#page-groups .app .pbh small{font:700 .75em/1 var(--body);letter-spacing:.08em;color:var(--a-dim)}
+#page-groups .app .pbh b{font:700 1.1875em/1.2 var(--display);letter-spacing:-.02em;color:var(--a-text)}
+#page-groups .app .pbh span{font-size:.8125em;color:var(--a-dim)}
+#page-groups .app .pbr{display:flex;justify-content:space-between;gap:.8em;padding:.6em 1em;border-top:1px solid var(--a-line)}
+#page-groups .app .pbr b{display:block;font:600 .9375em/1.3 var(--body);color:var(--a-text)}
+#page-groups .app .pbr small{display:block;font-size:.78em;color:var(--a-dim)}
+#page-groups .app .pbr .r{text-align:right}
+#page-groups .app .pbr .r b{font-weight:700;font-size:.875em}
+#page-groups .app .pbr .in{color:var(--a-in)}
+#page-groups .app .pbr.wait{opacity:.62}
+#page-groups .app .pbr.wait small svg{width:1em;height:1em;vertical-align:-.15em;margin-right:.25em}
+#page-groups .app .ch{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:.6em;padding:.4em 1em .7em}
+#page-groups .app .ch .back,#page-groups .app .ch .more{width:1.4em;height:1.4em;color:var(--a-text)}
+#page-groups .app .ch .a-av{width:3em;height:3em}
+#page-groups .app .ch b{display:block;font:700 1.35em/1.1 var(--display);letter-spacing:-.02em;color:var(--a-text)}
+#page-groups .app .ch div span{display:block;font-size:.8125em;color:var(--a-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-groups .app .tabs{display:flex;gap:1.4em;padding:0 1.1em;border-bottom:1px solid var(--a-line);margin-bottom:.3em}
+#page-groups .app .tabs span{padding:.55em 0 .65em;font:600 .9375em/1 var(--body);color:var(--a-dim);white-space:nowrap}
+#page-groups .app .tabs span.on{color:var(--a-text);box-shadow:inset 0 -2px 0 #E3A82B}
+#page-groups .app .owes{display:grid;gap:.15em;padding:.6em 1em .8em}
+#page-groups .app .owes b{font:600 1em/1.3 var(--body);color:var(--a-text)}
+#page-groups .app .owes strong{font:700 1.25em/1.2 var(--body)}
+#page-groups .app .owes .in{color:var(--a-in)}#page-groups .app .owes .out{color:var(--a-out)}
+#page-groups .app .owes span{font-size:.875em;color:var(--a-dim)}
+#page-groups .app .sch{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.9em;align-items:baseline;padding:.55em 1em;border-top:1px solid var(--a-line);font-size:.9375em}
+#page-groups .app .key+.sch{border-top:0}
+#page-groups .app .sch .num{font-weight:700}
+#page-groups .app .sch em{font-style:normal;font:600 .8125em/1 var(--body);color:var(--a-quiet);min-width:4.8em;text-align:right}
+#page-groups .app .sch em.p{color:var(--a-in)}#page-groups .app .sch em.d{color:var(--a-goldText)}
+#page-groups .app .lf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5em;margin:.2em 1em .4em;background:var(--a-surface);border-radius:1.125em;padding:.9em 1em}
+#page-groups .app .lf small{display:block;font-size:.8125em;color:var(--a-dim)}
+#page-groups .app .lf b{display:block;font:700 1.0625em/1.2 var(--display);letter-spacing:-.02em;margin-top:.2em;white-space:nowrap}
+#page-groups .app .lt{font-size:.875em;color:var(--a-dim);padding:0 1em .5em}
+#page-groups .app .menu{margin:.4em .8em .2em;background:var(--a-surface);border-radius:1.125em;padding:.3em 0 .4em;box-shadow:0 2px 4px rgba(0,0,0,.4),0 20px 44px -10px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.06)}
+#page-groups .app .menu .mem{padding:.55em .9em}
+#page-groups .app .menu .mem.on{background:var(--a-lift)}
+#page-groups .app .chips{display:flex;gap:.5em;flex-wrap:wrap}
+#page-groups .app .chips span{display:inline-flex;align-items:center;height:2.25em;padding:0 .95em;border-radius:99em;background:var(--a-surface);border:1px solid var(--a-line);font:600 .875em/1 var(--body);color:var(--a-dim)}
+#page-groups .app .chips span.on{background:#E3A82B;border-color:#E3A82B;color:#0F1219}
+#page-groups .app .a-dp.on-in{background:rgba(99,192,139,.12);border-color:rgba(99,192,139,.45);color:var(--a-in)}
+#page-groups .app .a-amt.in{color:var(--a-in)}
+#page-groups .app .inv{margin:.5em 1em .3em;background:var(--a-surface);border-radius:1.125em;padding:1em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 6px 15px -6px rgba(0,0,0,.45)}
+#page-groups .app .inv .iw{display:flex;gap:.7em;align-items:center}
+#page-groups .app .inv .iw b{display:block;font:700 1.125em/1.2 var(--display)}
+#page-groups .app .inv .iw span:not(.a-av){display:block;font-size:.8125em;color:var(--a-dim)}
+#page-groups .app .inv p{font-size:.9375em;color:var(--a-dim);line-height:1.45;margin-top:.75em}
+#page-groups .app .inv .a-two{margin-top:.9em}
+#page-groups .app .a-cbtns svg{width:1.1em;height:1.1em}
+@media (max-width:1099px){#page-groups .trio{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  #page-groups .duo,#page-groups .duo.flip{grid-template-columns:minmax(0,1fr)}
+  #page-groups .duo.flip>.fig{order:2}
+  #page-groups .fig{justify-items:start}
+  #page-groups .after{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){#page-groups .pair,#page-groups .trio{grid-template-columns:minmax(0,1fr)}#page-groups .pair .fig>*,#page-groups .trio .fig>*{max-width:400px}}
+@media (max-width:560px){#page-groups .kinds{grid-template-columns:minmax(0,1fr)}#page-groups .scr{font-size:13px}}
+#page-groups main .tlink{min-height:44px}
+#page-groups .txt h3{margin-top:18px}
+
+#page-groups .app .a-debt .top span strong{color:inherit}
+#page-groups .cap{font-size:14px;line-height:1.45;color:var(--dim);max-width:none}
+#page-groups .chain{gap:clamp(36px,4.5vw,56px)}
+#page-groups .chain .scr{font-size:13px}
+#page-groups .chain .fig{position:relative}
+#page-groups .chain .fig+.fig::before{content:"\2192";content:"\2192"/"";position:absolute;left:calc(-1*clamp(36px,4.5vw,56px)/2 - .5em);top:42%;width:1em;color:var(--gold);font:700 24px/1 var(--display)}
+#page-groups .point{max-width:36em;margin:clamp(32px,4vw,48px) auto 0;text-align:center;font:600 clamp(18px,2vw,24px)/1.4 var(--display);color:var(--ink)}
+#page-groups .point b{color:var(--gold);font-weight:700}
+#page-groups .h2 em,#page-groups h1 em{font-style:normal;color:var(--gold)}
+#page-groups .sub.own{color:var(--ink);font-weight:600}
+#page-groups .picks{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+#page-groups .picks a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+#page-groups .picks a:hover{border-color:var(--gold)}
+#page-groups .pick-l{margin-top:22px;font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--quiet)}
+#page-groups .page-hero .cta-row{margin-top:22px}
+#page-groups .two-p{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,56px)}
+#page-groups .two-p p{color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6}
+#page-groups .two-p b{color:var(--ink);font-weight:600}
+#page-groups .two-p a,#page-groups .rest a:not(.tlink){color:var(--gold);display:inline-block;min-height:44px;line-height:44px}
+#page-groups .beta{margin-top:24px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--dim);font-size:15px;max-width:40em}
+#page-groups .beta b{color:var(--ink);margin-right:.4em}
+#page-groups .moment .sec-head{text-align:center;margin-inline:auto}
+#page-groups .moment .sec-head .lede{margin-inline:auto}
+#page-groups .moment .sec-head .h2{margin-inline:auto;max-width:18em}
+#page-groups .moment .scr{font-size:15px}
+#page-groups .moment .pair{max-width:1020px;margin-inline:auto}
+#page-groups .moment .trio{max-width:1240px;margin-inline:auto}
+#page-groups .moment .pts.one{margin:clamp(32px,4vw,48px) auto 0;max-width:38em}
+#page-groups .moment .beta{margin-inline:auto;text-align:center}
+#page-groups .rest{margin:24px auto 0;max-width:38em;color:var(--dim);font-size:16px;line-height:1.6;text-align:center}
+#page-groups section[id]{scroll-margin-top:72px}
+#page-groups .app .cbar{margin:.5em .875em .3em;height:6px;border-radius:99em;background:var(--a-well);overflow:hidden}
+#page-groups .app .cbar i{display:block;height:100%;background:#E3A82B;border-radius:99em}
+#page-groups .app .showall{text-align:right;padding:.6em .875em .2em;font:600 .8125em/1 var(--body);color:var(--a-goldText)}
+#page-groups .app .a-cyc .a-cbtns{padding:.6em .875em 0}
+@media (max-width:860px){#page-groups .chain{grid-template-columns:minmax(0,1fr)}#page-groups .chain .fig+.fig::before{content:"\2193";content:"\2193"/"";left:50%;top:calc(-1*clamp(36px,4.5vw,56px)/2 - .6em);transform:translateX(-50%)}#page-groups .chain .fig{justify-items:center}#page-groups .two-p{grid-template-columns:minmax(0,1fr)}}
+#page-groups .one-p p{color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;max-width:44em}#page-groups .one-p b{color:var(--ink);font-weight:600}
+#page-groups .sec>.wrap>.rest{margin-top:20px}
+@media (max-width:360px){#page-groups .app .a-quote b{white-space:normal;overflow:visible}#page-groups .app .ch div span{white-space:normal}}
+#page-groups .fig>.pcrop{width:fit-content;max-width:100%}
+#page-groups .fig>.pcrop.from-bottom{width:calc(22.5em + 18px)}
+#page-groups .fig:has(.pcrop){justify-items:center}
+#page-groups .fig:has(.pcrop)>.lab{max-width:318px}
+#page-groups .kept{display:grid;gap:18px;max-width:40em;justify-items:start}
+#page-groups .kept>p{color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6}
+#page-groups .kept .pts{margin-top:0}
+#page-groups .kept .pts li{color:var(--ink)}
+#page-groups .kept .roles b{color:var(--ink);font-weight:600}
+</style>
+<section class="page-hero" id="top">
+  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <div class="wrap split">
+    <div>
+      <p class="q">For groups</p>
+      <h1>The money you keep <em>together</em>.</h1>
+      <p class="sub">One record for the whole group. Each member confirms their own part.</p>
+      <p class="sub" data-new="1">A household, a savings group or SACCO, a cash round or a club, each with an account of its own. Every member reads the group’s records.</p>
+      <p class="pick-l" data-new="1">Pick yours</p>
+      <div class="picks"><a href="#household">Household</a><a href="#savings">Savings group</a><a href="#round">Cash round</a></div>
+      <div class="cta-row"><a class="btn btn-gold" href="/#get">Get the app</a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="fig" role="img" aria-label="Screen of the Okello Family household account: this month, UGX 1,485,000 out, with sealed records for school fees and rent.">
+      <p class="lab" aria-hidden="true">Okello Family · Activity</p>
+      <div class="pcrop" style="--crop-h:520px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
+        <div class="a-sbar"><span>9:41</span><i></i></div>
+        <div class="gbar"><span class="a-av ent" style="background:#9AA5F0;color:#141A33">OF</span><div><b>Okello Family</b><span>Household · Grace and Peter</span></div></div>
+        <div class="a-ov"><div class="a-ovh"><svg class="i"><use href="#i-chart"/></svg>This month<span>UGX</span></div><div class="a-ovc"><div><small>Money in</small><b class="in num">0</b></div><div><small>Money out</small><b class="out num">1,485,000</b></div></div><p class="a-ovl">3 records · all spaces</p></div>
+        <div class="a-row"><span class="a-av ent" style="background:#C9D3E6">SM</span><div><div class="a-rh"><b>St. Mary’s Primary</b><span class="a-tm">3 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Tuition &amp; School Fees</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 850,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
+        <div data-key="1" class="a-row"><span class="a-av">JA</span><div><div class="a-rh"><b>James Landlord</b><span class="a-tm">1 Oct</span></div><div class="a-rl">You paid</div><div class="a-quote"><b>Rent</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 600,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
+        <div class="a-row"><span class="a-av solo"><svg viewBox="-4 -4 86 108" aria-hidden="true"><path d="M0 88L0 0L78 0L78 88L68.25 100 L58.50 88L48.75 76 L39.00 88L29.25 100 L19.50 88L9.75 76 L0.00 88Z"/><path d="M18.7 34H59.3M18.7 55H59.3"/></svg></span><div><div class="a-rh"><b>Groceries</b><span class="m out"><svg class="i"><use href="#i-up"/></svg>UGX 35,000</span></div><div class="a-rl">Expense · 30 Sep</div></div></div>
+      </div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec deep" id="household"><div class="wrap">
+  <div class="sec-head"><p class="q">Is it for a home?</p><h2 class="h2" data-new="1">Household: one home, both partners on the <em>same side</em>.</h2></div>
+  <div class="one-p">
+    <p data-new="1">Grace and Peter keep the <b>Okello Family</b> together: the rent, the school fees, the groceries. They stand on the same side of every record, so the rent record is with James Landlord, and he is the one who signs it.</p>
+  </div>
+</div></section>
+
+<section class="sec moment" id="savings"><div class="wrap">
+  <div class="sec-head"><p class="q">How does a savings group keep its books?</p><h2 class="h2">A <em>register</em> for the group. A passbook for each member.</h2><p class="lede" data-new="1">For a savings group or SACCO: each member’s savings and shares, added up from the group’s own records.</p></div>
+  <div class="trio">
+    <div class="fig" role="img" aria-label="Screen of the Kisaasi Savers register: four members with their savings, one line from Ruth not yet confirmed, and a member who left listed apart.">
+      <p class="lab" aria-hidden="true">Kisaasi Savers · Register</p>
+      <div class="pcrop" style="--crop-h:430px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
+        <div class="a-sbar"><span>9:41</span><i></i></div>
+        <div class="a-abar"><b>Register</b></div>
+        <p class="key">Kisaasi Savers · 4 members</p>
+        <div class="a-reg"><span class="a-av ph ph-sarah">SA</span><div><div class="top"><b>Sarah</b><span class="num"><small>UGX</small>350,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></div></div>
+        <div class="a-reg"><span class="a-av ph ph-grace">GR</span><div><div class="top"><b>Grace</b><span class="num"><small>UGX</small>420,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></div></div>
+        <div class="a-reg"><span class="a-av ph ph-ruth">RU</span><div><div class="top"><b>Ruth</b><span class="num"><small>UGX</small>280,000</span></div><p class="ln"><b class="pend">+ UGX 50,000 · their own record · confirm</b></p></div></div>
+        <div data-key="1" class="a-reg"><span class="a-av ph ph-esther">ES</span><div><div class="top"><b>Esther</b><span class="num"><small>UGX</small>510,000</span></div><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></div></div>
+        <p class="key">Left the group</p>
+        <div class="a-reg gone"><span class="a-av">DA</span><div><div class="top"><b>Daniel</b><span class="num"><small>UGX</small>120,000</span></div><p class="ln">Left 14 Sep</p></div></div>
+      </div></div></div></div>
+    </div>
+    <div class="fig" role="img" aria-label="Screen of Sarah’s passbook: UGX 350,000 saved, with two entries that each show what they leave her savings at.">
+      <p class="lab" aria-hidden="true">Sarah’s phone · Passbook</p>
+      <div class="pcrop" style="--crop-h:375px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
+        <div class="a-sbar"><span>9:41</span><i></i></div>
+        <div class="ch"><svg class="i back"><use href="#i-cl"/></svg><span class="a-av ent">KS</span><div><b>Kisaasi Savers</b><span>Savings &amp; Investment · 4 members</span></div><svg class="i more"><use href="#i-more"/></svg></div>
+        <div class="tabs"><span>Activity</span><span>Records</span><span class="on">Passbook</span></div>
+        <div class="pbh"><small>MY SAVINGS</small><b class="num">UGX 350,000</b><span>Last entry 12 Oct</span></div>
+        <div class="pbr"><div><b>Member Savings</b><small>12 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 350,000</small></div></div>
+        <div data-key="1" class="pbr"><div><b>Member Savings</b><small>5 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 300,000</small></div></div>
+      </div></div></div></div>
+    </div>
+    <div class="fig" role="img" aria-label="Screen of a loan to Esther: UGX 500,000 lent, 200,000 paid back, 300,000 still owed, with the payment schedule.">
+      <p class="lab" aria-hidden="true">Kisaasi Savers · a loan to Esther</p>
+      <div class="pcrop" style="--crop-h:400px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
+        <div class="a-sbar"><span>9:41</span><i></i></div>
+        <div class="a-abar"><svg class="i back"><use href="#i-cl"/></svg><b>Loan</b></div>
+        <div class="mem"><span class="a-av ph ph-esther">ES</span><div><b>Esther</b><small>On Sawaza</small></div></div>
+        <div class="lf"><div><small>Lent</small><b class="num">500,000</b></div><div><small>Paid back</small><b class="num">200,000</b></div><div><small>Still owed</small><b class="num">300,000</b></div></div>
+        <p class="key">Schedule</p>
+        <div class="sch"><span>1 Sep</span><span class="num">UGX 100,000</span><em class="p">Paid</em></div>
+        <div class="sch"><span>1 Oct</span><span class="num">UGX 100,000</span><em class="p">Paid</em></div>
+        <div data-key="1" class="sch"><span>1 Nov</span><span class="num">UGX 100,000</span><em class="d">Next</em></div>
+        <div class="sch"><span>1 Dec</span><span class="num">UGX 100,000</span><em>Upcoming</em></div>
+        <div class="sch"><span>1 Jan</span><span class="num">UGX 100,000</span><em>Upcoming</em></div>
+      </div></div></div></div>
+    </div>
+  </div>
+  <ul class="pts one">
+    <li>The register is added up from the group’s own records, so nothing is typed in twice.</li>
+    <li data-new="1">Each member sees their own passbook, and every member reads the group’s records.</li>
+    <li data-new="1">Loans to members carry a schedule: the day of each payment, what was paid back and what is still owed.</li>
+  </ul>
+  <p class="beta" data-new="1"><b>In the beta</b> a group’s loans are open to its members to read, and one admin signs for the group on each of its records.</p>
+  <p class="rest" data-new="1">A group has an account of its own, apart from yours. Officers act for it from the profile picture menu, and records made that way are the group’s. Members, admins and the owner are its people, and each member confirms their own lines. Start one from your own account, choose the kind nearest yours, and invite members by phone number, by name only, or from people already on Sawaza. More in <a href="/help#groups">Help</a>.</p>
+</div></section>
+
+<section class="sec deep" id="round"><div class="wrap">
+  <div class="duo">
+    <div class="txt">
+      <p class="q">How does a cash round work?</p>
+      <h2 class="h2">One pot, paid in by everybody and out to one person a cycle.</h2>
+      <p>Everyone pays the same amount each cycle, one member takes the pot each turn, and it repeats until everyone has had theirs. Sawaza sends reminders before each due date and shows who has paid, at a glance.</p>
+      <p data-new="1">Each pay-in is a record the member signs, so the pot is counted from what was actually recorded. Sawaza records the money; it never collects it or pays it out.</p>
+    </div>
+    <div class="fig" role="img" aria-label="Screen of a cash round card: collecting for Grace, UGX 300,000 of 600,000 paid in, three members still to pay, two paid, and Show all 6.">
+      <p class="lab" aria-hidden="true">Kisaasi Savers · Round</p>
+      <div class="pcrop" style="--crop-h:620px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>
+        <div class="a-sbar"><span>9:41</span><i></i></div>
+        <div class="gbar mv"><span class="a-av ent" style="background:#D2A0E0;color:#141A33">KS</span><div><b>Kisaasi Savers</b><span>Cash round · 6 seats · weekly</span></div></div>
+        <div class="a-ch"><svg class="i"><use href="#i-cl"/></svg><span>Due Fri 30 Oct · Cycle 2 of 6</span><svg class="i"><use href="#i-cr"/></svg></div>
+        <div class="a-cyc"><h6>Collecting for Grace</h6><p class="meta">Paid in UGX 300,000 of 600,000</p><p class="meta">Pot holds UGX 300,000</p><div class="cbar"><i style="width:50%"></i></div><p class="a-key">Still to pay · 3</p>
+          <div class="a-seat"><span class="d">PE</span><span class="nm">Peter</span><span class="r"><b class="num">100,000</b><small>To pay</small></span></div>
+          <div class="a-seat"><span class="d">DA</span><span class="nm">Daniel</span><span class="r"><b class="num">100,000</b><small>To pay</small></span></div>
+          <div class="a-seat"><span class="d">ES</span><span class="nm">Esther</span><span class="r"><b class="num">100,000</b><small>To pay</small></span></div>
+          <p class="a-key">Paid · 2</p>
+          <div class="a-seat"><span class="d">RU</span><span class="nm">Ruth</span><span class="r"><b class="num"><svg class="i fill"><use href="#i-ver"/></svg>100,000</b><small class="paid">Paid</small></span></div>
+          <div class="a-seat"><span class="d">SA</span><span class="nm">Sarah</span><span class="r"><b class="num"><svg class="i fill"><use href="#i-ver"/></svg>100,000</b><small class="paid">Paid</small></span></div>
+          <p data-key="1" class="showall">Show all 6</p>
+          <div class="a-cbtns"><span class="a-btn">Record pay-ins</span></div>
+        </div>
+      </div></div></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec close" id="get"><div class="wrap">
+  <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <h2>Both sides. One record. <span>Signed.</span></h2>
+  <p>Write your first record and keep it to yourself until you choose to send it.</p>
+  <div class="badges">
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div>
+  <div class="next-row" style="justify-content:center"><a class="tlink" href="/businesses">For businesses <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+</div></section>
+</Base>

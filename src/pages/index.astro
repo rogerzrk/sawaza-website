@@ -1,0 +1,389 @@
+---
+import Base from '../layouts/Base.astro';
+import { SHOW_ANCHOR } from '../config';
+---
+<Base title="Sawaza: the record both sides keep" description="The record both sides keep. Write down money between you and the people you deal with, and both of you sign the same record.">
+<Fragment slot="rail">
+<nav class="rail" aria-label="Questions on this page">
+  <a href="#top" data-sec="top"><span>What is this?</span><i></i></a>
+  <a href="#problem" data-sec="problem"><span>Why would I need it?</span><i></i></a>
+  <a href="#how" data-sec="how"><span>How does it work?</span><i></i></a>
+  <a href="#doors" data-sec="doors"><span>Is it for me?</span><i></i></a>
+  <a href="#trust" data-sec="trust"><span>Why trust it?</span><i></i></a>
+  <a href="#get" data-sec="get"><span>How do I start?</span><i></i></a>
+</nav>
+</Fragment>
+<!-- 1 Hero -->
+<section class="hero" id="top">
+  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <div class="wrap">
+    <div>
+      <p class="q">In beta in Uganda</p>
+      <h1>The record both sides <em>keep.</em></h1>
+      <p class="sub">You paid your landlord <b class="num">UGX 450,000</b> for October. Sawaza keeps one record you both sign, so you're on the same page.</p>
+      <div class="cta-row"><div class="badges hero-badges">
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div></div>
+      <ul class="aud" aria-label="Who Sawaza is for" data-new="1"><li><a href="#door-you">Personal</a></li><li><a href="#door-grp">Groups</a></li><li><a href="#door-biz">Businesses</a></li></ul>
+    </div>
+    <div class="stage-col">
+    <div class="stage sealed" id="stage" role="img" aria-label="Sarah's thread with David and David's thread with Sarah, each holding the same October rent record. David confirms it and both phones show it sealed.">
+      <div class="ph-wrap">
+        <p class="who">Sarah's phone</p>
+        <div class="pc-hero"><div class="phone"><div class="screen app thr"><div class="notch"></div><div class="a-sbar"><span>9:41</span><i></i></div><div class="t-bar"><svg class="i t-back"><use href="#i-cl"/></svg><span class="a-av ph ph-david">DA</span><div class="t-who"><b>David Landlord</b><span>On Sawaza · +256 772 410 118</span></div></div><div class="fm3-tabs"><span class="on">Activity</span><span>Records</span><span>Bills &amp; Debts</span></div><div class="t-heads"><span>David Landlord</span><span>You</span></div><div class="t-list"><p class="t-day">1 Aug</p><div class="t-run t-r"><p class="t-lab">You</p><div class="t-b t-rb"><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">450,000</span></span><span class="t-at">8:47 am</span></div><p class="t-line">You paid · Rent</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · David · 9:02 am</i></span></div></div><p class="t-day">1 Sep</p><div class="t-run t-r"><div class="t-b t-rb"><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">450,000</span></span><span class="t-at">9:12 am</span></div><p class="t-line">You paid · Rent</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · David · 9:40 am</i></span></div></div><p class="t-day">14 Sep</p><div class="t-run t-l"><p class="t-lab">David Landlord</p><div class="t-b t-lb"><div class="t-top"><span class="t-fig m in"><svg class="i"><use href="#i-down"/></svg><span class="num">60,000</span></span><span class="t-at">4:05 pm</span></div><p class="t-line">Paid you · Refunds</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · David · 4:20 pm</i></span></div></div><p class="t-day">1 Oct</p><div class="t-run t-r"><p class="t-lab">You</p><div class="t-b t-rb"><i class="tie tie-r" id="tieA"></i><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">450,000</span></span><span class="t-at">10:21 am</span></div><p class="t-line">You paid · Rent</p><span class="s-wait"><span class="t-pill t-w"><svg class="i"><use href="#i-clock"/></svg><b>Awaiting David</b></span></span><span class="s-seal"><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · David · 10:24 am</i></span></span></div></div></div><div class="a-fab t-fab"><svg class="i"><use href="#i-plus"/></svg></div></div></div></div>
+      </div>
+      <div class="ph-wrap">
+        <p class="who">David's phone</p>
+        <div class="pc-hero"><div class="phone"><div class="screen app thr"><div class="notch"></div><div class="a-sbar"><span>9:41</span><i></i></div><div class="t-bar"><svg class="i t-back"><use href="#i-cl"/></svg><span class="a-av ph ph-sarah">SA</span><div class="t-who"><b>Sarah</b><span>On Sawaza · +256 701 552 093</span></div></div><div class="fm3-tabs"><span class="on">Activity</span><span>Records</span><span>Bills &amp; Debts</span></div><div class="t-heads"><span>Sarah</span><span>You</span></div><div class="t-list"><p class="t-day">1 Aug</p><div class="t-run t-l"><p class="t-lab">Sarah</p><div class="t-b t-lb"><div class="t-top"><span class="t-fig m in"><svg class="i"><use href="#i-down"/></svg><span class="num">450,000</span></span><span class="t-at">8:47 am</span></div><p class="t-line">Paid you · Rent</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Sarah · 9:02 am</i></span></div></div><p class="t-day">1 Sep</p><div class="t-run t-l"><div class="t-b t-lb"><div class="t-top"><span class="t-fig m in"><svg class="i"><use href="#i-down"/></svg><span class="num">450,000</span></span><span class="t-at">9:12 am</span></div><p class="t-line">Paid you · Rent</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Sarah · 9:40 am</i></span></div></div><p class="t-day">14 Sep</p><div class="t-run t-r"><p class="t-lab">You</p><div class="t-b t-rb"><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">60,000</span></span><span class="t-at">4:05 pm</span></div><p class="t-line">You paid · Refunds</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Sarah · 4:20 pm</i></span></div></div><p class="t-day">1 Oct</p><div class="t-run t-l"><p class="t-lab">Sarah</p><div class="t-b t-lb"><i class="tie tie-l" id="tieB"></i><div class="t-top"><span class="t-fig m in hold-til-seal"><svg class="i"><use href="#i-down"/></svg><span class="num">450,000</span></span><span class="t-at">10:21 am</span></div><p class="t-line">Paid you · Rent</p><span class="s-wait"><span class="t-pill t-rev"><svg class="i fill"><use href="#i-ver"/></svg><b>Review</b></span></span><span class="s-seal"><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Sarah · 10:24 am</i></span></span></div></div></div><div class="a-fab t-fab"><svg class="i"><use href="#i-plus"/></svg></div><div class="a-scrim hscrim"></div>
+          <div class="a-sheet hsheet" aria-hidden="true"><span class="a-grab"></span>
+            <div class="a-sht"><b>Confirm this record</b><svg class="i"><use href="#i-x"/></svg></div>
+            <div class="a-body"><p class="a-sent">Sarah sent you a record to confirm · 1 Oct</p><p class="a-hl">Sarah paid you UGX 450,000</p><div class="a-under"><span class="a-cap">ON YOUR BOOKS UNDER</span><span><b>Rent</b><a>Change</a></span></div></div>
+            <div class="a-foot"><span class="a-btn" id="confirmBtn">Confirm, I received it</span><div class="a-two"><span class="a-ob">Something's wrong</span><span class="a-ob">Later</span></div></div>
+          </div></div></div></div>
+      </div>
+      <svg class="thread" id="thread" aria-hidden="true"><path id="threadPath" d=""/><circle id="tA" r="3.5"/><circle id="tB" r="3.5"/></svg>
+    </div>
+      <p class="chip-cap"><span class="cc"><svg class="cver" aria-hidden="true"><use href="#i-ver"/></svg><span data-new="1"><b>Sawa. Sealed.</b> means you both confirmed it.</span></span><button class="hpause" id="hpause" type="button" aria-label="Pause animation" hidden><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 Problem -->
+<section class="sec problem deep ruled" id="problem"><div class="wrap">
+  <div class="grid">
+    <div class="book reveal" aria-label="The landlord's rent book. August, September and November are written in. October is blank.">
+      <div class="page">
+        <div class="page-h"><span>Rent book</span><span>Sarah, House 4</span></div>
+        <div class="entry"><span class="m">Aug</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry"><span class="m">Sep</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry missing"><span class="m">Oct</span><span></span><span></span></div>
+        <div class="entry"><span class="m">Nov</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry"><span class="m">Dec</span><span></span><span></span></div>
+        <div class="page-sign"><span>Landlord's hand</span>
+          <svg viewBox="0 0 84 30" aria-hidden="true"><path d="M3 22c8-14 12-16 14-8s-2 12 4 4 8-14 10-6 4 10 12 2 10-6 14-2 8 8 22-6" fill="none" stroke="#22408C" stroke-width="2" stroke-linecap="round"/></svg></div>
+      </div>
+      <span class="note-q" aria-hidden="true">?</span>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:0"><p class="q">Why would I need it?</p><h2 class="h2">Whoever keeps the book keeps the history.</h2></div>
+      <div class="story">
+        <div class="beat"><span class="dot">Oct</span><p>You pay your landlord <span class="num">UGX 450,000</span> for October, in cash.</p></div>
+        <div class="beat"><span class="dot">Dec</span><p>In December he says October never came.</p></div>
+        <div class="beat last"><span class="dot">Now</span><p>Your word against his, and his receipt book, in his handwriting.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="lbl" style="margin-top:clamp(56px,7vw,88px)">What people use today</p>
+  <div class="today2">
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="nb"><p>David 450k</p><p>Oct, cash</p><p>Nov, cash</p></div></div><p class="nm">A notebook</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="mini-wa">Sent the October rent to you<small>10:21 ✓✓</small></div></div><p class="nm">A WhatsApp message</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="cloud">I think I paid him&hellip;</div></div><p class="nm">Memory</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="sms"><b>MOBILE MONEY</b>You have sent UGX 450,000 to DAVID J. on 01/10/2026.</div></div><p class="nm">A Mobile Money SMS</p></div>
+  </div>
+  <p class="today-cap" data-new="1">A notebook, a message and memory are written by one side. A Mobile Money SMS comes from the network. Neither of you signed any of them.</p>
+
+  <p class="closer-line">Only one side ever gets to write it down. <span data-new="1">With Sawaza, both sides hold it, signed.</span></p>
+</div></section>
+
+<!-- 3 How it works -->
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><p class="q">How does it work?</p><h2 class="h2">From a payment to a sealed record, in four steps.</h2></div>
+  <div class="how">
+    <div class="how-stick" aria-hidden="true"><div class="hphone"><div class="hscreen" id="howScreen"></div></div><ol class="how-dots"><li class="on"></li><li></li><li></li><li></li></ol></div>
+    <ol class="hsteps">
+      <li class="hstep" data-step="1">
+        <div class="shot" aria-hidden="true"><div class="pcrop" style="--crop-h:272px;--crop-y:0px"><div class="hphone"><div class="hscreen"><div class="app" data-s="1"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div>
+  <div class="a-abar"><svg class="wm" viewBox="684 30 3330 500" aria-hidden="true"><g fill="currentColor" transform="translate(684.969 520.837) scale(1 -1)"><path d="M227.375 -11.875Q185.125 -11.875 144.75 -0.8125Q104.375 10.25 70.1875 30.3125Q36.0 50.375 11.5 78.0L93.875 161.5Q118.5 134.375 151.375 120.0625Q184.25 105.75 223.75 105.75Q253.25 105.75 268.6875 114.3125Q284.125 122.875 284.125 139.0Q284.125 158.0 266.6875 168.125Q249.25 178.25 221.875 185.8125Q194.5 193.375 164.125 202.5625Q133.75 211.75 106.1875 227.625Q78.625 243.5 61.375 271.4375Q44.125 299.375 44.125 343.5Q44.125 389.875 67.5 424.1875Q90.875 458.5 133.75 477.8125Q176.625 497.125 235.0 497.125Q295.625 497.125 346.3125 476.0625Q397.0 455 429.25 412.875L346.5 329.375Q324.0 356.125 295.875 367.8125Q267.75 379.5 238.375 379.5Q210.625 379.5 196.5625 371.1875Q182.5 362.875 182.5 348.0Q182.5 331.375 199.75 321.875Q217.0 312.375 244.375 305.125Q271.75 297.875 301.9375 288.1875Q332.125 278.5 359.5 261.4375Q386.875 244.375 404.125 216.125Q421.375 187.875 421.375 142.75Q421.375 71.625 369.0 29.875Q316.625 -11.875 227.375 -11.875ZM689.25 -10.0Q622.75 -10.0 570.0625 23.0Q517.375 56.0 487.0625 112.875Q456.75 169.75 456.75 241.625Q456.75 314.125 487.0625 371.1875Q517.375 428.25 570.0625 461.375Q622.75 494.5 689.25 494.5Q739.75 494.5 780.0 474.375Q820.25 454.25 845.0625 418.875Q869.875 383.5 872.5 338.25V146.25Q869.875 101.0 845.375 65.625Q820.875 30.25 780.3125 10.125Q739.75 -10.0 689.25 -10.0ZM717.0 119.5Q769.0 119.5 800.875 153.9375Q832.75 188.375 832.75 242.25Q832.75 278.5 818.375 306.0625Q804.0 333.625 778.0 349.3125Q752.0 365 717.375 365.0Q683.375 365.0 657.375 349.3125Q631.375 333.625 616.3125 305.875Q601.25 278.125 601.25 242.25Q601.25 206.375 616.125 178.625Q631.0 150.875 657.1875 135.1875Q683.375 119.5 717.0 119.5ZM826.125 0.0V130.125L848.125 248.25L826.125 365.375V484.5H966.5V0.0ZM1181.625 0.0 1007.375 484.5H1148.375L1259.25 132.125L1217.375 131.125L1335.375 484.5H1444.75L1563.125 131.125L1520.875 132.125L1632.5 484.5H1773.5L1599.25 0.0H1489.125L1371.875 335.0H1409.375L1291.0 0ZM2017.25 -10.0Q1950.75 -10.0 1898.0625 23.0Q1845.375 56.0 1815.0625 112.875Q1784.75 169.75 1784.75 241.625Q1784.75 314.125 1815.0625 371.1875Q1845.375 428.25 1898.0625 461.375Q1950.75 494.5 2017.25 494.5Q2067.75 494.5 2108.0 474.375Q2148.25 454.25 2173.0625 418.875Q2197.875 383.5 2200.5 338.25V146.25Q2197.875 101.0 2173.375 65.625Q2148.875 30.25 2108.3125 10.125Q2067.75 -10.0 2017.25 -10.0ZM2045.0 119.5Q2097.0 119.5 2128.875 153.9375Q2160.75 188.375 2160.75 242.25Q2160.75 278.5 2146.375 306.0625Q2132.0 333.625 2106.0 349.3125Q2080.0 365 2045.375 365.0Q2011.375 365.0 1985.375 349.3125Q1959.375 333.625 1944.3125 305.875Q1929.25 278.125 1929.25 242.25Q1929.25 206.375 1944.125 178.625Q1959.0 150.875 1985.1875 135.1875Q2011.375 119.5 2045.0 119.5ZM2154.125 0.0V130.125L2176.125 248.25L2154.125 365.375V484.5H2294.5V0.0ZM2353.5 82.125 2603.5 402.375H2775.25L2525.25 82.125ZM2353.5 0.0V82.125L2459.875 121.0H2769.25V0.0ZM2371.125 363.5V484.5H2775.25V402.375L2668.875 363.5ZM3041.25 -10.0Q2974.75 -10.0 2922.0625 23.0Q2869.375 56.0 2839.0625 112.875Q2808.75 169.75 2808.75 241.625Q2808.75 314.125 2839.0625 371.1875Q2869.375 428.25 2922.0625 461.375Q2974.75 494.5 3041.25 494.5Q3091.75 494.5 3132.0 474.375Q3172.25 454.25 3197.0625 418.875Q3221.875 383.5 3224.5 338.25V146.25Q3221.875 101.0 3197.375 65.625Q3172.875 30.25 3132.3125 10.125Q3091.75 -10.0 3041.25 -10.0ZM3069.0 119.5Q3121.0 119.5 3152.875 153.9375Q3184.75 188.375 3184.75 242.25Q3184.75 278.5 3170.375 306.0625Q3156.0 333.625 3130.0 349.3125Q3104.0 365 3069.375 365.0Q3035.375 365.0 3009.375 349.3125Q2983.375 333.625 2968.3125 305.875Q2953.25 278.125 2953.25 242.25Q2953.25 206.375 2968.125 178.625Q2983.0 150.875 3009.1875 135.1875Q3035.375 119.5 3069.0 119.5ZM3178.125 0.0V130.125L3200.125 248.25L3178.125 365.375V484.5H3318.5V0.0Z"/></g></svg><span class="grow"></span><span class="a-av s36 ph ph-sarah">SA</span></div>
+  <div class="a-ov"><div class="a-ovh">THIS MONTH<span>UGX</span></div><div class="a-ovc"><div><small>Money in</small><b class="in num">0</b></div><div><small>Money out</small><b class="out num">35,000</b></div></div></div>
+  <div class="a-scrim"></div>
+  <div class="a-sheet"><i class="a-grab"></i>
+    <div class="a-sht"><b>New record</b><svg class="i"><use href="#i-x"/></svg></div>
+    <div class="a-body">
+      <div class="a-dir"><span class="a-dp on-out"><svg class="i"><use href="#i-up"/></svg>I paid</span><span class="a-dp"><span class="n" style="display:flex"><svg class="i"><use href="#i-down"/></svg></span>I received</span><i class="a-vd"></i><span class="a-dp more">More<svg class="i"><use href="#i-cd"/></svg></span></div>
+      <div class="a-f"><div class="a-cap">AMOUNT <em>Required</em></div><div class="a-amt out num">450,000</div></div>
+      <div class="a-f"><div class="a-cap">WHO <em class="opt">optional</em></div><div class="a-party"><span class="a-av s28 ph ph-david">DA</span><div><b>David Landlord</b><small>On Sawaza</small></div><svg class="i x"><use href="#i-x"/></svg></div></div>
+      <div class="a-f"><div class="a-cap">WHAT WAS IT?</div><div class="a-val"><span>Rent</span><span class="a-pillc">Items</span></div></div>
+      <div class="a-f a-goes"><div><div class="a-cap">PAID FROM</div><b>Mobile money</b></div><svg class="i"><use href="#i-cr"/></svg></div>
+      <p class="a-attach">Attach a receipt or photo</p>
+    </div>
+    <div class="a-foot">
+      <div class="a-share"><svg class="i"><use href="#i-ppl"/></svg><div><b>Send to David Landlord</b><small>They will be asked to confirm it</small></div><span class="a-sw"></span></div>
+      <span class="a-btn">Record and send</span>
+    </div>
+  </div>
+</div></div></div></div></div>
+        <div class="htext">
+          <p class="hn"><i>1</i>On Sarah's phone</p>
+          <h3>Write it.</h3>
+          <p>Who, how much and what for. A phone contact, a number, or just a name.</p>
+        </div>
+      </li>
+      <li class="hstep" data-step="2">
+        <div class="shot" aria-hidden="true"><div class="pcrop" style="--crop-h:342px;--crop-y:0px"><div class="hphone"><div class="hscreen"><div class="app a-wall" data-s="2"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div>
+  <p class="a-clock num">10:22</p><p class="a-date">Thursday, 1 October</p>
+  <div class="a-note"><div class="ap"><svg class="" viewBox="0 0 557 557" aria-hidden="true"><g fill="#E3A82B"><path d="M63.180,384.799 L132.329,384.799 A102.729,106.211 0 0 0 235.058,278.587 A189.788,186.305 0 0 1 424.846,92.282 L451.650,92.282 A13.929,13.929 0 0 0 460.756,67.815 A278.587,278.587 0 0 0 6.777,339.664 A57.807,57.807 0 0 0 63.180,384.799 Z"/><path d="M493.995,172.376 L424.846,172.376 A102.729,106.211 0 0 0 322.117,278.587 A189.788,186.305 0 0 1 132.329,464.893 L105.525,464.893 A13.929,13.929 0 0 0 96.419,489.360 A278.587,278.587 0 0 0 550.398,217.511 A57.807,57.807 0 0 0 493.995,172.376 Z"/></g></svg><span>Sawaza · now</span></div><b>Sarah recorded a payment with you</b><p>UGX 450,000 · Rent</p><p class="act">Confirm it</p></div>
+</div></div></div></div></div>
+        <div class="htext">
+          <p class="hn"><i>2</i>On David's phone</p>
+          <h3>Send it.</h3>
+          <p>They get it in Sawaza, or a link if they are not on it yet. <strong>Don't wait for their book. Start yours.</strong></p>
+        </div>
+      </li>
+      <li class="hstep" data-step="3">
+        <div class="shot" aria-hidden="true"><div class="pcrop from-bottom" style="--crop-h:325px"><div class="hphone"><div class="hscreen"><div class="app" data-s="3"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div>
+  <div class="a-abar"><svg class="wm" viewBox="684 30 3330 500" aria-hidden="true"><g fill="currentColor" transform="translate(684.969 520.837) scale(1 -1)"><path d="M227.375 -11.875Q185.125 -11.875 144.75 -0.8125Q104.375 10.25 70.1875 30.3125Q36.0 50.375 11.5 78.0L93.875 161.5Q118.5 134.375 151.375 120.0625Q184.25 105.75 223.75 105.75Q253.25 105.75 268.6875 114.3125Q284.125 122.875 284.125 139.0Q284.125 158.0 266.6875 168.125Q249.25 178.25 221.875 185.8125Q194.5 193.375 164.125 202.5625Q133.75 211.75 106.1875 227.625Q78.625 243.5 61.375 271.4375Q44.125 299.375 44.125 343.5Q44.125 389.875 67.5 424.1875Q90.875 458.5 133.75 477.8125Q176.625 497.125 235.0 497.125Q295.625 497.125 346.3125 476.0625Q397.0 455 429.25 412.875L346.5 329.375Q324.0 356.125 295.875 367.8125Q267.75 379.5 238.375 379.5Q210.625 379.5 196.5625 371.1875Q182.5 362.875 182.5 348.0Q182.5 331.375 199.75 321.875Q217.0 312.375 244.375 305.125Q271.75 297.875 301.9375 288.1875Q332.125 278.5 359.5 261.4375Q386.875 244.375 404.125 216.125Q421.375 187.875 421.375 142.75Q421.375 71.625 369.0 29.875Q316.625 -11.875 227.375 -11.875ZM689.25 -10.0Q622.75 -10.0 570.0625 23.0Q517.375 56.0 487.0625 112.875Q456.75 169.75 456.75 241.625Q456.75 314.125 487.0625 371.1875Q517.375 428.25 570.0625 461.375Q622.75 494.5 689.25 494.5Q739.75 494.5 780.0 474.375Q820.25 454.25 845.0625 418.875Q869.875 383.5 872.5 338.25V146.25Q869.875 101.0 845.375 65.625Q820.875 30.25 780.3125 10.125Q739.75 -10.0 689.25 -10.0ZM717.0 119.5Q769.0 119.5 800.875 153.9375Q832.75 188.375 832.75 242.25Q832.75 278.5 818.375 306.0625Q804.0 333.625 778.0 349.3125Q752.0 365 717.375 365.0Q683.375 365.0 657.375 349.3125Q631.375 333.625 616.3125 305.875Q601.25 278.125 601.25 242.25Q601.25 206.375 616.125 178.625Q631.0 150.875 657.1875 135.1875Q683.375 119.5 717.0 119.5ZM826.125 0.0V130.125L848.125 248.25L826.125 365.375V484.5H966.5V0.0ZM1181.625 0.0 1007.375 484.5H1148.375L1259.25 132.125L1217.375 131.125L1335.375 484.5H1444.75L1563.125 131.125L1520.875 132.125L1632.5 484.5H1773.5L1599.25 0.0H1489.125L1371.875 335.0H1409.375L1291.0 0ZM2017.25 -10.0Q1950.75 -10.0 1898.0625 23.0Q1845.375 56.0 1815.0625 112.875Q1784.75 169.75 1784.75 241.625Q1784.75 314.125 1815.0625 371.1875Q1845.375 428.25 1898.0625 461.375Q1950.75 494.5 2017.25 494.5Q2067.75 494.5 2108.0 474.375Q2148.25 454.25 2173.0625 418.875Q2197.875 383.5 2200.5 338.25V146.25Q2197.875 101.0 2173.375 65.625Q2148.875 30.25 2108.3125 10.125Q2067.75 -10.0 2017.25 -10.0ZM2045.0 119.5Q2097.0 119.5 2128.875 153.9375Q2160.75 188.375 2160.75 242.25Q2160.75 278.5 2146.375 306.0625Q2132.0 333.625 2106.0 349.3125Q2080.0 365 2045.375 365.0Q2011.375 365.0 1985.375 349.3125Q1959.375 333.625 1944.3125 305.875Q1929.25 278.125 1929.25 242.25Q1929.25 206.375 1944.125 178.625Q1959.0 150.875 1985.1875 135.1875Q2011.375 119.5 2045.0 119.5ZM2154.125 0.0V130.125L2176.125 248.25L2154.125 365.375V484.5H2294.5V0.0ZM2353.5 82.125 2603.5 402.375H2775.25L2525.25 82.125ZM2353.5 0.0V82.125L2459.875 121.0H2769.25V0.0ZM2371.125 363.5V484.5H2775.25V402.375L2668.875 363.5ZM3041.25 -10.0Q2974.75 -10.0 2922.0625 23.0Q2869.375 56.0 2839.0625 112.875Q2808.75 169.75 2808.75 241.625Q2808.75 314.125 2839.0625 371.1875Q2869.375 428.25 2922.0625 461.375Q2974.75 494.5 3041.25 494.5Q3091.75 494.5 3132.0 474.375Q3172.25 454.25 3197.0625 418.875Q3221.875 383.5 3224.5 338.25V146.25Q3221.875 101.0 3197.375 65.625Q3172.875 30.25 3132.3125 10.125Q3091.75 -10.0 3041.25 -10.0ZM3069.0 119.5Q3121.0 119.5 3152.875 153.9375Q3184.75 188.375 3184.75 242.25Q3184.75 278.5 3170.375 306.0625Q3156.0 333.625 3130.0 349.3125Q3104.0 365 3069.375 365.0Q3035.375 365.0 3009.375 349.3125Q2983.375 333.625 2968.3125 305.875Q2953.25 278.125 2953.25 242.25Q2953.25 206.375 2968.125 178.625Q2983.0 150.875 3009.1875 135.1875Q3035.375 119.5 3069.0 119.5ZM3178.125 0.0V130.125L3200.125 248.25L3178.125 365.375V484.5H3318.5V0.0Z"/></g></svg><span class="grow"></span><span class="a-av s36 ph ph-david">DA</span></div>
+  <div class="a-row wash"><span class="a-av ph ph-sarah">SA</span><div><div class="a-rh"><b>Sarah</b><span class="a-tm">10:21 am</span></div><div class="a-rl">Paid you</div><div class="a-quote"><b>Rent</b><span class="m in held"><svg class="i"><use href="#i-down"/></svg>UGX 450,000</span></div><div class="a-rf"><span class="gt">Awaiting you</span><span class="a-review">Review</span></div></div></div>
+  <div class="a-scrim"></div>
+  <div class="a-sheet"><i class="a-grab"></i>
+    <div class="a-sht"><b>Confirm this record</b><svg class="i"><use href="#i-x"/></svg></div>
+    <div class="a-body">
+      <div><p class="a-sent">Sarah sent you a record to confirm · 1 Oct</p><p class="a-hl">Sarah paid you UGX 450,000</p></div>
+      <div class="a-strip">
+        <div class="cs-p"><span class="a-av s56 ph ph-david">DA</span><b>You</b></div>
+        <div class="cs-flow"><b class="num">450,000</b><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5H98M2 5l7-4M2 5l7 4" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg><small>paid · UGX</small></div>
+        <div class="cs-p"><span class="a-av s56 ph ph-sarah">SA</span><b>Sarah</b><small>+256 701 552 093</small></div>
+      </div>
+      <div class="a-under"><span class="a-cap">ON YOUR BOOKS UNDER</span><span><b>Rent</b><a>Change</a></span></div>
+      <p class="a-att">Confirming says this happened as recorded.</p>
+    </div>
+    <div class="a-foot">
+      <div class="a-consent">If you confirm, you'll both hold this record, numbers included.</div>
+      <span class="a-btn">Confirm, I received it</span>
+      <div class="a-two"><span class="a-ob">Something's wrong</span><span class="a-ob">Later</span></div>
+    </div>
+  </div>
+</div></div></div></div></div>
+        <div class="htext">
+          <p class="hn"><i>3</i>On David's phone</p>
+          <h3>They answer.</h3>
+          <p>Confirm, “The details are wrong”, or “This isn't mine”. If you still disagree, both versions are kept. <strong>Sawaza is a witness, not a judge.</strong></p>
+        </div>
+      </li>
+      <li class="hstep" data-step="4">
+        <div class="shot" aria-hidden="true"><div class="pcrop" style="--crop-h:300px;--crop-y:0px"><div class="hphone"><div class="hscreen"><div class="app" data-s="4"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div>
+  <div class="a-abar"><svg class="i back"><use href="#i-cl"/></svg><b>Record</b><span class="grow"></span><svg class="i ic"><use href="#i-share"/></svg><svg class="i ic"><use href="#i-more"/></svg></div>
+  <div class="a-cert">
+    <div class="hd"><span><svg class="" viewBox="0 0 557 557" aria-hidden="true"><g fill="#E3A82B"><path d="M63.180,384.799 L132.329,384.799 A102.729,106.211 0 0 0 235.058,278.587 A189.788,186.305 0 0 1 424.846,92.282 L451.650,92.282 A13.929,13.929 0 0 0 460.756,67.815 A278.587,278.587 0 0 0 6.777,339.664 A57.807,57.807 0 0 0 63.180,384.799 Z"/><path d="M493.995,172.376 L424.846,172.376 A102.729,106.211 0 0 0 322.117,278.587 A189.788,186.305 0 0 1 132.329,464.893 L105.525,464.893 A13.929,13.929 0 0 0 96.419,489.360 A278.587,278.587 0 0 0 550.398,217.511 A57.807,57.807 0 0 0 493.995,172.376 Z"/></g></svg>Sawaza</span><em>RECORD · A1B2 C3D4</em></div>
+    <p class="it">Rent</p>
+    <p class="am num"><small>UGX</small>450,000</p>
+    <p class="wd">Four hundred and fifty thousand shillings</p>
+    <p class="se">Sarah paid David</p>
+    <p class="hp">Paid on 1 Oct 2026</p>
+    <div class="a-sig">
+      <div class="col"><span class="a-av ph ph-sarah">SA</span><b>+256 701 552 093</b><small>On Sawaza</small><span>Sarah</span><small>Self-declared</small></div>
+      <div class="vb">paid<svg viewBox="0 0 36 10" aria-hidden="true"><path d="M1 5h33M28 1l6 4-6 4" fill="none" stroke="#0D7373" stroke-width="1.6"/></svg></div>
+      <div class="col"><span class="a-av ph ph-david">DA</span><b>+256 772 410 118</b><small>On Sawaza</small><span>David</span><small>Self-declared</small></div>
+    </div>
+    <p class="hl2">Recorded by Sarah<br>Confirmed by David</p>
+    <p class="seal">Sealed · both sides hold this record, signed</p>
+    <p class="fp">Signed · 3FA9 1C0E</p>
+    <div class="dr"></div>
+  </div>
+  <p class="a-sec">HISTORY</p>
+  <div class="a-rungs">
+    <div class="a-rung"><i></i><div><b>You recorded it</b><span>Signed on this phone when it was written</span><span>1 Oct 2026, 10:21 am</span></div></div>
+    <div class="a-rung"><i class="g"></i><div><b>David Landlord confirmed it</b><span>Signed on their phone, the same record</span><span>1 Oct 2026, 10:24 am</span></div></div>
+    <div class="a-rung"><i class="t"></i><div><b>Sealed</b><span>Both of you signed the same record.</span></div></div>
+  </div>
+</div></div></div></div></div>
+        <div class="htext">
+          <p class="hn"><i>4</i>On both phones</p>
+          <h3 class="h-seal"><svg class="cver" aria-hidden="true"><use href="#i-ver"/></svg><span>Sawa. Sealed.</span></h3>
+          <p data-new="1">You both signed. You both hold the same copy, on the same page.</p>
+          <div class="side" aria-hidden="true"><div class="app" style="max-width:340px">
+  <div class="a-row"><span class="a-av ph ph-sarah">SA</span><div><div class="a-rh"><b>Sarah</b><span class="a-tm">1 Oct</span></div><div class="a-rl">Paid you</div><div class="a-quote"><b>Rent</b><span class="m in"><svg class="i"><use href="#i-down"/></svg>UGX 450,000</span></div><div class="a-rf"><svg class="i fill seal"><use href="#i-ver"/></svg><span class="sl">Sawa. Sealed.</span></div></div></div>
+</div></div>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <p class="after-steps"><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></p>
+</div></section>
+
+<!-- 4 Doors -->
+<section class="sec ruled" id="doors"><div class="wrap">
+  <div class="sec-head"><p class="q">Is it for me?</p><h2 class="h2">Made for the money you already share.</h2><p class="fm3-intro">Sarah’s October, in three records.</p></div>
+  <div class="fm3-pin">
+    <div class="fm3-blocks">
+      <article class="fm3-blk on" data-k="you" id="door-you">
+        <div class="fm3-hd"><p class="fm3-tag">Personal</p><h3 class="fm3-title">You and the people you deal with</h3><p class="fm3-cap"><span class="when">12 Oct</span><span data-new="1">Sarah lends Grace school fees.</span></p></div>
+        <div class="fm3-vis" aria-hidden="true"><p class="lab">Sarah’s phone · Grace</p><div class="fm3-ph"><div class="pcrop" style="--crop-h:340px;--fade:94%"><div class="hphone"><div class="hscreen"><div class="app thr"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div><div class="t-bar"><svg class="i t-back"><use href="#i-cl"/></svg><span class="a-av ph ph-grace">GR</span><div class="t-who"><b>Grace</b><span>On Sawaza · +256 752 318 604</span></div></div><div class="fm3-tabs"><span class="on">Activity</span><span>Records</span><span>Bills &amp; Debts</span></div><div class="t-heads"><span>Grace</span><span>You</span></div><div class="t-list"><p class="t-day">12 Oct</p><div class="t-run t-r"><p class="t-lab">You</p><div class="t-b t-rb"><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">100,000</span></span><span class="t-at">2:02 pm</span></div><p class="t-line">You lent · Tuition &amp; School Fees</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Grace · 2:30 pm</i></span></div></div><p class="t-day">26 Oct</p><div class="t-run t-l"><p class="t-lab">Grace</p><div class="t-b t-lb"><div class="t-top"><span class="t-fig m in"><svg class="i"><use href="#i-down"/></svg><span class="num">40,000</span></span><span class="t-at">3:12 pm</span></div><p class="t-line">Paid you · Tuition &amp; School Fees</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Grace · 3:40 pm</i></span></div></div></div></div></div></div></div></div><div class="app fm3-card"><p class="fm3-ck">Bills &amp; Debts</p><div class="a-strip2"><div class="a-sc"><small>Owed to you</small><b class="in num">UGX 60,000</b><span class="fm3-q">1 person</span></div><div class="a-sc"><small>You owe</small><b class="out num">UGX 1,060,000</b><span class="fm3-q">1 person</span></div></div><p class="fm3-scope">From records you signed</p></div></div>
+        <div class="fm3-bd"><p class="fm3-line">Bill, lend, pay and buy, with a record you both sign.</p><p class="fm3-in" data-new="1">Inside: your records, debts, accounts, the things you own, and your books.</p><a class="tlink" href="/how-it-works">See how it works <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="fm3-blk fm3-grp" data-k="grp" id="door-grp">
+        <div class="fm3-hd"><p class="fm3-tag">Group</p><h3 class="fm3-title">The money you keep together</h3><p class="fm3-cap"><span class="when">12 Oct</span>Kisaasi Savers records her savings.</p></div>
+        <div class="fm3-vis" aria-hidden="true"><p class="lab">Kisaasi Savers · Register</p><div class="fm3-ph"><div class="pcrop" style="--crop-h:285px"><div class="hphone"><div class="hscreen"><div class="app tight"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div><div class="a-abar a-grp"><b>Register</b></div><p class="fm3-key">KISAASI SAVERS · 4 MEMBERS</p>
+<div class="a-reg"><span class="a-av ph ph-sarah">SA</span><div><div class="top"><b>Sarah</b><span class="num"><small>UGX</small>350,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></div></div>
+<div class="a-reg"><span class="a-av ph ph-grace">GR</span><div><div class="top"><b>Grace</b><span class="num"><small>UGX</small>420,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></div></div>
+<div class="a-reg"><span class="a-av ph ph-ruth">RU</span><div><div class="top"><b>Ruth</b><span class="num"><small>UGX</small>280,000</span></div><p class="ln"><b class="fm3-pend">+ UGX 50,000 · their own record · confirm</b></p><span class="fm3-await"><svg class="i"><use href="#i-clock"/></svg>Awaiting Ruth</span></div></div>
+<div class="a-reg"><span class="a-av ph ph-esther">ES</span><div><div class="top"><b>Esther</b><span class="num"><small>UGX</small>510,000</span></div><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></div></div>
+</div></div></div></div></div><div class="app fm3-card fm3-pb"><p class="fm3-ck">Sarah’s phone · Passbook</p><div class="fm3-pbh"><small>MY SAVINGS</small><b class="num">UGX 350,000</b><span>Last entry 12 Oct</span></div>
+<div class="fm3-pbr"><div><b>Member Savings</b><small>12 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 350,000</small></div></div>
+<div class="fm3-pbr"><div><b>Member Savings</b><small>5 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 300,000</small></div></div></div></div>
+        <div class="fm3-bd"><p class="fm3-line">One record for the whole group. Each member confirms their own part.</p><p class="fm3-in" data-new="1">Inside: households, savings groups and SACCOs, and cash rounds, with a register and a passbook for each member.</p><a class="tlink" href="/groups">For groups <span aria-hidden="true">→</span></a></div>
+      </article>
+      <article class="fm3-blk fm3-biz" data-k="biz" id="door-biz">
+        <div class="fm3-hd"><p class="fm3-tag">Business</p><h3 class="fm3-title">Your trade and hustle</h3><p class="fm3-cap"><span class="when">31 Oct</span>Mukasa Traders bills her.</p></div>
+        <div class="fm3-vis" aria-hidden="true"><p class="lab">Mukasa Traders’ phone · Sarah</p><div class="fm3-ph"><div class="pcrop" style="--crop-h:285px"><div class="hphone"><div class="hscreen"><div class="app tight"><span class="nt"></span><div class="a-sbar"><span>9:41</span><i></i></div><div class="fm3-ch"><svg class="i back"><use href="#i-cl"/></svg><span class="a-av ph ph-sarah">SA</span><div><b>Sarah</b><span>On Sawaza · +256 701 552 093</span></div><svg class="i more"><use href="#i-more"/></svg></div>
+<div class="fm3-tabs"><span>Activity</span><span>Records</span><span class="on">Invoices &amp; Debts</span></div>
+<div class="fm3-head"><b>Sarah owes you</b><strong class="num in">UGX 1,060,000</strong><span>left on 2 debts</span></div>
+<div class="a-debt"><div class="top"><b>Invoice INV-0001</b><span class="in"><small>Owes</small><strong class="num">800,000</strong></span></div><p class="ln">3 Oct · Due 31 Oct · part paid</p><p class="ln">left of UGX 1,200,000</p></div>
+<div class="a-debt"><div class="top"><b>Invoice INV-0002</b><span class="in"><small>Owes</small><strong class="num">260,000</strong></span></div><p class="ln">9 Oct · Due 9 Nov</p></div>
+</div></div></div></div></div><div class="app fm3-card"><p class="fm3-ck">Mukasa Traders’ books</p><div class="a-ov"><div class="a-ovh"><svg class="i"><use href="#i-chart"/></svg>THIS MONTH<span>UGX</span></div><div class="a-ovc"><div><small>Money in</small><b class="in num">2,450,000</b></div><div><small>Money out</small><b class="out num">1,310,000</b></div></div><p class="fm3-scope">38 records · all spaces</p></div></div></div>
+        <div class="fm3-bd"><p class="fm3-line">Credit your customers can sign for.</p><p class="fm3-in" data-new="1">Inside: customer accounts, invoices and loans, and your books, each kept apart from your own money.</p><a class="tlink" href="/businesses">For businesses <span aria-hidden="true">→</span></a></div>
+      </article>
+    </div>
+    <div class="fm3-stick" aria-hidden="true"><p class="lab" id="fm3Lab">Sarah’s phone · Grace</p>
+      <div class="fm3-dev"><div class="fm3-scr on" data-k="you"><div class="app thr"><div class="a-sbar"><span>9:41</span><i></i></div><div class="t-bar"><svg class="i t-back"><use href="#i-cl"/></svg><span class="a-av ph ph-grace">GR</span><div class="t-who"><b>Grace</b><span>On Sawaza · +256 752 318 604</span></div></div><div class="fm3-tabs"><span class="on">Activity</span><span>Records</span><span>Bills &amp; Debts</span></div><div class="t-heads"><span>Grace</span><span>You</span></div><div class="t-list"><p class="t-day">12 Oct</p><div class="t-run t-r"><p class="t-lab">You</p><div class="t-b t-rb"><div class="t-top"><span class="t-fig m out"><svg class="i"><use href="#i-up"/></svg><span class="num">100,000</span></span><span class="t-at">2:02 pm</span></div><p class="t-line">You lent · Tuition &amp; School Fees</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Grace · 2:30 pm</i></span></div></div><p class="t-day">26 Oct</p><div class="t-run t-l"><p class="t-lab">Grace</p><div class="t-b t-lb"><div class="t-top"><span class="t-fig m in"><svg class="i"><use href="#i-down"/></svg><span class="num">40,000</span></span><span class="t-at">3:12 pm</span></div><p class="t-line">Paid you · Tuition &amp; School Fees</p><span class="t-pill"><svg class="i fill seal"><use href="#i-ver"/></svg><b class="sw">Sawa. Sealed.</b><i> · Grace · 3:40 pm</i></span></div></div></div></div></div><div class="fm3-scr" data-k="grp"><div class="app tight"><div class="a-sbar"><span>9:41</span><i></i></div><div class="a-abar a-grp"><b>Register</b></div><p class="fm3-key">KISAASI SAVERS · 4 MEMBERS</p>
+<div class="a-reg"><span class="a-av ph ph-sarah">SA</span><div><div class="top"><b>Sarah</b><span class="num"><small>UGX</small>350,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></div></div>
+<div class="a-reg"><span class="a-av ph ph-grace">GR</span><div><div class="top"><b>Grace</b><span class="num"><small>UGX</small>420,000</span></div><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></div></div>
+<div class="a-reg"><span class="a-av ph ph-ruth">RU</span><div><div class="top"><b>Ruth</b><span class="num"><small>UGX</small>280,000</span></div><p class="ln"><b class="fm3-pend">+ UGX 50,000 · their own record · confirm</b></p><span class="fm3-await"><svg class="i"><use href="#i-clock"/></svg>Awaiting Ruth</span></div></div>
+<div class="a-reg"><span class="a-av ph ph-esther">ES</span><div><div class="top"><b>Esther</b><span class="num"><small>UGX</small>510,000</span></div><p class="ln"><i>+ UGX 100,000</i> · 9 Oct</p></div></div>
+</div></div><div class="fm3-scr" data-k="biz"><div class="app tight"><div class="a-sbar"><span>9:41</span><i></i></div><div class="fm3-ch"><svg class="i back"><use href="#i-cl"/></svg><span class="a-av ph ph-sarah">SA</span><div><b>Sarah</b><span>On Sawaza · +256 701 552 093</span></div><svg class="i more"><use href="#i-more"/></svg></div>
+<div class="fm3-tabs"><span>Activity</span><span>Records</span><span class="on">Invoices &amp; Debts</span></div>
+<div class="fm3-head"><b>Sarah owes you</b><strong class="num in">UGX 1,060,000</strong><span>left on 2 debts</span></div>
+<div class="a-debt"><div class="top"><b>Invoice INV-0001</b><span class="in"><small>Owes</small><strong class="num">800,000</strong></span></div><p class="ln">3 Oct · Due 31 Oct · part paid</p><p class="ln">left of UGX 1,200,000</p></div>
+<div class="a-debt"><div class="top"><b>Invoice INV-0002</b><span class="in"><small>Owes</small><strong class="num">260,000</strong></span></div><p class="ln">9 Oct · Due 9 Nov</p></div>
+</div></div></div>
+      <div class="fm3-sums"><div class="fm3-sum on" data-k="you"><div class="app fm3-card"><p class="fm3-ck">Bills &amp; Debts</p><div class="a-strip2"><div class="a-sc"><small>Owed to you</small><b class="in num">UGX 60,000</b><span class="fm3-q">1 person</span></div><div class="a-sc"><small>You owe</small><b class="out num">UGX 1,060,000</b><span class="fm3-q">1 person</span></div></div><p class="fm3-scope">From records you signed</p></div></div><div class="fm3-sum" data-k="grp"><div class="app fm3-card fm3-pb"><p class="fm3-ck">Sarah’s phone · Passbook</p><div class="fm3-pbh"><small>MY SAVINGS</small><b class="num">UGX 350,000</b><span>Last entry 12 Oct</span></div>
+<div class="fm3-pbr"><div><b>Member Savings</b><small>12 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 350,000</small></div></div>
+<div class="fm3-pbr"><div><b>Member Savings</b><small>5 Oct 2026</small></div><div class="r"><b class="num in">+UGX 50,000</b><small>Leaves UGX 300,000</small></div></div></div></div><div class="fm3-sum" data-k="biz"><div class="app fm3-card"><p class="fm3-ck">Mukasa Traders’ books</p><div class="a-ov"><div class="a-ovh"><svg class="i"><use href="#i-chart"/></svg>THIS MONTH<span>UGX</span></div><div class="a-ovc"><div><small>Money in</small><b class="in num">2,450,000</b></div><div><small>Money out</small><b class="out num">1,310,000</b></div></div><p class="fm3-scope">38 records · all spaces</p></div></div></div></div>
+    </div>
+  </div>
+  <p class="fm3-rest" data-new="1">These are the first tools in the app. More are on the way, for each kind of relationship.</p>
+</div></section>
+
+<!-- 5 What's in the app -->
+<!-- 5 Before you ask, and why trust it -->
+<section class="sec deep trust" id="trust"><div class="wrap">
+  <div class="sec-head"><p class="q">Why trust it?</p><h2 class="h2">Before you ask.</h2></div>
+  <div class="asks2">
+    <article class="ak money reveal">
+      <div class="ak-art" aria-hidden="true"><div class="flow">
+        <span class="p"><i class="ph ph-sarah">SA</i>Sarah</span>
+        <span class="mv"><span class="note num">450,000</span></span>
+        <span class="p"><i class="ph ph-david">DA</i>David Landlord</span>
+        <div class="flow-tags"><span>Cash or mobile money</span></div>
+        <div class="flow-rec"><svg class="fver" aria-hidden="true"><use href="#i-ver"/></svg><span><b>Rent · UGX 450,000</b><small>Sarah paid David</small><em>Sealed · both sides hold this record, signed</em></span></div>
+      </div></div>
+      <div class="ak-t"><h3>Does Sawaza touch my money?</h3><p class="no">No.</p><p class="ans">It records money. It never holds it or moves it.</p></div>
+    </article>
+    <div class="ak-list">
+      <div class="akl reveal"><span class="akl-i" aria-hidden="true"><svg class="i"><use href="#i-share"/></svg></span><div><h3>Why would the other person sign?</h3><p class="ans" data-new="1">They get a message that opens the record in the app, where they answer it. A signed record protects them too.</p></div></div>
+      <div class="akl reveal"><span class="akl-i" aria-hidden="true"><svg class="i fill"><use href="#i-lock"/></svg></span><div><h3>Who sees my records?</h3><p class="ans">Only the people you choose to share them with. You can write a record about someone and keep it to yourself: it stays private until you send it, and you never have to.</p></div></div>
+      <div class="akl reveal"><span class="akl-i akl-zero num" aria-hidden="true">UGX 0</span><div><h3>What does it cost?</h3><p class="ans">Sawaza is free to use: write records, send them and keep them, with no fees.</p></div></div>
+    </div>
+  </div>
+  <ul class="facts facts-row">
+      <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="3" width="12" height="22" rx="3"/><path d="M11 17c2-3 3-3 3-1s1 2 3-1"/></svg>Each side signs on their own phone.</li>
+      <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="12" width="16" height="12" rx="2.5"/><path d="M9.5 12V9a4.5 4.5 0 0 1 9 0v3"/></svg>A signed record is sealed, so any change shows. A disagreement keeps both versions.</li>
+{SHOW_ANCHOR && (
+      <li data-new="1"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><use href="#i-ver"/></svg><span>Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <a class="tlink" href="/verify">Check a record yourself <span aria-hidden="true">→</span></a></span></li>
+)}
+      <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="12" height="16" rx="2"/><rect x="13" y="5" width="12" height="16" rx="2" fill="#060F26"/><path d="M7 13h4M17 11h4M17 15h4"/></svg>You can remove your own copy, never the other side's.</li>
+  </ul>
+  <p class="plate-line">Made in Kampala by <strong>SAWAZA TECHNOLOGIES - SMC LIMITED</strong>, in beta on Android and iPhone. <a class="tlink" href="/trust">Trust and privacy <span aria-hidden="true">→</span></a></p>
+</div></section>
+
+<!-- 7 Close -->
+<section class="sec close" id="get"><div class="wrap">
+  <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <h2>Both sides. One record. <span>Signed.</span></h2>
+  <p>Write your first record and keep it to yourself until you choose to send it.</p>
+  <p class="get-pull" data-new="1">Put your side on the record. Sawaza is free to use.</p>
+  <div class="badges">
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div>
+  <p class="added" data-new="1"><b>Added to a group?</b> Get the app and sign up with the number you were added on. The invitation is waiting there for you to accept or decline.</p>
+</div></section>
+<script>
+(function(){
+  requestAnimationFrame(function(){drawThread()});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stage=document.getElementById('stage');
+  function drawThread(){
+    var ta=document.getElementById('tieA'),tb=document.getElementById('tieB'),svg=document.getElementById('thread');
+    if(!ta||!tb||!ta.offsetParent)return;
+    var s=stage.getBoundingClientRect();
+    function mid(el){var r=el.getBoundingClientRect();return [r.left+r.width/2,r.top+r.height/2]}
+    var a=mid(ta),b=mid(tb);
+    /* drawn only where both ends can be seen on their own phone: an end under the other phone or off the page reads as a line to nowhere */
+    function seen(p,el){
+      if(p[0]<0||p[0]>innerWidth||p[1]<0||p[1]>innerHeight)return true;
+      var top=document.elementFromPoint(p[0],p[1]);
+      return !!top&&el.closest('.phone').contains(top);
+    }
+    var vis=stage.classList.contains('sealed')?(seen(a,ta)&&seen(b,tb)):true;
+    if(window.matchMedia('(max-width:700px)').matches)vis=false;
+    svg.classList.toggle('off',!vis);
+    var x1=a[0]-s.left,y1=a[1]-s.top,x2=b[0]-s.left,y2=b[1]-s.top,dx=Math.max(24,Math.abs(x2-x1)*.6);
+    document.getElementById('threadPath').setAttribute('d','M'+x1+' '+y1+' C'+(x1+dx)+' '+y1+' '+(x2-dx)+' '+y2+' '+x2+' '+y2);
+    var A=document.getElementById('tA'),B=document.getElementById('tB');
+    A.setAttribute('cx',x1);A.setAttribute('cy',y1);B.setAttribute('cx',x2);B.setAttribute('cy',y2);
+  }
+  window.addEventListener('resize',drawThread);
+  var tq=0;window.addEventListener('scroll',function(){if(!tq){tq=1;requestAnimationFrame(function(){tq=0;drawThread()})}},{passive:true});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawThread);
+  setTimeout(drawThread,300);
+
+  var rungs=stage.querySelectorAll('.rung');
+  function setRungs(n){rungs.forEach(function(r,i){r.classList.toggle('done',i<n)})}
+  setRungs(3);
+  if(!reduce){
+    var btn=document.getElementById('confirmBtn'),t=[],on=false,paused=false,pb=document.getElementById('hpause');
+    /* wait, sheet up, press Confirm, sealed, hold, then again; it stops while the hero is off screen */
+    function clr(){t.forEach(clearTimeout);t=[]}
+    function cycle(){
+      clr();
+      stage.classList.remove('sealed','sheet-up');btn.classList.remove('press');setRungs(1);
+      t.push(setTimeout(function(){stage.classList.add('sheet-up')},1600));
+      t.push(setTimeout(function(){btn.classList.add('press')},3200));
+      t.push(setTimeout(function(){btn.classList.remove('press');stage.classList.remove('sheet-up');setRungs(2)},3600));
+      t.push(setTimeout(function(){stage.classList.add('sealed');setRungs(3);drawThread()},4300));
+      t.push(setTimeout(cycle,7500));
+    }
+    function rest(){clr();btn.classList.remove('press');stage.classList.remove('sheet-up');stage.classList.add('sealed');setRungs(3);drawThread()}
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!on){on=true;if(!paused)cycle()}else if(!v&&on){on=false;rest()}},{threshold:.25}).observe(stage);
+    }else{setTimeout(cycle,2600)}
+    if(pb){pb.hidden=false;pb.addEventListener('click',function(){
+      paused=!paused;pb.classList.toggle('is-paused',paused);pb.setAttribute('aria-label',paused?'Play animation':'Pause animation');
+      if(paused)rest();else if(on)cycle()})}
+  }
+
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* how it works: copy each step's screen into the sticky phone, show the one being read */
+  var hs=document.getElementById('howScreen'),steps=document.querySelectorAll('.hstep'),dots=document.querySelectorAll('.how-dots li');
+  if(hs){
+    steps.forEach(function(s,i){var a=s.querySelector('.hscreen>.app');if(a){var c=a.cloneNode(true);if(i===0)c.classList.add('on');hs.appendChild(c)}});
+    var layers=hs.children;
+    function act(n){for(var i=0;i<layers.length;i++)layers[i].classList.toggle('on',i===n);dots.forEach(function(d,i){d.classList.toggle('on',i===n)})}
+    /* one rule: the active step is the last whose top has passed 40% of the screen; step 1 until then, step 4 until the section ends.
+       Only the wide layout has the pinned phone, so nothing switches where each step carries its own phone. */
+    var hcur=-1,hq=0;
+    function hpick(){hq=0;if(!hs.offsetParent)return;var line=innerHeight*.4,n=0;
+      for(var i=0;i<steps.length;i++){if(steps[i].getBoundingClientRect().top<=line)n=i}
+      if(n!==hcur){hcur=n;act(n)}}
+    window.addEventListener('scroll',function(){if(!hq){hq=1;requestAnimationFrame(hpick)}},{passive:true});
+    window.addEventListener('resize',hpick);hpick();
+  }
+  /* is it for me: on a wide screen the pinned phone shows the door being read */
+  var blks=[].slice.call(document.querySelectorAll('.fm3-blk')),scrs=[].slice.call(document.querySelectorAll('.fm3-scr')),sums=[].slice.call(document.querySelectorAll('.fm3-sum')),flab=document.getElementById('fm3Lab'),labs={"you":"Sarah’s phone · Grace","grp":"Kisaasi Savers · Register","biz":"Mukasa Traders’ phone · Sarah"};
+  var fdev=document.querySelector('.fm3-dev');
+  function fsize(k){if(!fdev)return;var sc=fdev.querySelector('.fm3-scr[data-k="'+k+'"] .app');if(sc&&sc.offsetHeight)fdev.style.height=(sc.offsetHeight+46)+'px'}
+  function fshow(k){fsize(k);blks.forEach(function(b){b.classList.toggle('on',b.dataset.k===k)});scrs.forEach(function(s){s.classList.toggle('on',s.dataset.k===k)});sums.forEach(function(s){s.classList.toggle('on',s.dataset.k===k)});if(flab)flab.textContent=labs[k]}
+  /* a door holds the phone until the next door's heading crosses the middle of the screen */
+  var fcurK=null,fq=0;
+  function fpick(){fq=0;if(!blks.length)return;var mid=innerHeight/2,k=blks[0].dataset.k;blks.forEach(function(b){var h=b.querySelector('.fm3-hd')||b;if(h.getBoundingClientRect().top<=mid)k=b.dataset.k});if(k!==fcurK){fcurK=k;fshow(k)}}
+  window.addEventListener('scroll',function(){if(!fq){fq=1;requestAnimationFrame(fpick)}},{passive:true});window.addEventListener('resize',fpick);fpick();
+})();
+</script>
+</Base>

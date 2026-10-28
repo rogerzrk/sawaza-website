@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About · Sawaza" description="Sawaza is made in Kampala by SAWAZA TECHNOLOGIES - SMC LIMITED: one record of money between people, signed by both sides." bodyId="page-about">
+<style is:global>
+#page-about .next-row .tlink{min-height:44px}
+#page-about .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){#page-about .facts{grid-template-columns:1fr}}
+#page-about .page-hero{background:linear-gradient(180deg,rgba(6,15,38,.10) 0%,rgba(10,26,61,.18) 62%,var(--ground) 100%),linear-gradient(90deg,rgba(6,15,38,.80) 0%,rgba(6,15,38,.42) 42%,rgba(6,15,38,0) 72%),url(/img/about-city.webp) center 35%/cover no-repeat;padding-block:clamp(88px,12vw,168px) clamp(72px,9vw,128px)}
+#page-about .page-hero .watermark{display:none}
+
+#page-about .page-hero .made{font-size:15px;margin-top:14px;opacity:.75}
+#page-about .vm{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(16px,3vw,28px)}
+#page-about .vm-card{padding:clamp(24px,4vw,44px);border-radius:22px;border:1px solid var(--line);background:linear-gradient(160deg,var(--panel),rgba(17,35,79,.4));display:grid;gap:18px;align-content:start}
+#page-about .vm-line{font:700 clamp(26px,3.4vw,40px)/1.12 var(--display);letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
+#page-about .vm-line.sm{font-size:clamp(20px,2.2vw,26px);line-height:1.3;font-weight:600}
+#page-about .vm-line em{font-style:normal;color:var(--gold)}
+#page-about .never3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+#page-about .facts3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#page-about .layers{display:grid;gap:14px}
+#page-about .layer{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--panel)}
+#page-about .layer.base{border-color:rgba(227,168,43,.4);background:linear-gradient(90deg,rgba(227,168,43,.12),var(--panel) 60%)}
+#page-about .layer b{font:600 19px/1.25 var(--display);color:var(--ink)}
+#page-about .layer>div>p{color:var(--dim);margin-top:6px}
+#page-about .ln{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:700 18px/1 var(--display);color:var(--onGold);background:var(--gold)}
+#page-about .tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+#page-about .tool{padding:16px;border-radius:14px;background:rgba(237,232,222,.04);border:1px solid var(--line)}
+#page-about .tool .who{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+#page-about .tool p:last-child{color:var(--dim);font-size:15px}
+#page-about .layer .more{color:var(--quiet);font-size:15px;margin-top:14px}
+#page-about .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(36px,5vw,56px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+#page-about .three .big{font:700 clamp(24px,2.6vw,32px)/1.1 var(--display);color:var(--gold);margin-bottom:10px}
+#page-about .three p:last-child{color:var(--dim)}
+#page-about .road{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:r}
+#page-about .road li{position:relative;padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--panel);display:grid;gap:8px;align-content:start}
+#page-about .road li.now{border-color:rgba(99,192,139,.45)}
+#page-about .road .when{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--quiet)}
+#page-about .road li.now .when{color:var(--in)}
+#page-about .road li.ai{border-color:rgba(227,168,43,.45)}
+#page-about .road li.ai .when{color:var(--gold)}
+#page-about .road b{font:600 19px/1.25 var(--display);color:var(--ink)}
+#page-about .road p{color:var(--dim);font-size:15px}
+#page-about .dir{margin-top:20px;color:var(--quiet);font-size:15px}
+#page-about .dir a{color:var(--ink)}
+@media (max-width:860px){#page-about .vm,#page-about .never3,#page-about .facts3,#page-about .tools,#page-about .three,#page-about .road{grid-template-columns:1fr}}
+
+#page-about .page-hero .sub{color:var(--ink);opacity:.92}
+#page-about .page-hero h1,#page-about .page-hero .sub,#page-about .page-hero .q{text-shadow:0 2px 18px rgba(6,15,38,.7)}
+@media (max-width:760px){#page-about .page-hero{background-position:0 0,0 0,62% 35%}}
+</style>
+<section class="page-hero" id="top">
+  <svg class="watermark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <div class="wrap">
+    <div>
+      <p class="q">About Sawaza</p>
+      <h1 data-new="1">Where money is <em>agreed</em>.</h1>
+      <p class="sub" data-new="1">Mobile money moves it. Banks hold it. Sawaza is where both sides agree on it, with the tools to do more together.</p>
+      <p class="sub made">Made in Kampala by SAWAZA TECHNOLOGIES - SMC LIMITED. In beta now on Android and iPhone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec deep" id="vision"><div class="wrap">
+  <div class="vm">
+    <div class="vm-card"><p class="q">Our vision</p><p class="vm-line">A world where an agreement belongs <em>equally</em> to everyone in it.</p></div>
+    <div class="vm-card"><p class="q">Our mission</p><p class="vm-line sm">To give every party in a money relationship their own signed position on the same record, and to make that mechanism available to anyone who needs an agreement that holds. Starting where the need is greatest.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="why"><div class="wrap">
+  <div class="sec-head"><p class="q">Why it exists</p><h2 class="h2">Whoever keeps the book keeps the history.</h2>
+  <p class="lede">Rent paid in cash, a loan between friends, a savings group's contributions, a shop's credit book. Most of the money between people is written down by one side, in one book, and signed by nobody. When the two sides remember it differently, there is nothing both of them agreed to.</p></div>
+  <div class="facts3">
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><b>One record</b><p>Sawaza keeps one record of money between two people, signed by both.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18h4"/></svg><b>Each side signs</b><p>Each side signs on their own phone.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3.5v5.5c0 5-3.4 8.4-8 9.9-4.6-1.5-8-4.9-8-9.9V6.5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>No money moves</b><p>Sawaza holds no funds and moves no money.</p></div>
+  </div>
+</div></section>
+
+<section class="sec deep" id="building"><div class="wrap">
+  <div class="sec-head"><p class="q">What we are building</p><h2 class="h2" data-new="1">An agreed record, and the tools that grow from it.</h2>
+  <p class="lede" data-new="1">The record is the base. On top of it, each kind of relationship gets the tools it needs, and every tool works from numbers both sides already signed.</p></div>
+  <div class="layers">
+    <div class="layer base"><span class="ln">1</span><div><b data-new="1">The record</b><p data-new="1">Two sides, one record, both signed. Nothing rests on one side's word.</p></div></div>
+    <div class="layer"><span class="ln">2</span><div><b data-new="1">A growing set of tools, for each relationship</b>
+      <div class="tools">
+        <div class="tool"><p class="who">People</p><p data-new="1">Tools to see where you stand with everyone you deal with, and to plan what comes next.</p></div>
+        <div class="tool"><p class="who">Groups</p><p data-new="1">Tools to run the group's money together, with every member able to see their own part.</p></div>
+        <div class="tool"><p class="who">Businesses</p><p data-new="1">Tools to sell on credit, follow up with customers and know where the business stands.</p></div>
+      </div><p class="more" data-new="1">The first of these are in the app today, and many more are coming for each kind of relationship, starting with AI that drafts records for you to agree.</p></div></div>
+  </div>
+  <div class="three">
+    <div><p class="big" data-new="1">Richer</p><p data-new="1">More of the relationship in one place: every bill, payment and plan between you, filed where it belongs.</p></div>
+    <div><p class="big" data-new="1">Stronger</p><p data-new="1">Each number is one both sides signed, so it holds when memories differ or when someone else keeps the book.</p></div>
+    <div><p class="big" data-new="1">More productive</p><p data-new="1">What follows from a record builds itself from numbers both sides already agreed. Nobody copies a figure twice.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="going"><div class="wrap">
+  <div class="sec-head"><p class="q">Where we are going</p><h2 class="h2" data-new="1">How people deal with each other about money.</h2>
+  <p class="lede" data-new="1">As WhatsApp became how people talk, we want Sawaza to be how people agree on money. The habit starts between two people. Groups, businesses and institutions then join the same network to reach the people they serve, and each brings tools that make every connection richer.</p></div>
+  <ol class="road">
+    <li class="now"><span class="when">Today</span><b data-new="1">Start where the need is greatest</b><p data-new="1">People, households, savings groups, cash rounds and businesses with their customers, in beta in Uganda.</p></li>
+    <li class="ai"><span class="when">Next</span><b data-new="1">AI that drafts, people who agree</b><p data-new="1">Say what happened in one sentence and get the record ready to check, or turn a page of a group's book into records in one go. The AI only drafts: nothing is sent or signed until you agree.</p><p data-new="1">Then deeper tools for each: quotations, receipts and statements.</p></li>
+    <li><span class="when">Later</span><b data-new="1">Institutions join the network</b><p data-new="1">SACCOs, lenders and others reach their members and clients through records both sides agree on, each side standing equal on the record.</p></li>
+  </ol>
+  <p class="dir" data-new="1">This is our direction, not a list of what works today. What the app does now is on <a href="/how-it-works">How it works</a>.</p>
+</div></section>
+
+<section class="sec deep" id="never"><div class="wrap">
+  <div class="sec-head"><p class="q">What stays true</p><h2 class="h2">What never changes</h2></div>
+  <div class="never3">
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3.5v5.5c0 5-3.4 8.4-8 9.9-4.6-1.5-8-4.9-8-9.9V6.5z"/><path d="M9 9l6 6M15 9l-6 6"/></svg><b data-new="1">Holds no money</b><p data-new="1">Sawaza never holds or moves money.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b data-new="1">Your data stays yours</b><p data-new="1">We never sell your data, and we show no ads.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14M5 15h14"/></svg><b data-new="1">Every side equal</b><p data-new="1">Every side stands equal on the record. A signed record is sealed, so any change shows.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="company"><div class="wrap"><div class="prose">
+  <h2>The company</h2>
+  <p><b>SAWAZA TECHNOLOGIES - SMC LIMITED</b><br>Kampala, Uganda<br>hello@sawaza.app</p>
+  <div class="next-row"><a class="tlink" href="/trust">Trust and privacy <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a></div>
+</div></div></section>
+<section class="sec close" id="get"><div class="wrap">
+  <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
+  <h2>Both sides. One record. <span>Signed.</span></h2>
+  <p>Write your first record and keep it to yourself until you choose to send it.</p>
+  <div class="badges">
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div>
+</div></section>
+</Base>

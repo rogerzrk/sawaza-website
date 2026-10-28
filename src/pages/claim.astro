@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="A record on Sawaza" description="Someone sent you a record on Sawaza. Open it in the app to answer." bodyId="page-claim" minimal>
+<style is:global>
+#page-claim [hidden]{display:none!important}
+#page-claim .claim-head .wrap a{display:inline-flex;align-items:center;min-height:44px}
+#page-claim .claim-head .lockup{height:24px}
+#page-claim .cert .mk{width:22px;height:22px}
+#page-claim .cert .rec-top{display:flex;align-items:center;gap:12px}
+#page-claim .cert .av{width:42px;height:42px;font-size:14px;color:var(--onGold);background:var(--cobalt)}
+#page-claim .cert .rec-name{font:700 clamp(19px,4.6vw,22px)/1.2 var(--display);letter-spacing:-.02em;color:var(--ink)}
+#page-claim .cert .amt{display:flex;align-items:baseline;gap:.12em;flex-wrap:wrap;font-size:clamp(40px,11vw,52px);color:var(--dim);font-variant-numeric:tabular-nums}
+#page-claim .cert .amt .arr{width:.5em;height:.5em;align-self:center;fill:none;stroke:var(--in);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-right:.08em}
+#page-claim .cert .verb{color:var(--dim);font-size:15px;margin-top:2px}
+#page-claim .cert .item{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:inline-block;vertical-align:bottom}
+#page-claim .noapp{display:grid;gap:16px;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--panel)}
+#page-claim .noapp p{color:var(--dim);font-size:16px}
+#page-claim .noapp b{color:var(--ink)}
+#page-claim .small-safe{color:var(--dim);font-size:14.5px;margin-top:-12px}
+#page-claim .ctas{display:flex;flex-wrap:wrap;gap:12px}
+#page-claim .ctas .btn{flex:1 1 180px;min-height:48px}
+#page-claim .ctas .ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+#page-claim .cert .amt small{color:var(--quiet)}
+#page-claim .cert .for{color:var(--dim);font-size:15px;margin:-4px 0 18px}
+#page-claim .cert .for b{color:var(--ink);font-weight:600}
+#page-claim .cert .pill.wait{gap:8px;padding:8px 14px;background:rgba(237,232,222,.08);color:var(--dim)}
+#page-claim .cert .pill.wait svg{width:16px;height:16px;fill:currentColor;color:var(--gold)}
+#page-claim .cert #card-body>*+*{margin-top:14px}
+#page-claim .cert #card-body .amt{margin:20px 0 16px}
+#page-claim .demo{display:flex;gap:10px;align-items:center;margin-top:-14px;color:var(--quiet);font-size:14px}
+#page-claim .claim .lbl{margin-bottom:12px}
+#page-claim .can{gap:0}
+#page-claim .can li{background:none;border:0;border-radius:0;padding:9px 0 9px 22px;position:relative;color:var(--ink);font-size:16.5px}
+#page-claim .can li::before{content:"";position:absolute;left:2px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+#page-claim .claim .safe{border-color:rgba(227,168,43,.5);background:var(--goldsoft)}
+#page-claim .claim .safe svg{color:var(--gold)}
+#page-claim .claim .after{color:var(--dim);font-size:15.5px;margin-top:-8px}
+#page-claim .claim .quiet{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-underline-offset:4px}
+#page-claim .claim .quiet:hover{color:var(--ink)}
+#page-claim .claim .badges .badge{flex:1 1 186px;min-height:44px}
+#page-claim footer{margin-top:0}
+@media (max-width:340px){#page-claim .claim .badges .badge{flex-basis:100%;min-width:0}}
+</style>
+<div class="wrap"><div class="claim land">
+  <h1>Someone sent you a record on Sawaza.</h1>
+  <p class="intro" data-new="1">Sawaza keeps one record of money between two people, signed by both. This one is waiting for your answer in the app.</p>
+  <div><a class="btn btn-gold" id="open-app" href="" data-new="1">Open in Sawaza</a></div>
+  <div class="noapp" data-new="1"><p><b>No Sawaza yet?</b> Get the app and sign up with the phone number this link was sent to. The record will be waiting for you.</p>
+  <div class="badges">
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div></div>
+  <p class="small-safe">Sawaza never asks you to send money.</p>
+  <p><a class="quiet" href="/how-it-works" data-new="1">See how it works</a></p>
+</div></div>
+<script>
+document.getElementById('open-app').href=location.href;
+</script>
+</Base>

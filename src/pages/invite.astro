@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="You are invited · Sawaza" description="You have been invited to Sawaza. Get the app and sign up with the number you were invited on." bodyId="page-invite" minimal>
+<style is:global>
+#page-invite [hidden]{display:none!important}
+#page-invite .claim-head .wrap a{display:inline-flex;align-items:center;min-height:44px}
+#page-invite .claim-head .lockup{height:24px}
+#page-invite .cert .mk{width:22px;height:22px}
+#page-invite .cert .rec-top{display:flex;align-items:center;gap:12px}
+#page-invite .cert .av{width:42px;height:42px;font-size:14px;color:var(--onGold);background:var(--cobalt)}
+#page-invite .cert .rec-name{font:700 clamp(19px,4.6vw,22px)/1.2 var(--display);letter-spacing:-.02em;color:var(--ink)}
+#page-invite .cert .amt{display:flex;align-items:baseline;gap:.12em;flex-wrap:wrap;font-size:clamp(40px,11vw,52px);color:var(--dim);font-variant-numeric:tabular-nums}
+#page-invite .cert .amt .arr{width:.5em;height:.5em;align-self:center;fill:none;stroke:var(--in);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-right:.08em}
+#page-invite .cert .verb{color:var(--dim);font-size:15px;margin-top:2px}
+#page-invite .cert .item{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:inline-block;vertical-align:bottom}
+#page-invite .noapp{display:grid;gap:16px;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--panel)}
+#page-invite .noapp p{color:var(--dim);font-size:16px}
+#page-invite .noapp b{color:var(--ink)}
+#page-invite .small-safe{color:var(--dim);font-size:14.5px;margin-top:-12px}
+#page-invite .ctas{display:flex;flex-wrap:wrap;gap:12px}
+#page-invite .ctas .btn{flex:1 1 180px;min-height:48px}
+#page-invite .ctas .ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+#page-invite .cert .amt small{color:var(--quiet)}
+#page-invite .cert .for{color:var(--dim);font-size:15px;margin:-4px 0 18px}
+#page-invite .cert .for b{color:var(--ink);font-weight:600}
+#page-invite .cert .pill.wait{gap:8px;padding:8px 14px;background:rgba(237,232,222,.08);color:var(--dim)}
+#page-invite .cert .pill.wait svg{width:16px;height:16px;fill:currentColor;color:var(--gold)}
+#page-invite .cert #card-body>*+*{margin-top:14px}
+#page-invite .cert #card-body .amt{margin:20px 0 16px}
+#page-invite .demo{display:flex;gap:10px;align-items:center;margin-top:-14px;color:var(--quiet);font-size:14px}
+#page-invite .claim .lbl{margin-bottom:12px}
+#page-invite .can{gap:0}
+#page-invite .can li{background:none;border:0;border-radius:0;padding:9px 0 9px 22px;position:relative;color:var(--ink);font-size:16.5px}
+#page-invite .can li::before{content:"";position:absolute;left:2px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+#page-invite .claim .safe{border-color:rgba(227,168,43,.5);background:var(--goldsoft)}
+#page-invite .claim .safe svg{color:var(--gold)}
+#page-invite .claim .after{color:var(--dim);font-size:15.5px;margin-top:-8px}
+#page-invite .claim .quiet{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-underline-offset:4px}
+#page-invite .claim .quiet:hover{color:var(--ink)}
+#page-invite .claim .badges .badge{flex:1 1 186px;min-height:44px}
+#page-invite footer{margin-top:0}
+@media (max-width:340px){#page-invite .claim .badges .badge{flex-basis:100%;min-width:0}}
+</style>
+<div class="wrap"><div class="claim">
+  <h1 id="lp-h1">You've been invited to Sawaza.</h1>
+  <div class="cert" role="img" aria-label="An invitation to Sawaza. This link shows no names."><div class="ch"><svg class="mk" viewBox="0 0 557 557" aria-hidden="true"><g fill="var(--gold)"><path d="M63.180,384.799 L132.329,384.799 A102.729,106.211 0 0 0 235.058,278.587 A189.788,186.305 0 0 1 424.846,92.282 L451.650,92.282 A13.929,13.929 0 0 0 460.756,67.815 A278.587,278.587 0 0 0 6.777,339.664 A57.807,57.807 0 0 0 63.180,384.799 Z"/><path d="M493.995,172.376 L424.846,172.376 A102.729,106.211 0 0 0 322.117,278.587 A189.788,186.305 0 0 1 132.329,464.893 L105.525,464.893 A13.929,13.929 0 0 0 96.419,489.360 A278.587,278.587 0 0 0 550.398,217.511 A57.807,57.807 0 0 0 493.995,172.376 Z"/></g></svg><span class="on">Invitation</span></div>
+    <div aria-hidden="true"><p class="rec-name" data-new="1">Someone you deal with keeps their records on Sawaza.</p>
+    <p class="for" data-new="1">Sign up with the phone number you were invited on. Whatever is waiting for that number opens in the app.</p></div>
+  </div>
+  <p class="intro" id="lp-intro"><span data-new="1">Sawaza keeps one record of money between people, signed by both sides. Households, savings groups and businesses keep their shared money on it too.</span></p>
+  <div id="lp-can"><p class="lbl">You can</p>
+    <ul class="can" data-new="1"><li>Accept or decline a group's invitation in the app</li><li>Answer a record sent to you in the app</li><li>Keep your own records in the app, shared only when you choose</li></ul></div>
+  <div id="lp-steps"><p class="lbl">Three steps</p>
+    <ol class="strip"><li>Get the app</li><li>Sign up with the number you were invited on</li><li>Answer what is waiting</li></ol></div>
+  <p class="safe"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3l10 4v7c0 6.5-4.3 11-10 13-5.7-2-10-6.5-10-13V7z"/><path d="M10.5 15l3.2 3.2 6-6.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sawaza never asks you to send money.</p>
+  <div class="badges" id="stores">
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+  </div>
+  <p class="after" id="lp-after" data-new="1">This link carries no names and no records. Only the app, signed in with your number, shows what was sent to you.</p>
+  <p><a class="quiet" href="/how-it-works">What is Sawaza?</a></p>
+</div></div>
+</Base>

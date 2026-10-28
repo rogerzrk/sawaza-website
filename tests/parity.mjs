@@ -41,8 +41,9 @@ function serveFolder(dir, prefix = '') {
     const srv = createServer(async (req, res) => {
       let path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
       if (prefix) { if (!path.startsWith(prefix + '/')) { res.writeHead(404); return res.end('outside the sub-path'); } path = path.slice(prefix.length); }
-      const file = join(dir, path === '/' ? 'index.html' : path);
+      const file = resolve(dir, '.' + (path === '/' ? '/index.html' : path));
       try {
+        if (!file.startsWith(resolve(dir) + '/')) throw new Error('outside the folder');
         await stat(file);
         res.writeHead(200, { 'content-type': TYPES[extname(file)] || 'application/octet-stream' });
         res.end(await readFile(file));

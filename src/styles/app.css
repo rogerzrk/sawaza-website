@@ -112,7 +112,7 @@
 .a-ch svg{width:1.4em;height:1.4em}
 .a-ch span{font:700 .6875em/1 var(--body);letter-spacing:.08em;text-transform:uppercase}
 .a-cyc{margin:0 1em .5em;background:var(--a-lift);border-radius:1.25em;padding:.875em 0 .7em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 6px 15px -6px rgba(0,0,0,.45)}
-.a-cyc h6{margin:0;padding:0 .875em;font:700 1.25em/1.2 var(--display);letter-spacing:-.02em;color:var(--a-text)}
+.a-cyc h6,.a-cyc .cyc-t{margin:0;padding:0 .875em;font:700 1.25em/1.2 var(--display);letter-spacing:-.02em;color:var(--a-text)}
 .a-cyc .meta{padding:.2em .875em 0;font-size:.75em;color:var(--a-quiet)}
 .a-key{padding:.75em .875em .25em;font:700 .6875em/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--a-dim)}
 .a-seat{display:grid;grid-template-columns:2.125em 1fr auto;align-items:center;gap:.75em;padding:.5em .875em;border-top:1px solid var(--a-line)}

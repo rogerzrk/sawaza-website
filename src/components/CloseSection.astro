@@ -13,8 +13,8 @@ const { pull = false, added = false } = Astro.props;
 <section class="sec close" id="get"><div class="wrap">
   <Mark class="mark" />
   <h2>Both sides. One record. <span>Signed.</span></h2>
-  <p>Your first record takes a minute. Sending it is your call.</p>
-  {pull && <p class="get-pull" data-new="1">Put your side on the record. Sawaza is free to use.</p>}
+  <p><span class="sn">Your first record takes a minute.</span> <span class="sn">Sending it is your call.</span></p>
+  {pull && <p class="get-pull" data-new="1"><span class="sn">Put your side on the record.</span> <span class="sn">Sawaza is free to use.</span></p>}
   <StoreBadges />
   {added && <p class="added" data-new="1"><b>Added to a group?</b> Get the app and sign up with the number you were added on. The invitation is waiting there for you to accept or decline.</p>}
   <slot />

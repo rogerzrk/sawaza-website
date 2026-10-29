@@ -312,3 +312,6 @@ footer .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
 .said{margin:28px 0 0;padding:0 0 0 22px;border-left:3px solid var(--gold)}
 .said blockquote{margin:0;font:500 clamp(24px,3vw,34px)/1.25 var(--display);color:var(--ink);letter-spacing:-.015em;text-wrap:balance}
 .said figcaption{margin-top:12px;font:500 15px/1.4 var(--body);color:var(--quiet)}
+
+/* A sentence that breaks only at its end: a line of two sentences sits on one line when it fits and otherwise one sentence a line. */
+.sn{display:inline-block}

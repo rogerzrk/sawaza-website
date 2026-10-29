@@ -149,15 +149,15 @@ footer h4{margin-bottom:6px}
 @media (max-width:699px){.today-cap{margin-top:16px}.closer-line{margin-top:20px}.after-steps{margin-top:24px}}
 
 /* .pcrop: the one cropped-phone style. Markup: <div class="pcrop" style="--crop-h:300px;--crop-y:0px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>...</div></div></div></div>.
-   --crop-h is how tall the visible window is (default 300px on a phone, 420px from 700px up); the bezel's top edge and notch stay drawn.
-   --crop-y slides the screen's content up inside the bezel so the window can start lower; the status bar then scrolls away, the notch stays.
+   --crop-h is how tall the visible window is (default 300px on a phone, 420px from 700px up); the bezel's top edge and the island stay drawn.
+   --crop-y slides the screen's content up inside the bezel so the window can start lower; the status bar then scrolls away, the island stays.
    The bottom fades out with a mask. Crop below the element that carries the point, never through it. .pc-sm does the same only up to 700px wide (the hero). */
 .pcrop{--crop-h:300px;--crop-y:0px;position:relative;width:fit-content;max-width:100%;margin-inline:auto;height:var(--crop-h);overflow:hidden;-webkit-mask-image:linear-gradient(#000 var(--fade,78%),transparent);mask-image:linear-gradient(#000 var(--fade,78%),transparent)}
 @media (min-width:700px){.pcrop{--crop-h:420px}}
 .pcrop .hscreen{overflow:hidden}
-.pcrop .hscreen>.app{inset:0;top:calc(var(--crop-y) * -1);bottom:auto;height:47em}
+.pcrop .hscreen>.app{inset:0;top:calc(var(--crop-y) * -1);bottom:auto;height:49.44em}
 .pcrop .hscreen .nt{display:none}
-.pcrop .hscreen::before{content:"";position:absolute;top:.36em;left:50%;transform:translateX(-50%);width:7.2em;height:.8em;border-radius:1em;background:#03050B;z-index:6}
+.pcrop .hscreen::before{content:"";position:absolute;top:.623em;left:50%;transform:translateX(-50%);width:4.55em;height:2.09em;border-radius:999em;background:#03050B;z-index:6}
 .pcrop .hphone{margin-inline:auto}
 @media (max-width:700px){
   .pc-sm{height:var(--crop-h);overflow:hidden;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
@@ -167,7 +167,7 @@ footer h4{margin-bottom:6px}
 #doors .fm3-ph>.pcrop{filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
 
 /* .pcrop.from-bottom: the second form. The window shows the bottom of the phone (sheet, button, rounded bezel) and the fade is at the top edge. Same --crop-h; use it where the key element sits at the bottom. */
-.pcrop.from-bottom{width:calc(22.5em + 18px);font-size:12.5px;-webkit-mask-image:linear-gradient(transparent,#000 24%);mask-image:linear-gradient(transparent,#000 24%)}
+.pcrop.from-bottom{width:24.5em;font-size:12.5px;-webkit-mask-image:linear-gradient(transparent,#000 24%);mask-image:linear-gradient(transparent,#000 24%)}
 @media (max-width:400px){.pcrop.from-bottom{font-size:11.6px}}
 .pcrop.from-bottom .hphone{position:absolute;left:0;right:0;bottom:0;margin:0;width:auto}
 .pcrop.from-bottom .hscreen::before{display:none}
@@ -181,7 +181,7 @@ footer h4{margin-bottom:6px}
 .hpause .ic-play,.hpause.is-paused .ic-pause{display:none}
 .hpause.is-paused .ic-play{display:block}
 .pcrop.has-y .hscreen::after{content:"";position:absolute;top:0;left:0;right:0;height:2.9em;background:#0F1219;z-index:5}
-/* .has-y: add it with --crop-y so the notch sits on a clean strip instead of over scrolled content */
+/* .has-y: add it with --crop-y so the island sits on a clean strip instead of over scrolled content */
 
 /* get the app: the badges are the goal of the page */
 #get{padding-block:clamp(88px,12vw,160px)}
@@ -243,11 +243,10 @@ footer h4{margin-bottom:6px}
 @media (max-width:420px){.chip-cap .cc{padding:8px 10px;font-size:12.5px;gap:6px;white-space:nowrap}.chip-cap .cver{width:16px;height:16px}}
 
 
-/* Hero phone frames: 9:17, sized to the viewport height; the column keeps the height the longer frames gave it so the text does not move. */
+/* Hero phone frames: the 18 Pro body, sized to the viewport height; the column keeps the height the longer frames gave it so the text does not move. */
 @media (min-width:701px){
-  .hero .stage .phone{aspect-ratio:9/17}
   .hero{--hs:max(24px,min(40px,calc((900px - 100svh) * .3)))}
-  .hero .stage{--pw:max(200px,min(320px,26vw,calc((100svh - 107px - var(--hs)) * .5294)))}
+  .hero .stage{--pw:max(200px,min(320px,26vw,calc((100svh - 107px - var(--hs)) * .4793)))}
 }
 @media (min-width:1101px){
   .hero .stage-col{height:max(740px,calc(max(190px,min(330px,24vw,calc((100svh - 125px) * .4615))) * 2.1667 + 80px))}

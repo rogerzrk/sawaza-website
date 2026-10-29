@@ -1,6 +1,7 @@
 ---
-/* The phone's status bar with its notch: "nt" is the cropped phone's cut-out, "notch" the hero
-   phone's, and a pinned screen that shows no bezel has none. */
+/* The phone's status bar with its Dynamic Island: "nt" is the cropped phone's island, "notch" the hero
+   phone's, and a pinned screen that shows no bezel has none. The time sits left of the island and the
+   signal, Wi-Fi and battery right of it; the kit's .a-sbar draws the icons from the screen's text colour. */
 interface Props {
   notch?: 'nt' | 'notch' | 'none';
 }

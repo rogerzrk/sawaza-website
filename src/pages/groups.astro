@@ -67,6 +67,16 @@ import CloseSection from '../components/CloseSection.astro';
 #page-groups .app .kk.ic>i svg{width:1.2em;height:1.2em}
 #page-groups .app .kk.ic>svg{width:1.25em;height:1.25em;color:var(--a-goldText)}
 #page-groups .app .gbar{display:flex;gap:.7em;align-items:center;padding:.85em 1em .8em;background:rgba(154,165,240,.16);border-bottom:2px solid #9AA5F0;margin-bottom:.4em}
+#page-groups .app .gbar.ks{background:rgba(201,166,240,.16);border-bottom-color:rgba(201,166,240,.5)}
+#page-groups .app .gbar.ks b{color:#E2CCF7}
+#page-groups .app .gbar.ks .a-av{background:#C9A6F0;color:#2A1A3D}
+#page-groups .app .fm3-tabs{display:flex;gap:1.4em;padding:0 1.1em;border-bottom:1px solid var(--a-line)}
+#page-groups .app .fm3-tabs span{padding:.6em 0 .7em;font:600 .9375em/1 var(--body);color:var(--a-dim);white-space:nowrap}
+#page-groups .app .fm3-tabs span.on{color:var(--a-text);box-shadow:inset 0 -2px 0 #E3A82B}
+#page-groups .app .rg-tot{display:flex;justify-content:space-between;align-items:baseline;gap:.6em;margin:.8em 1em .2em;padding:.8em 1em;border:1px solid var(--a-line);border-radius:14px;background:rgba(255,255,255,.03)}
+#page-groups .app .rg-tot span{font-size:.875em;color:var(--a-dim)}
+#page-groups .app .rg-tot b{font:700 1.1875em/1 var(--display);letter-spacing:-.02em;white-space:nowrap}
+#page-groups .app .key.rg-k{display:flex;justify-content:space-between}
 #page-groups .app .gbar b{display:block;font:700 1.125em/1.2 var(--display);color:#C9CFF7}
 #page-groups .app .gbar span:not(.a-av){display:block;font-size:.8125em;color:var(--a-dim)}
 #page-groups .app .gbar.mv{background:rgba(214,160,224,.14);border-bottom-color:#D2A0E0}
@@ -224,11 +234,13 @@ import CloseSection from '../components/CloseSection.astro';
 <section class="sec moment" id="savings"><div class="wrap">
   <SectionHead q="How does a savings group keep its books?" title="A <em>register</em> for the group. A passbook for each member."><p class="lede" data-new="1">For a savings group or SACCO: each member’s savings and shares, added up from the group’s own records.</p></SectionHead>
   <div class="trio">
-    <div class="fig" role="img" aria-label="Screen of the Kisaasi Savers register: four members with their savings, one line from Ruth not yet confirmed, and a member who left listed apart.">
+    <div class="fig" role="img" aria-label="Screen of the Kisaasi Savers register: group savings of UGX 1,680,000, four members with their savings, one line from Ruth not yet confirmed, and a member who left listed apart.">
       <p class="lab" aria-hidden="true">Kisaasi Savers · Register</p>
-      <PhoneCrop h="430px">
-        <AppBar title="Register" />
-        <p class="key">Kisaasi Savers · 4 members</p>
+      <PhoneCrop h="520px">
+        <div class="gbar ks"><span class="a-av ent">KS</span><div><b>Kisaasi Savers</b><span>Savings Group</span></div></div>
+        <div class="fm3-tabs"><span>Spaces</span><span class="on">Register</span><span>Records</span></div>
+        <div class="rg-tot"><span>Group savings</span><b>UGX 1,680,000</b></div>
+        <p class="key rg-k"><span>Members</span><span>4</span></p>
         <RegisterRow who="sarah" name="Sarah" total="350,000"><p class="ln"><i>+ UGX 50,000</i> · 12 Oct</p></RegisterRow>
         <RegisterRow who="grace" name="Grace" total="420,000"><p class="ln"><i>+ UGX 50,000</i> · 10 Oct</p></RegisterRow>
         <RegisterRow who="ruth" name="Ruth" total="280,000"><p class="ln"><b class="pend">+ UGX 50,000 · their own record · confirm</b></p></RegisterRow>

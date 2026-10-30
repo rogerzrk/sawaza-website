@@ -11,7 +11,7 @@ import { SHOW_ANCHOR } from '../config';
 ---
 <Base title="Trust and privacy · Sawaza" description="Who signs what, who sees your records, how a signed record stays true, and what Sawaza never does with your money or your data." bodyId="page-trust">
 <Fragment slot="rail">
-<Rail items={[['top', 'Why trust it?'], ['who-sees', 'Who sees my records?'], ['signing', 'Who signs what?'], ['change', 'What stays true?'], ['number', 'What about my number?']]} />
+<Rail items={[['top', 'Why trust it?'], ['who-sees', 'Who sees my records?'], ['signing', 'Who signs what?'], ['change', 'What stays true?'], ...(SHOW_ANCHOR ? [['proof', 'How can anyone check it?'] as [string, string]] : []), ['number', 'What about my number?']]} />
 </Fragment>
 <style is:global>
 /* Trust and privacy: who signs, who sees, what stays true. Built from kit tokens and the home's app drawings. */
@@ -111,6 +111,18 @@ import { SHOW_ANCHOR } from '../config';
 #page-trust .tr-money{margin-top:clamp(28px,4vw,44px)}
 #page-trust .next-row{margin-top:28px}
 #page-trust .tr-chain{margin-top:clamp(28px,4vw,44px);max-width:44em;color:var(--dim);font-size:clamp(16px,1.6vw,18px);line-height:1.6;display:grid;gap:6px;justify-items:start}
+/* how anyone can check a record: the plain answer on the left of each row, the standard behind it on the right */
+#page-trust .pf-specs{list-style:none;margin:clamp(28px,4vw,44px) 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+#page-trust .pf-specs li{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr) minmax(0,15em);gap:8px 28px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+#page-trust .pf-specs b{font:600 17px/1.35 var(--display);color:var(--ink)}
+#page-trust .pf-specs p{margin:0;color:var(--dim);font-size:16px;line-height:1.55}
+#page-trust .pf-specs code{justify-self:start;font:500 13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--gold);background:rgba(227,168,43,.08);border:1px solid rgba(227,168,43,.22);border-radius:8px;padding:5px 9px}
+#page-trust .pf-limits{margin-top:clamp(28px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+#page-trust .pf-limits div{padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:var(--panel)}
+#page-trust .pf-limits .lbl{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+#page-trust .pf-limits div+div .lbl{color:var(--quiet)}
+#page-trust .pf-limits p:not(.lbl){margin:0;color:var(--ink);font-size:16px;line-height:1.55}
+@media (max-width:899px){#page-trust .pf-specs li{grid-template-columns:minmax(0,1fr)}}
 </style>
 <section class="page-hero" id="top">
   <Mark class="watermark" />
@@ -194,7 +206,7 @@ import { SHOW_ANCHOR } from '../config';
     </div>
   </div>
 {SHOW_ANCHOR && (
-  <p class="tr-chain" data-new="1">Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <TLink href="/verify" label="Check a record yourself" /></p>
+  <p class="tr-chain" data-new="1">Each sealed record is also time-stamped on Stellar, a public blockchain we don't control, so anyone holding a copy can check it hasn't changed. <TLink href="#proof" label="How the check works" /></p>
 )}
   <ul class="facts tr-money">
         <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="20" height="13" rx="2.5"/><path d="M4 12h20"/></svg><span data-new="1">You pay in cash, by Mobile Money or through a bank, as you always have. Sawaza keeps the record of it.</span></li>
@@ -202,6 +214,26 @@ import { SHOW_ANCHOR } from '../config';
         <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="14" cy="14" r="9"/><path d="M10 14h8"/></svg><span>Sawaza is free to use: write records, send them and keep them, with no fees.</span></li>
       </ul>
 </div></section>
+
+{SHOW_ANCHOR && (
+<section class="sec" id="proof"><div class="wrap">
+  <SectionHead q="How can anyone check a record?" title="Every sealed record leaves a fingerprint on a public ledger."><p class="lede" data-new="1">Sawaza runs on its own servers, so you should not have to take our word for it. Each sealed record is also kept on Stellar, a public blockchain no single company controls. Anyone holding a copy of the record can check it against that ledger without asking us.</p></SectionHead>
+  <ul class="pf-specs" data-new="1">
+    <li><b>Your signing key</b><p>Made on your phone, inside its security chip: the Secure Enclave on an iPhone, the Keystore on Android. It never leaves the phone.</p><code>ECDSA · P-256</code></li>
+    <li><b>What each side signs</b><p>The record's exact figures and words, always laid out in the same order, so one record always gives the same bytes.</p><code>Canonical record · SHA-256</code></li>
+    <li><b>The fingerprint</b><p>A 64-character code worked out from the sealed record. Change one figure and the whole code changes.</p><code>SHA-256 hash</code></li>
+    <li><b>What goes on the ledger</b><p>Only fingerprints, many gathered into one. No names, numbers or amounts are written to the ledger.</p><code>Merkle tree · one root a batch</code></li>
+    <li><b>Which ledger, and when</b><p>Stellar's public network, within six hours of the record being sealed.</p><code>Stellar mainnet</code></li>
+    <li><b>The proof you keep</b><p>Each record keeps its path to that root and the ledger entry it went into, so a check needs only the record, its proof and a public Stellar explorer.</p><code>Merkle path · transaction reference</code></li>
+    <li><b>A lost phone</b><p>Its key is retired and signs nothing from then on. Records it signed before stay as they were.</p><code>Key revocation by time</code></li>
+  </ul>
+  <div class="pf-limits" data-new="1">
+    <div><p class="lbl">What a check shows</p><p>The record has not changed since it was sealed, whose phones signed it, and when it reached the ledger.</p></div>
+    <div><p class="lbl">What it does not show</p><p>That the money moved. It shows that both sides signed that it did.</p></div>
+  </div>
+  <p class="tr-chain"><TLink href="/verify" label="Check a record yourself" /></p>
+</div></section>
+)}
 
 <!-- Number and phonebook -->
 <section class="sec" id="number"><div class="wrap"><div class="tr-single">

@@ -236,10 +236,12 @@ import CloseSection from '../components/CloseSection.astro';
 </PhoneCrop>
       <p class="cap" data-new="1">Joseph writes a credit sale or a payment as the business.</p>
     </div>
-    <div class="fig" role="img" aria-label="Step two, screen: Sarah sees the bill from Mukasa Traders, awaiting her, with a Review button.">
+    <div class="fig" role="img" aria-label="Step two, screen: on Sarah’s home screen the bill from Mukasa Traders is awaiting her, with a Review button, above her sealed rent record.">
       <p class="lab" aria-hidden="true">2 · Sarah’s phone</p>
-      <PhoneCrop h="240px">
+      <PhoneCrop h="340px">
+        <AppBar wordmark avatar="sarah" />
         <RecordCard data-key="1" wash initials="MT" avClass="ent" name="Mukasa Traders" time="9:12 am" label="Billed" item="Goods" dir="out" amount="UGX 1,200,000" status="awaiting-you" />
+        <RecordCard who="david" name="David Landlord" time="1 Oct" label="You paid" item="Rent" dir="out" amount="UGX 450,000" status="sealed" />
       </PhoneCrop>
       <p class="cap" data-new="1">The customer signs it on their own phone.</p>
     </div>

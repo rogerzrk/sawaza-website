@@ -334,7 +334,8 @@
 @media (min-width:1100px){
   .js .how{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
   .js .how-stick{display:grid;justify-items:center;gap:20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px)}
-  .js .how-stick .hphone{font-size:clamp(10px,1.5vh,13px)}
+  /* the phone is 51.2em tall: it takes the screen height left under the nav and above the dots */
+  .js .how-stick .hphone{font-size:clamp(10px,calc((100vh - 150px) / 51.2),14.5px)}
   .js .how-stick .hscreen>.app{opacity:0;transition:opacity .45s,transform .45s;transform:translateY(10px)}
   .js .how-stick .hscreen>.app.on{opacity:1;transform:none}
   .js .hstep .shot{display:none}

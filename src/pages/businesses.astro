@@ -71,6 +71,9 @@ import CloseSection from '../components/CloseSection.astro';
 #page-businesses .app .gbar span:not(.a-av){display:block;font-size:.8125em;color:var(--a-dim)}
 #page-businesses .app .gbar.mv{background:rgba(214,160,224,.14);border-bottom-color:#D2A0E0}
 #page-businesses .app .gbar.mv b{color:#EBCDF2}
+/* a group's colour runs up behind the status bar, as the app paints its chrome to the top of the screen */
+#page-businesses .app:has(>.gbar)>.a-sbar{background:rgba(154,165,240,.16)}
+#page-businesses .app:has(>.gbar.mv)>.a-sbar{background:rgba(214,160,224,.14)}
 #page-businesses .app .key{font:700 .6875em/1 var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--a-dim);padding:.9em 1em .5em}
 #page-businesses .app .pend{font-weight:700;color:var(--a-goldText)}
 #page-businesses .app .pill{display:inline-flex;align-items:center;height:1.6em;padding:0 .6em;border-radius:99em;background:var(--a-well);font:700 .6875em/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--a-dim);margin-left:.45em;vertical-align:.15em}

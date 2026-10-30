@@ -55,7 +55,7 @@ function trap(e: KeyboardEvent, box: HTMLElement) {
     if (e.key === 'Escape') set(false);
     else if (e.key === 'Tab') trap(e, sh);
   });
-  window.addEventListener('resize', () => { if (window.innerWidth > 980 && !sh.hidden) set(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 920 && !sh.hidden) set(false); });
 })();
 
 /* store sheet: every "Get the app" in the bar and the menu opens it, so no page needs its own */

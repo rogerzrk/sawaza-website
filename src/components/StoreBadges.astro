@@ -1,15 +1,19 @@
 ---
-/* The Google Play and App Store badges. Until the apps are listed the store links are
-   placeholders, so the badges point at the page's own get section instead. */
+/* The App Store and Google Play badges, drawn to the stores' own artwork: black, a thin grey
+   rule, the store's mark and its two lines, Apple first. Until the apps are listed the store
+   links are placeholders, so the badges point at the get section instead. */
 import { STORE_PLAY_URL, STORE_APPLE_URL } from '../config';
 interface Props {
   class?: string;
+  /** Where both badges point while the store links are placeholders. */
+  fallback?: string;
+  id?: string;
 }
-const { class: extra } = Astro.props;
-const play = STORE_PLAY_URL === '#' ? '#get' : STORE_PLAY_URL;
-const apple = STORE_APPLE_URL === '#' ? '#get' : STORE_APPLE_URL;
+const { class: extra, fallback = '#get', id } = Astro.props;
+const play = STORE_PLAY_URL === '#' ? fallback : STORE_PLAY_URL;
+const apple = STORE_APPLE_URL === '#' ? fallback : STORE_APPLE_URL;
 ---
-<div class={extra ? `badges ${extra}` : 'badges'}>
-    <a class="badge" href={play}><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    <a class="badge" href={apple}><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+<div class={extra ? `badges ${extra}` : 'badges'} id={id}>
+    <a class="badge b-apple" href={apple}><svg class="b-ic" viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+    <a class="badge b-play" href={play}><svg class="b-ic" viewBox="0 0 24 26" aria-hidden="true"><path d="M1.1.5C.8.8.6 1.3.6 1.9v22.2c0 .6.2 1.1.5 1.4l.1.1L13.2 13.1v-.3L1.2.4z" fill="#4285F4"/><path d="M17.1 17l-3.9-3.9v-.3l3.9-3.9.1.1 4.6 2.6c1.3.7 1.3 2 0 2.7l-4.6 2.6z" fill="#FBBC04"/><path d="M17.2 16.9L13.2 13 1.1 25.5c.5.5 1.2.5 2.1.1l14-8.7" fill="#EA4335"/><path d="M17.2 9.1L3.2.4C2.4-.1 1.6 0 1.1.5L13.2 13z" fill="#34A853"/></svg><span><small>GET IT ON</small><b>Google Play</b></span></a>
   </div>

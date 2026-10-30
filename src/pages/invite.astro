@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import StoreBadges from '../components/StoreBadges.astro';
 ---
 <Base title="You are invited · Sawaza" description="You have been invited to Sawaza. Get the app and sign up with the number you were invited on." bodyId="page-invite" minimal>
 <style is:global>
@@ -38,9 +39,7 @@ import Base from '../layouts/Base.astro';
 #page-invite .claim .after{color:var(--dim);font-size:15.5px;margin-top:-8px}
 #page-invite .claim .quiet{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-underline-offset:4px}
 #page-invite .claim .quiet:hover{color:var(--ink)}
-#page-invite .claim .badges .badge{flex:1 1 186px;min-height:44px}
 #page-invite footer{margin-top:0}
-@media (max-width:340px){#page-invite .claim .badges .badge{flex-basis:100%;min-width:0}}
 </style>
 <div class="wrap"><div class="claim">
   <h1 id="lp-h1">You've been invited to Sawaza.</h1>
@@ -54,10 +53,7 @@ import Base from '../layouts/Base.astro';
   <div id="lp-steps"><p class="lbl">Three steps</p>
     <ol class="strip"><li>Get the app</li><li>Sign up with the number you were invited on</li><li>Answer what is waiting</li></ol></div>
   <p class="safe"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3l10 4v7c0 6.5-4.3 11-10 13-5.7-2-10-6.5-10-13V7z"/><path d="M10.5 15l3.2 3.2 6-6.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sawaza never asks you to send money.</p>
-  <div class="badges" id="stores">
-    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-  </div>
+  <StoreBadges fallback="/#get" id="stores" />
   <p class="after" id="lp-after" data-new="1">This link carries no names and no records. Only the app, signed in with your number, shows what was sent to you.</p>
   <p><a class="quiet" href="/how-it-works">What is Sawaza?</a></p>
 </div></div>

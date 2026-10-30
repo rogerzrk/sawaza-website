@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import StoreBadges from '../components/StoreBadges.astro';
 ---
 <Base title="About · Sawaza" description="Sawaza is made in Kampala by SAWAZA TECHNOLOGIES - SMC LIMITED: one record of money between people, signed by both sides." bodyId="page-about">
 <style is:global>
@@ -152,9 +153,6 @@ import Base from '../layouts/Base.astro';
   <svg class="mark" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><path d="M113.394,690.625 L237.500,690.625 A184.375,190.625 0 0 0 421.875,500.000 A340.625,334.375 0 0 1 762.500,165.625 L810.606,165.625 A25.000,25.000 0 0 0 826.950,121.712 A500.000,500.000 0 0 0 12.163,609.619 A103.750,103.750 0 0 0 113.394,690.625 Z"/><path d="M886.606,309.375 L762.500,309.375 A184.375,190.625 0 0 0 578.125,500.000 A340.625,334.375 0 0 1 237.500,834.375 L189.394,834.375 A25.000,25.000 0 0 0 173.050,878.288 A500.000,500.000 0 0 0 987.837,390.381 A103.750,103.750 0 0 0 886.606,309.375 Z"/></g></svg>
   <h2>Both sides. One record. <span>Signed.</span></h2>
   <p><span class="sn">Your first record takes a minute.</span> <span class="sn">Sending it is your call.</span></p>
-  <div class="badges">
-    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 3l12 10L4 23z" fill="#34A853"/><path d="M4 3l15 8.5-3 1.5z" fill="#4285F4"/><path d="M4 23l15-8.5-3-1.5z" fill="#EA4335"/><path d="M19 11.5l3 1.5-3 1.5-3-1.5z" fill="#FBBC04"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-    <a class="badge" href="/#get"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M17.5 13.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM15.3 6.8c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2-.5 2.7-1.3z" fill="#fff"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-  </div>
+  <StoreBadges fallback="/#get" />
 </div></section>
 </Base>

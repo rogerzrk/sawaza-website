@@ -74,7 +74,7 @@ footer h4{margin-bottom:6px}
 .ssheet .sp{width:min(100%,440px);position:relative;border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:0 30px 80px -20px rgba(0,0,0,.8);padding:28px 22px 24px;display:grid;gap:16px}
 .ssheet h2{font-size:26px;line-height:1.1;font-weight:700;padding-right:48px}
 .ssheet p{color:var(--dim);font-size:16px;margin:0}
-.ssheet .badges{flex-direction:column;align-items:stretch;gap:12px;margin:0}
+.ssheet .badges{--bh:52px;flex-direction:column;align-items:flex-start;gap:12px;margin:0}
 .ssheet .sclose{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
 .ssheet .sclose svg{width:20px;height:20px}
 @media (min-width:700px){.ssheet{place-items:center}}
@@ -185,16 +185,11 @@ footer h4{margin-bottom:6px}
 #get{padding-block:clamp(88px,12vw,160px)}
 #get .get-pull{margin-top:clamp(36px,5vw,56px);font:600 clamp(20px,2.4vw,26px)/1.3 var(--display);color:var(--ink);max-width:30em}
 #get .badges{margin-top:24px;margin-bottom:clamp(8px,2vw,20px);justify-content:center}
-#get .badge{padding:14px 22px;min-height:64px}
-#get .badge b{font-size:20px}
+#get .badges{--bh:56px}
 #get .added{margin-top:clamp(28px,4vw,40px);font-size:14px;color:var(--quiet);max-width:34em}
 @media (max-width:560px){
   #get{padding-block:88px 96px}
-  #get .badges{flex-direction:column;align-items:stretch;gap:16px;width:100%}
-  #get .badges .badge{width:100%;flex:none;min-height:68px;padding:14px 18px;justify-content:center;gap:14px}
-  #get .badges .badge svg{width:28px;height:28px}
-  #get .badges .badge b{font-size:20px}
-  #get .badges .badge small{font-size:11px}
+  #get .badges{--bh:52px;flex-direction:column;align-items:center;gap:14px}
 }
 /* --fade:92% moves the start of the fade lower when the key element sits near the bottom of a tall crop */
 

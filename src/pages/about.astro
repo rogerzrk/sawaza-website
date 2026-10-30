@@ -12,17 +12,16 @@ import Base from '../layouts/Base.astro';
 #page-about .page-hero .made{font-size:15px;margin-top:14px;opacity:.75}
 #page-about .lede.habit{margin-top:14px;color:var(--ink);font-weight:600}
 #page-about .lede.principle{color:var(--ink);font:600 clamp(20px,2.2vw,26px)/1.3 var(--display);letter-spacing:-.015em;margin-bottom:10px}
-#page-about .founder{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+#page-about .founder{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
 #page-about .f-portrait{margin:0;display:grid;gap:14px}
-#page-about .f-portrait .ph{aspect-ratio:4/5;max-width:100%;border-radius:22px;border:1px dashed rgba(227,168,43,.45);background:linear-gradient(160deg,var(--panel),rgba(17,35,79,.4));display:grid;place-items:center}
-#page-about .f-portrait .ph span{font:800 clamp(48px,6vw,72px)/1 var(--display);letter-spacing:-.03em;color:var(--gold);opacity:.8}
+#page-about .f-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
 #page-about .f-portrait figcaption{font:600 16px/1.3 var(--display);color:var(--ink);display:grid;gap:2px}
 #page-about .f-portrait figcaption small{font:500 14px/1.3 var(--body);color:var(--quiet)}
 #page-about .f-text{display:grid;gap:16px;max-width:40em}
 #page-about .f-text .h2{margin-bottom:4px}
 #page-about .f-text p:not(.q){color:var(--dim);font-size:clamp(16px,1.4vw,18px);line-height:1.65}
 #page-about .f-text p.turn{color:var(--ink);font-weight:600}
-@media (max-width:760px){#page-about .founder{grid-template-columns:1fr}#page-about .f-portrait{max-width:160px}#page-about .f-portrait figcaption{display:none}}
+@media (max-width:760px){#page-about .founder{grid-template-columns:1fr}#page-about .f-portrait{max-width:140px}#page-about .f-portrait figcaption{display:none}}
 #page-about .vm{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(16px,3vw,28px)}
 #page-about .vm-card{padding:clamp(24px,4vw,44px);border-radius:22px;border:1px solid var(--line);background:linear-gradient(160deg,var(--panel),rgba(17,35,79,.4));display:grid;gap:18px;align-content:start}
 #page-about .vm-line{font:700 clamp(26px,3.4vw,40px)/1.12 var(--display);letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
@@ -86,11 +85,11 @@ import Base from '../layouts/Base.astro';
 
 <section class="sec deep" id="who"><div class="wrap">
   <div class="founder" data-new="1">
-    <figure class="f-portrait"><div class="ph" role="img" aria-label="Portrait of Rogers K. Zimula, to come"><span>RZ</span></div><figcaption>Rogers K. Zimula<small>Founder</small></figcaption></figure>
+    <figure class="f-portrait"><picture><source srcset="/img/rogers.webp" type="image/webp"><img src="/img/rogers.jpg" width="600" height="750" alt="Rogers K. Zimula, founder of Sawaza" loading="lazy" decoding="async"></picture><figcaption>Rogers K. Zimula<small>Founder</small></figcaption></figure>
     <div class="f-text">
       <p class="q">Who built it</p>
-      <h2 class="h2">Rogers K. Zimula</h2>
-      <p>Rogers K. Zimula has been in business since he was six, selling in his parents' grocery shop. Since then he has run finance for a construction firm for eight years. He has co-founded an engineering company and a microcredit lender, run a supermarket and a ginger farm, started a food processing company, and built three apps that did not make it. He studied accounting from secondary school to an MBA in finance.</p>
+      <h2 class="h2">Built by someone who needed it.</h2>
+      <p>Sawaza's founder has been in business since he was six, selling in his parents' grocery shop. Since then he has run finance for a construction firm for eight years. He has co-founded an engineering company and a microcredit lender, run a supermarket and a ginger farm, started a food processing company, and built three apps that did not make it. He studied accounting from secondary school to an MBA in finance.</p>
       <p>Then came a year with a wedding to plan, a house move, land to buy and school fees to pay, and he still could not keep his own books. He tried the apps. His friends tried them too. None of it stuck.</p>
       <p class="turn">Then he saw why. Every money record has two sides, and every tool asked one side to keep it alone. So he built the record both sides keep.</p>
     </div>

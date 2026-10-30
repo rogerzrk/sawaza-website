@@ -125,7 +125,6 @@ footer h4{margin-bottom:6px}
 @media (max-width:699px){#doors .fm3-vis>.fm3-card{display:none}}
 
 /* doors: what is inside, one line; trust: three promises in a row */
-#doors .fm3-in{color:var(--dim);font-size:15.5px;line-height:1.5}
 .trust .facts-row{margin-top:clamp(28px,4vw,44px);grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
 .trust .facts-row li{border-bottom:1px solid var(--line);align-items:start}
 @media (max-width:900px){.trust .facts-row{grid-template-columns:1fr}.trust .facts-row li:last-child{border-bottom:1px solid var(--line)}}
@@ -144,8 +143,7 @@ footer h4{margin-bottom:6px}
   #doors .fm3-blocks{gap:36px}
 }
 @media (max-width:699px){.obj2{grid-template-rows:108px auto}.closer-line{margin-top:28px}.footer .cols,footer .cols{gap:6px 20px}}
-#doors .fm3-rest{margin-top:clamp(32px,5vw,56px);color:var(--dim);font-size:clamp(16px,1.6vw,19px);max-width:36em}
-@media (max-width:699px){#doors .fm3-blocks{gap:24px}#doors .fm3-rest{margin-top:24px}.hsteps{gap:24px}}
+@media (max-width:699px){#doors .fm3-blocks{gap:24px}.hsteps{gap:24px}}
 @media (max-width:699px){.today-cap{margin-top:16px}.closer-line{margin-top:20px}.after-steps{margin-top:24px}}
 
 /* .pcrop: the one cropped-phone style. Markup: <div class="pcrop" style="--crop-h:300px;--crop-y:0px"><div class="hphone"><div class="hscreen"><div class="app"><span class="nt"></span>...</div></div></div></div>.

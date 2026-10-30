@@ -402,6 +402,9 @@
 #doors .fm3-intro{color:var(--dim);font-size:clamp(16px,1.6vw,19px);max-width:36em}
 #doors .fm3-pin{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(40px,6vw,96px);align-items:start}
 #doors .fm3-blocks{display:grid}
+/* the last door keeps the pinned phone while its words are read: without room below it the phone
+   leaves with the business door's heading still at the middle of the screen */
+@media (min-width:1100px){#doors .fm3-blocks{padding-bottom:40vh}}
 #doors .fm3-blk{min-height:62vh;display:grid;align-content:center;gap:20px;padding-block:32px}
 #doors .fm3-blk.on{opacity:1}
 #doors .fm3-hd{display:grid;gap:8px}

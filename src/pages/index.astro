@@ -18,6 +18,7 @@ import TLink from '../components/TLink.astro';
 import CloseSection from '../components/CloseSection.astro';
 import DoorScreen from '../components/home/DoorScreen.astro';
 import DoorCard from '../components/home/DoorCard.astro';
+import FeatureRail from '../components/home/FeatureRail.astro';
 import { PERSONAL_TABS, sarahWithDavid, davidWithSarah } from '../components/threads';
 import { SHOW_ANCHOR } from '../config';
 
@@ -28,7 +29,7 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
 ---
 <Base title="Sawaza: the record both sides keep" description="The record both sides keep. Write down money between you and the people you deal with, and both of you sign the same record.">
 <Fragment slot="rail">
-<Rail items={[['top', 'What is this?'], ['problem', 'Why would I need it?'], ['how', 'How does it work?'], ['doors', 'Is it for me?'], ['trust', 'Why trust it?'], ['get', 'How do I start?']]} />
+<Rail items={[['top', 'What is this?'], ['problem', 'Why would I need it?'], ['how', 'How does it work?'], ['doors', 'Is it for me?'], ['does', 'What does it do?'], ['trust', 'Why trust it?'], ['get', 'How do I start?']]} />
 </Fragment>
 <!-- 1 Hero -->
 <section class="hero" id="top">
@@ -202,17 +203,17 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
       <article class="fm3-blk on" data-k="you" id="door-you">
         <div class="fm3-hd"><p class="fm3-tag">Personal</p><h3 class="fm3-title">You and the people you deal with</h3><p class="fm3-cap"><span class="when">12 Oct</span><span data-new="1">Sarah lends Grace school fees.</span></p></div>
         <div class="fm3-vis" aria-hidden="true"><p class="lab">Sarah’s phone · Grace</p><div class="fm3-ph"><PhoneCrop h="340px" fade="94%" app="thr"><DoorScreen k="you" /></PhoneCrop></div><DoorCard k="you" /></div>
-        <div class="fm3-bd"><p class="fm3-line">Bill, lend, pay and buy, with a record you both sign.</p><p class="fm3-in" data-new="1">Inside: your records, debts, accounts, the things you own, and your books.</p><TLink href="/how-it-works" label="See how it works" /></div>
+        <div class="fm3-bd"><p class="fm3-line">Bill, lend, pay and buy, with a record you both sign.</p><TLink href="/how-it-works" label="See how it works" /></div>
       </article>
       <article class="fm3-blk fm3-grp" data-k="grp" id="door-grp">
         <div class="fm3-hd"><p class="fm3-tag">Group</p><h3 class="fm3-title">The money you keep together</h3><p class="fm3-cap"><span class="when">12 Oct</span>Kisaasi Savers records her savings.</p></div>
         <div class="fm3-vis" aria-hidden="true"><p class="lab">Kisaasi Savers · Register</p><div class="fm3-ph"><PhoneCrop h="285px" app="tight"><DoorScreen k="grp" /></PhoneCrop></div><DoorCard k="grp" /></div>
-        <div class="fm3-bd"><p class="fm3-line">One record for the whole group. Each member confirms their own part.</p><p class="fm3-in" data-new="1">Inside: households, savings groups and SACCOs, and cash rounds, with a register and a passbook for each member.</p><TLink href="/groups" label="For groups" /></div>
+        <div class="fm3-bd"><p class="fm3-line">One record for the whole group. Each member confirms their own part.</p><TLink href="/groups" label="For groups" /></div>
       </article>
       <article class="fm3-blk fm3-biz" data-k="biz" id="door-biz">
         <div class="fm3-hd"><p class="fm3-tag">Business</p><h3 class="fm3-title">Your trade and hustle</h3><p class="fm3-cap"><span class="when">31 Oct</span>Mukasa Traders bills her.</p></div>
         <div class="fm3-vis" aria-hidden="true"><p class="lab">Mukasa Traders’ phone · Sarah</p><div class="fm3-ph"><PhoneCrop h="285px" app="tight"><DoorScreen k="biz" /></PhoneCrop></div><DoorCard k="biz" /></div>
-        <div class="fm3-bd"><p class="fm3-line"><span class="sn">Invoices and credit your customers can sign for.</span> <span class="sn">Books made of signed records.</span></p><p class="fm3-in" data-new="1">Inside: customer accounts, invoices and loans, and your books, each kept apart from your own money.</p><TLink href="/businesses" label="For businesses" /></div>
+        <div class="fm3-bd"><p class="fm3-line"><span class="sn">Invoices and credit your customers can sign for.</span> <span class="sn">Books made of signed records.</span></p><TLink href="/businesses" label="For businesses" /></div>
       </article>
     </div>
     <div class="fm3-stick" aria-hidden="true"><p class="lab" id="fm3Lab">Sarah’s phone · Grace</p>
@@ -220,10 +221,12 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
       <div class="fm3-sums"><div class="fm3-sum on" data-k="you"><DoorCard k="you" /></div><div class="fm3-sum" data-k="grp"><DoorCard k="grp" /></div><div class="fm3-sum" data-k="biz"><DoorCard k="biz" /></div></div>
     </div>
   </div>
-  <p class="fm3-rest" data-new="1">These are the first tools in the app. More are on the way, for each kind of relationship.</p>
 </div></section>
 
-<!-- 5 Before you ask, and why trust it -->
+<!-- 5 What it does -->
+<FeatureRail />
+
+<!-- 6 Before you ask, and why trust it -->
 <section class="sec deep trust" id="trust"><div class="wrap">
   <SectionHead q="Why trust it?" title="Before you ask." />
   <div class="asks2">
@@ -254,7 +257,7 @@ const david = davidWithSarah.map((it) => (it.pending ? { ...it, tie: 'tieB', hol
   <p class="plate-line">Made in Kampala by <strong>SAWAZA TECHNOLOGIES - SMC LIMITED</strong>, in beta on Android and iPhone. <TLink href="/trust" label="Trust and privacy" /></p>
 </div></section>
 
-<!-- 6 Close -->
+<!-- 7 Close -->
 <CloseSection pull added />
 <script>
 (function(){

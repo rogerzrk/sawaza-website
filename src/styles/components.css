@@ -315,3 +315,7 @@ footer .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
 
 /* A sentence that breaks only at its end: a line of two sentences sits on one line when it fits and otherwise one sentence a line. */
 .sn{display:inline-block}
+
+/* The one-line answer to "is it free?", under the hero's store badges. */
+.hero .cta-note{margin-top:14px;font-size:15px;line-height:1.5;color:var(--dim)}
+.hero .cta-note+.aud{margin-top:22px}

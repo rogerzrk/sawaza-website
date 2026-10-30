@@ -70,6 +70,8 @@ import TLink from '../TLink.astro';
 #does .cbar{height:6px;border-radius:9px;background:var(--well);margin:10px 0} #does .cbar i{display:block;height:100%;border-radius:9px;background:var(--gold)}
 #does .rk{font:700 11px/1 var(--body);letter-spacing:.08em;color:var(--dim);margin:10px 0 2px} #does .seat{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)} #does .disc{width:34px;height:34px;border-radius:50%;background:var(--well);display:grid;place-items:center;font:700 12px/1 var(--body);color:var(--dim)} #does .nm{flex:1;font-size:13.5px} #does .sr{text-align:right;display:grid} #does .sr b{font:700 14px/1.1 var(--body)} #does .sr small{font:600 11.5px/1.2 var(--body);color:var(--dim)} #does .sr small.in{color:var(--in)}
 #does .fd-rail{grid-auto-columns:min(320px,80vw)}
+/* where the page's question rail shows, the cards stop at the column edge so they never run under it */
+@media (min-width:1360px){#does .fd-rail{margin-right:0;padding-right:0}}
 </style>
 <script>
 document.querySelectorAll<HTMLButtonElement>('#does .fd-btn').forEach(function(b){b.addEventListener('click',function(){var r=document.querySelector<HTMLElement>('#does .fd-rail'),c=r&&r.querySelector<HTMLElement>('.fc');if(r&&c)r.scrollBy({left:Number(b.dataset.d)*(c.offsetWidth+16),behavior:'smooth'})})});

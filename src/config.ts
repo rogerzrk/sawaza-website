@@ -1,7 +1,7 @@
 /* Site-wide values the pages read. The store links are placeholders until the apps are listed. */
 export const SITE = 'https://sawaza.app';
 export const SITE_NAME = 'Sawaza';
-export const CONTACT_EMAIL = 'hello@sawaza.app';
+export const CONTACT_EMAIL = 'admin@sawaza.app';
 export const COMPANY = 'SAWAZA TECHNOLOGIES - SMC LIMITED';
 export const STORE_PLAY_URL = '#';
 export const STORE_APPLE_URL = '#';

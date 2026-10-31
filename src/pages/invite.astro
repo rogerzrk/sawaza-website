@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import StoreBadges from '../components/StoreBadges.astro';
+import { PRELAUNCH } from '../config';
 ---
 <Base title="You are invited · Sawaza" description="You have been invited to Sawaza. Get the app and sign up with the number you were invited on." bodyId="page-invite" minimal>
 <style is:global>
@@ -55,6 +56,6 @@ import StoreBadges from '../components/StoreBadges.astro';
   <p class="safe"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 3l10 4v7c0 6.5-4.3 11-10 13-5.7-2-10-6.5-10-13V7z"/><path d="M10.5 15l3.2 3.2 6-6.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sawaza never asks you to send money.</p>
   <StoreBadges fallback="/#get" id="stores" />
   <p class="after" id="lp-after" data-new="1">This link carries no names and no records. Only the app, signed in with your number, shows what was sent to you.</p>
-  <p><a class="quiet" href="/how-it-works">What is Sawaza?</a></p>
+  <p><a class="quiet" href={PRELAUNCH ? '/about' : '/how-it-works'}>What is Sawaza?</a></p>
 </div></div>
 </Base>

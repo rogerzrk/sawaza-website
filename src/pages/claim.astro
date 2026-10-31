@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import StoreBadges from '../components/StoreBadges.astro';
+import { PRELAUNCH } from '../config';
 ---
 <Base title="A record on Sawaza" description="Someone sent you a record on Sawaza. Open it in the app to answer." bodyId="page-claim" minimal>
 <style is:global>
@@ -48,7 +49,7 @@ import StoreBadges from '../components/StoreBadges.astro';
   <div class="noapp" data-new="1"><p><b>No Sawaza yet?</b> Sign up with the number this link came to. Sawaza is free to use.</p>
   <StoreBadges fallback="/#get" /></div>
   <p class="care" data-new="1"><span class="sn">Your money took work.</span> <span class="sn">Give it a proper signed record.</span></p>
-  <p><a class="quiet" href="/how-it-works" data-new="1">See how it works</a></p>
+  <p><a class="quiet" href={PRELAUNCH ? '/about' : '/how-it-works'} data-new="1">{PRELAUNCH ? 'What is Sawaza?' : 'See how it works'}</a></p>
 </div></div>
 <script>
 (document.getElementById('open-app') as HTMLAnchorElement).href=location.href;

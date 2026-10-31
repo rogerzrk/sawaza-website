@@ -5,3 +5,4 @@ dist-preview/
 tests/shots/
 npm-debug.log*
 .DS_Store
+dist-prelaunch/

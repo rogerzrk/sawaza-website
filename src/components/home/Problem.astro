@@ -1,0 +1,42 @@
+---
+/* Home's second section: the rent book with October missing, the care line, and the four
+   unsigned ways people keep money records today. The full Home and the pre-launch Home both draw it. */
+import SectionHead from '../SectionHead.astro';
+---
+<section class="sec problem deep ruled" id="problem"><div class="wrap">
+  <div class="grid">
+    <div class="book reveal" aria-label="The landlord's rent book. August, September and November are written in. October is blank.">
+      <div class="page">
+        <div class="page-h"><span>Rent book</span><span>Sarah, House 4</span></div>
+        <div class="entry"><span class="m">Aug</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry"><span class="m">Sep</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry missing"><span class="m">Oct</span><span></span><span></span></div>
+        <div class="entry"><span class="m">Nov</span><span>450,000</span><span class="tick">✓</span></div>
+        <div class="entry"><span class="m">Dec</span><span></span><span></span></div>
+        <div class="page-sign"><span>Landlord's hand</span>
+          <svg viewBox="0 0 84 30" aria-hidden="true"><path d="M3 22c8-14 12-16 14-8s-2 12 4 4 8-14 10-6 4 10 12 2 10-6 14-2 8 8 22-6" fill="none" stroke="#22408C" stroke-width="2" stroke-linecap="round"/></svg></div>
+      </div>
+      <span class="note-q" aria-hidden="true">?</span>
+    </div>
+    <div>
+      <SectionHead q="Why would I need it?" title="Your money took work. Give it a proper signed record." titleNew style="margin-bottom:0"><p class="lede" data-new="1"><span class="sn">You'd never buy land without a signed agreement.</span> <span class="sn">Why lend school fees without one?</span></p></SectionHead>
+      <figure class="said" data-new="1">
+        <blockquote>&ldquo;<span class="sn">But are you sure you paid in October?</span> <span class="sn">I don&rsquo;t seem to see it in my books.</span>&rdquo;</blockquote>
+        <figcaption>Your landlord, in December.</figcaption>
+      </figure>
+      <p class="lede" style="margin-top:22px;color:var(--ink);font-weight:600">Whoever keeps the book keeps the history.</p>
+    </div>
+  </div>
+
+  <p class="lbl" style="margin-top:clamp(56px,7vw,88px)">What people use today</p>
+  <div class="today2">
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="nb"><p>David 450k</p><p>Oct, cash</p><p>Nov, cash</p></div></div><p class="nm">A notebook</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="mini-wa">Sent the October rent to you<small>10:21 ✓✓</small></div></div><p class="nm">A WhatsApp message</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="cloud">I think I paid him&hellip;</div></div><p class="nm">Memory</p></div>
+    <div class="obj2"><div class="art" aria-hidden="true"><span class="unsigned">Unsigned</span><div class="sms"><b>MOBILE MONEY</b>You have sent UGX 450,000 to DAVID J. on 01/10/2026.</div></div><p class="nm">A Mobile Money SMS</p></div>
+  </div>
+  <p class="today-cap" data-new="1">A notebook, a message and memory are written by one side. A Mobile Money SMS comes from the network. Neither of you signed any of them.</p>
+
+  <p class="closer-line">Only one side ever gets to write it down. <span data-new="1">With Sawaza, both sides hold it, signed.</span></p>
+</div></section>
+

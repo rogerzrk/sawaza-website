@@ -11,6 +11,9 @@ import RegisterRow from '../components/RegisterRow.astro';
 import SectionHead from '../components/SectionHead.astro';
 import TLink from '../components/TLink.astro';
 import CloseSection from '../components/CloseSection.astro';
+import { PRELAUNCH as HIDE_UNTIL_LAUNCH } from '../config';
+// Before launch this page is not published: its address sends the visitor Home.
+if (HIDE_UNTIL_LAUNCH) return Astro.redirect('/');
 ---
 <Base title="Groups · Sawaza" description="Households, savings groups, cash rounds and clubs keep one shared record of their money on Sawaza, and each member confirms their own part." bodyId="page-groups">
 <style is:global>

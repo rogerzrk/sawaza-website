@@ -105,7 +105,8 @@ function trap(e: KeyboardEvent, box: HTMLElement) {
 (function () {
   const page = here();
   $$<HTMLAnchorElement>('.site-nav .links a,.msheet .mbig a').forEach((a) => {
-    if (pageName(a.getAttribute('href') || '') === page) a.setAttribute('aria-current', 'page');
+    const href = a.getAttribute('href') || '';
+    if (!href.includes('#') && pageName(href) === page) a.setAttribute('aria-current', 'page');
   });
 })();
 

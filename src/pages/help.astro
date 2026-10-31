@@ -2,6 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import { HELP_TOPICS } from '../data/help';
+import { PRELAUNCH as HIDE_UNTIL_LAUNCH } from '../config';
+// Before launch this page is not published: its address sends the visitor Home.
+if (HIDE_UNTIL_LAUNCH) return Astro.redirect('/');
 ---
 <Base title="Help · Sawaza" description="What Sawaza costs, and answers to the usual questions: signing in, lost phones, who sees your records, groups and businesses." bodyId="page-help">
 <style is:global>

@@ -14,6 +14,9 @@ import SectionHead from '../components/SectionHead.astro';
 import TLink from '../components/TLink.astro';
 import CloseSection from '../components/CloseSection.astro';
 import { PERSONAL_TABS, sarahWithDavid, davidWithSarah } from '../components/threads';
+import { PRELAUNCH as HIDE_UNTIL_LAUNCH } from '../config';
+// Before launch this page is not published: its address sends the visitor Home.
+if (HIDE_UNTIL_LAUNCH) return Astro.redirect('/');
 ---
 <Base title="How it works · Sawaza" description="Follow one record from written to sealed: how you write it, how it reaches the other side, how they answer, and what each side keeps." bodyId="page-how-it-works">
 <Fragment slot="rail">

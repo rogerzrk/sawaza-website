@@ -8,6 +8,9 @@ import RecordCard from '../components/RecordCard.astro';
 import SectionHead from '../components/SectionHead.astro';
 import TLink from '../components/TLink.astro';
 import { SHOW_ANCHOR } from '../config';
+import { PRELAUNCH as HIDE_UNTIL_LAUNCH } from '../config';
+// Before launch this page is not published: its address sends the visitor Home.
+if (HIDE_UNTIL_LAUNCH) return Astro.redirect('/');
 ---
 <Base title="Trust and privacy · Sawaza" description="Who signs what, who sees your records, how a signed record stays true, and what Sawaza never does with your money or your data." bodyId="page-trust">
 <Fragment slot="rail">

@@ -1,0 +1,81 @@
+---
+/* Home before launch: who the company is and why the record matters, with no app screens. It
+   names what Sawaza does in a paragraph, keeps the care line, and gives the company's details
+   and a way to reach it. The full Home replaces it on launch day. */
+import Base from '../../layouts/Base.astro';
+import Mark from '../Mark.astro';
+import Problem from './Problem.astro';
+import { COMPANY, CONTACT_EMAIL } from '../../config';
+---
+<Base title="Sawaza: the record both sides keep" description="Sawaza keeps one record of money between you and the people you deal with, signed by both of you. Coming soon to Android and iPhone in Uganda." bodyId="page-pre">
+<style is:global>
+#page-pre .page-hero .watermark{position:absolute;right:-8%;top:50%;width:min(62vw,720px);height:auto;transform:translateY(-50%);color:var(--gold)}
+#page-pre .page-hero .soon{margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(227,168,43,.45);background:var(--goldsoft);color:var(--ink);font-weight:600;font-size:15.5px}
+#page-pre .page-hero .soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+#page-pre .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(28px,4vw,40px)}
+#page-pre .ew{padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--panel);display:grid;gap:8px;align-content:start}
+#page-pre .ew svg{width:28px;height:28px;color:var(--gold)}
+#page-pre .ew b{font:600 19px/1.25 var(--display);color:var(--ink)}
+#page-pre .ew p{color:var(--dim)}
+#page-pre .story{max-width:40em;display:grid;gap:16px;color:var(--dim);font-size:17.5px;line-height:1.65}
+#page-pre .story .turn{color:var(--ink);font-weight:600}
+#page-pre .story .tlink{justify-self:start;min-height:44px}
+#page-pre .contact{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start}
+#page-pre .card{padding:clamp(22px,3vw,32px);border-radius:20px;border:1px solid var(--line);background:var(--panel);display:grid;gap:14px}
+#page-pre .card dl{display:grid;gap:12px}
+#page-pre .card dt{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--quiet)}
+#page-pre .card dd{margin:2px 0 0;color:var(--ink);font-size:16.5px;overflow-wrap:anywhere}
+#page-pre .card a{color:var(--ink);text-underline-offset:4px}
+#page-pre #get p{max-width:26em}
+@media (max-width:860px){#page-pre .three,#page-pre .contact{grid-template-columns:1fr}#page-pre .page-hero .watermark{opacity:.04}}
+</style>
+
+<section class="page-hero" id="top">
+  <Mark class="watermark" />
+  <div class="wrap">
+    <div>
+      <p class="q">Made in Kampala</p>
+      <h1>The record both sides <em>keep.</em></h1>
+      <p class="sub">Rent, a loan between friends, a savings group's contributions, a shop's credit book. Sawaza keeps one record of money between you and the people you deal with, and both of you sign it, each on your own phone. Sawaza never holds or moves money.</p>
+      <p class="soon">Coming soon to Android and iPhone in Uganda</p>
+    </div>
+  </div>
+</section>
+
+<Problem />
+
+<section class="sec" id="story"><div class="wrap">
+  <div class="sec-head"><p class="q">Who we are</p><h2 class="h2">Built by someone who needed it.</h2></div>
+  <div class="story">
+    <p>Sawaza's founder spent thirteen years running finance for businesses in engineering, retail, lending, manufacturing and agriculture. Then one year brought a wedding, a house move, land to buy and school fees to pay, and even with an MBA in finance he could not keep his own books in order.</p>
+    <p class="turn">Every money record has two sides, and every tool asked one side to keep it alone. So he built the record both sides keep.</p>
+    <a class="tlink" href="/about">Read our story <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="three">
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3.5v5.5c0 5-3.4 8.4-8 9.9-4.6-1.5-8-4.9-8-9.9V6.5z"/><path d="M9 9l6 6M15 9l-6 6"/></svg><b>Holds no money</b><p>Sawaza never holds or moves money.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><b>Your data stays yours</b><p>We never sell your data, and we show no ads.</p></div>
+    <div class="ew"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14M5 15h14"/></svg><b>Every side equal</b><p>Every side stands equal on the record. A signed record is sealed, so any change shows.</p></div>
+  </div>
+</div></section>
+
+<section class="sec deep" id="contact"><div class="wrap">
+  <div class="contact">
+    <div class="sec-head"><p class="q">Contact</p><h2 class="h2">Talk to us.</h2>
+    <p class="lede">Questions, press or partnerships, write to us and a person will answer.</p></div>
+    <div class="card">
+      <dl>
+        <div><dt>Email</dt><dd><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></dd></div>
+        <div><dt>Company</dt><dd>{COMPANY}</dd></div>
+        <div><dt>Registration number</dt><dd>80047057968423</dd></div>
+        <div><dt>Based in</dt><dd>Kampala, Uganda</dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec close" id="get"><div class="wrap">
+  <Mark class="mark" />
+  <h2>Both sides. One record. <span>Signed.</span></h2>
+  <p>Coming soon to Android and iPhone in Uganda.</p>
+</div></section>
+</Base>

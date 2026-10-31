@@ -7,10 +7,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:launch": "PUBLIC_LAUNCHED=true astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "build:preview": "PUBLIC_SHOW_ANCHOR=true SAWAZA_PREVIEW=true astro build --outDir dist-preview && node tool/relativize.mjs dist-preview",
-    "test:parity": "PUBLIC_SHOW_ANCHOR=true astro build && node tests/parity.mjs"
+    "build:preview:prelaunch": "SAWAZA_PREVIEW=true astro build --outDir dist-prelaunch && node tool/relativize.mjs dist-prelaunch",
+    "build:preview": "PUBLIC_LAUNCHED=true PUBLIC_SHOW_ANCHOR=true SAWAZA_PREVIEW=true astro build --outDir dist-preview && node tool/relativize.mjs dist-preview",
+    "test:parity": "PUBLIC_LAUNCHED=true PUBLIC_SHOW_ANCHOR=true astro build && node tests/parity.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

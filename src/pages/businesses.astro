@@ -11,6 +11,9 @@ import DebtRow from '../components/DebtRow.astro';
 import SectionHead from '../components/SectionHead.astro';
 import TLink from '../components/TLink.astro';
 import CloseSection from '../components/CloseSection.astro';
+import { PRELAUNCH as HIDE_UNTIL_LAUNCH } from '../config';
+// Before launch this page is not published: its address sends the visitor Home.
+if (HIDE_UNTIL_LAUNCH) return Astro.redirect('/');
 ---
 <Base title="Businesses · Sawaza" description="Customer accounts, invoices as signed credit sales, loans with a schedule and your monthly books, each signed by the people you deal with." bodyId="page-businesses">
 <style is:global>

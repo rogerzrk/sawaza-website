@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { PRELAUNCH } from '../config';
 ---
 <Base title="Page not found · Sawaza" description="There is no page at this address on sawaza.app." bodyId="page-404" noindex>
 <style is:global>
@@ -13,7 +14,7 @@ import Base from '../layouts/Base.astro';
       <p class="q" data-new="1">Not found</p>
       <h1 data-new="1">There is no page <em>here.</em></h1>
       <p class="sub" data-new="1">The link may be old or mistyped. A record or an invitation sent to you opens in the app, not on the web.</p>
-      <div class="next-row"><a class="tlink" href="/">Home <span aria-hidden="true">→</span></a><a class="tlink" href="/how-it-works">How it works <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a></div>
+      <div class="next-row"><a class="tlink" href="/">Home <span aria-hidden="true">→</span></a>{PRELAUNCH ? <a class="tlink" href="/about">About <span aria-hidden="true">→</span></a> : <Fragment><a class="tlink" href="/how-it-works">How it works <span aria-hidden="true">→</span></a><a class="tlink" href="/help">Help <span aria-hidden="true">→</span></a></Fragment>}</div>
     </div>
   </div>
 </section>

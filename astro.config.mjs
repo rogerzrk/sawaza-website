@@ -12,6 +12,9 @@ import sitemap from '@astrojs/sitemap';
 // that starts with an underscore.
 const preview = process.env.SAWAZA_PREVIEW === 'true';
 
+// Before launch nothing is listed for search engines, so there is no sitemap to offer them.
+const launched = process.env.PUBLIC_LAUNCHED === 'true';
+
 // The claim and invite landings are left out of the sitemap: a link to one
 // carries a code, and the bare page is nothing to find on its own.
 const unlisted = ['https://sawaza.app/claim', 'https://sawaza.app/invite'];
@@ -22,5 +25,5 @@ export default defineConfig({
   trailingSlash: 'never',
   compressHTML: false,
   build: { format: 'file', assets: preview ? 'assets' : '_astro' },
-  integrations: [sitemap({ filter: (page) => !unlisted.includes(page) })],
+  integrations: launched ? [sitemap({ filter: (page) => !unlisted.includes(page) })] : [],
 });

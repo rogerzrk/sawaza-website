@@ -6,3 +6,6 @@ tests/shots/
 npm-debug.log*
 .DS_Store
 dist-prelaunch/
+
+# Firebase Hosting CLI cache
+.firebase/

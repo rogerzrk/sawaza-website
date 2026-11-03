@@ -3,11 +3,11 @@
     "apps": [],
     "details": [
       {
-        "appID": "X5YPW8ZWZ8.app.sawaza",
+        "appID": "NQ3ZYCXS6W.app.sawaza",
         "paths": ["/invite/*", "/claim/*"]
       },
       {
-        "appID": "X5YPW8ZWZ8.app.sawaza.dev",
+        "appID": "NQ3ZYCXS6W.app.sawaza.dev",
         "paths": ["/invite/*", "/claim/*"]
       }
     ]

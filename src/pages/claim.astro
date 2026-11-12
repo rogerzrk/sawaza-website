@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import StoreBadges from '../components/StoreBadges.astro';
 import { PRELAUNCH } from '../config';
 ---
-<Base title="A record on Sawaza" description="Someone sent you a record on Sawaza. Open it in the app to answer." bodyId="page-claim" minimal>
+<Base title="A record on Sawaza" description="Someone wrote down money between you. Open it in the app to check it." bodyId="page-claim" minimal>
 <style is:global>
 #page-claim [hidden]{display:none!important}
 #page-claim .claim-head .wrap a{display:inline-flex;align-items:center;min-height:44px}
@@ -41,12 +41,14 @@ import { PRELAUNCH } from '../config';
 #page-claim .claim .quiet{display:inline-flex;align-items:center;min-height:44px;color:var(--dim);text-underline-offset:4px}
 #page-claim .claim .quiet:hover{color:var(--ink)}
 #page-claim footer{margin-top:0}
+#page-claim .lead{color:var(--dim);font-size:clamp(17px,4.2vw,19px);line-height:1.5;margin-top:-8px;max-width:30em}
 #page-claim .care{font:700 clamp(20px,5vw,24px)/1.25 var(--display);letter-spacing:-.015em;color:var(--ink);margin-top:8px}
 </style>
 <div class="wrap"><div class="claim land">
-  <h1>Someone sent you a record on Sawaza.</h1>
+  <h1>Someone wrote down money between you.</h1>
+  <p class="lead">It's money you already know about. Check it, then confirm it or say what's not right.</p>
   <div><a class="btn btn-gold" id="open-app" href="" data-new="1">Open in Sawaza</a></div>
-  <div class="noapp" data-new="1"><p><b>No Sawaza yet?</b> Sign up with the number this link came to. Sawaza is free to use.</p>
+  <div class="noapp" data-new="1"><p><b>No Sawaza yet?</b> Sign up once with the number this link came to. It's free.</p>
   <StoreBadges fallback="/#get" /></div>
   <p class="care" data-new="1"><span class="sn">Your money took work.</span> <span class="sn">Give it a proper signed record.</span></p>
   <p><a class="quiet" href={PRELAUNCH ? '/about' : '/how-it-works'} data-new="1">{PRELAUNCH ? 'What is Sawaza?' : 'See how it works'}</a></p>
